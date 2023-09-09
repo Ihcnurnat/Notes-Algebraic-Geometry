@@ -1,0 +1,55 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{hyperref}
+\usepackage{pifont}
+\usepackage{indentfirst}
+\usepackage{import}
+\usepackage{eurosym}
+\usepackage{quiver}
+\usepackage{tikz,tikz-cd}
+\usepackage{xcolor}
+\usepackage{dsfont}
+\usepackage[tikz]{ocgx2} 
+%see here:  https://tex.stackexchange.com/questions/520455/how-to-hide-some-text-until-the-reader-clicks-on-it
+
+
+% See here: https://tex.stackexchange.com/questions/8458/making-the-bibliography-appear-in-the-table-of-contents
+% this is for displaying bibliography in tableOfContents
+\usepackage[nottoc,numbib]{tocbibind}
+
+
+% Bibliography, see here: 
+% https://www.overleaf.com/learn/latex/Bibliography_management_in_LaTeX
+%\usepackage[backend=biber,style=alphabetic,sorting=ynt]{biblatex}
+%\addbibresource{bibliography.bib}
+
+
+
+% todo comments, see here:
+% http://tug.ctan.org/macros/latex/contrib/todonotes/todonotes.pdf
+% https://ctan.org/pkg/todonotes
+\usepackage{ifthen,xkeyval,xcolor,graphicx,calc,tikz}
+% refers to here: http://tug.ctan.org/macros/latex/contrib/todonotes/todonotes.pdf
+\usepackage{todonotes}
+%\usepackage[table]{xcolor}
+\usepackage{menukeys}
+\setuptodonotes{fancyline, color=orange!60}
+\graphicspath{ {./images/} }
+
+\title{Notes Algebraic Geometry}
+\author{runchitan }
+\date{September 2023}
+
+\begin{document}
+
+%\maketitle
+\tableofcontents
+
+\newpage\subimport{texFiles/Robin Hartshorne/}{Chapter 1.1.tex}
+
+\newpage\bibliographystyle{plain}
+\bibliography{bibliography.bib}
+
+\end{document}
