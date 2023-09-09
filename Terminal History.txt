@@ -388,4 +388,30 @@ branch 'main' set up to track 'origin/main'.
 (base) runchitan@192 Notes Algebraic Geometry % git push -u origin main
 branch 'main' set up to track 'origin/main'.
 Everything up-to-date
+(base) runchitan@192 Notes Algebraic Geometry % git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        Terminal History.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+(base) runchitan@192 Notes Algebraic Geometry % git add .
+(base) runchitan@192 Notes Algebraic Geometry % git commit -m "with terminal history"
+[main ab188ca] with terminal history
+ 1 file changed, 391 insertions(+)
+ create mode 100644 Terminal History.txt
+(base) runchitan@192 Notes Algebraic Geometry % git pull --rebase
+Current branch main is up to date.
+(base) runchitan@192 Notes Algebraic Geometry % git push
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 10 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 3.82 KiB | 3.82 MiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/Ihcnurnat/Notes-Algebraic-Geometry.git
+   36f2e38..ab188ca  main -> main
 (base) runchitan@192 Notes Algebraic Geometry % 

@@ -1,5 +1,4 @@
-main.bbl
-main.synctex.gz
+*.gz
 quiver.sty
-main.run.xml
-main.pdf
+main.pdf 
+main.bbl
