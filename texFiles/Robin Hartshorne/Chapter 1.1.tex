@@ -1,9 +1,34 @@
-\section{Chapter 1 Varieties 1 Affine Varieties}
+\part{Chapter 1}
 
-\subsection{Prop 1.2 (d)}
+\section{Definition of Irreducible}
+
+For equivalent definitions, see Wiki \href{https://en.wikipedia.org/wiki/Irreducible_component}{HERE};
+Also see "dense" on Wiki \href{https://en.wikipedia.org/wiki/Dense_set}{HERE}.
+
+See Atiyah's \cite{atiyah1994introduction} Exercise 19 from Chapter 1 for more information...
+
+\section{Example 1.1.3.}
+See Atiyah's \cite{atiyah1994introduction} Exercise 19 from Chapter 1, which proves it must be dense.
+
+For the sake of contradiction, assume a non-empty subset $A\subset X$ is reducible. Hence there exist two proper closed subset $A_1,A_2\subset A$ such that $A=A_1\cup A_2$.
+Then we have $$X=(A^c\cup A_1)\cup (A^c\cup A_2),$$ which implies $X$ is reducible. \todo{\ding{53}!}
+\subsection{}
+See a post \href{https://math.stackexchange.com/questions/460074/an-open-subset-of-an-irreducible-set-is-dense}{HERE} \todo{\ding{52}}
+
+First approach applied some density argument. While the second approach, similarly, gave a decomposition of the whole space given the open set is reducible.
+
+\section{Example 1.1.4.}
+
+See Atiyah's \cite{atiyah1994introduction} Exercise 20 from Chapter 1.
+
+\section{Prop 1.2 (d)}
 
 According to Hilbert's Nullstellensatz, I agree we'll get $I(Z(\mathfrak a))\subset \sqrt{\mathfrak a}$.
 For the reverse inclusion, pick any $f\in A$ such that $f^r\in\mathfrak a$ where $r\in\mathbb Z_{>0}$. We wish to show that $f(P)=0$ for any $P\in Z(\mathfrak a)$. By definition, $f^r(P)=0$ given $f^r\in\mathfrak a$. And this implies $$f^r(P)=(f(P))^r=0 ~\Rightarrow~ f(P)=0$$ given the polynomial ring $A$ is an integral domain. Therefore we get the inclusion 
 $$I(Z(\mathfrak a))\supset \sqrt{\mathfrak a}.$$
 
 See Theorem 6 on Page 183, Strong Nullstellensatz, \cite{cox2013ideals}. \todo{\ding{52}}
+
+\section{Theorem 1.8A.}
+
+For transcendence degree, see \href{https://en.wikipedia.org/wiki/Transcendental_extension#CITEREFMilne}{HERE} and a \href{https://www.jmilne.org/math/CourseNotes/FT.pdf}{NOTE} by Milne James.
