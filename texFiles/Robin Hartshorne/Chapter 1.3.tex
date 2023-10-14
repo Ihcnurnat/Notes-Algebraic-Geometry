@@ -1,0 +1,27 @@
+\section{Lemma 3.1.}
+
+See Sandor's Notes Lecture 4, Lemma 2.6.
+
+Closedness can be checked locally. See a post \href{https://math.stackexchange.com/questions/717382/how-to-prove-that-z-is-closed-subset-iff-x-can-be-covered-by-open-subsets}{HERE}.
+
+\section{Remark 3.1.1.}
+
+See Sandor's Notes Lecture 5, Corollary 2.10.
+Notice that Hartshorne defined variety to be irreducible.
+See a post explaining why the preimage is dense \href{https://math.stackexchange.com/questions/2860498/regular-functions-are-determined-only-up-to-open-sets#:~:text=An%20important%20consequence%20of%20this,dense%2C%20hence%20equal%20to%20X.}{HERE}.
+
+\section{Lemma 3.6.}
+
+See a post \href{https://math.stackexchange.com/questions/457328/hartshorne-lemma-i-3-6}{HERE}.
+
+Here are some details for proving $x_i\circ \psi$ being regular implies $\psi$ is a morphism:
+Coordinate functions means 
+\[\psi(p)=(\psi_1(p),\psi_2(p),...,\psi_n(p))\in Y\subset \mathbb A^n\] for any $p\in X$.
+Firstly, we check $\psi$ is continuous. Take any closed subset $Z(f_1,...,f_r)\subset Y$ for some polynomial $f_1,...,f_r\in A=k[x_1,...,x_n]$. We can compute the preimage as \begin{align*}
+    \psi^{-1}(Z(f_1,...,f_r)) =& \{~ p\in X ~\mid ~\forall~ p\in X,~ f_i\circ \psi(p)=0 ~\}.
+\end{align*}
+Notice that for any $p\in X$, \[f_i\circ \psi(p) ~=~ f_i(\psi_i(p),...,\psi_n(p))\] is continuous since $f_i$ is a polynomial and each $\psi_i:=x_i\circ \psi$ is continuous by assumption that they're regular.
+Notice that the preimage of $\psi$ is precisely intersection of $\psi_i^{-1}(\{0\})$ where $1\leq i\leq n$. Hence the preimage is closed, and it follows that $\psi$ is continuous as expected. 
+
+Secondly, fix an arbitrary open subset $V\subset Y$ with an arbitrary regular function $g:V\to k$, we wish to prove $g\circ \psi:\psi^{-1}(V)\to k$ is regular. For any $\psi(p)\in V$ with some $p\in X$, there exists a neighborhood $\psi(p)\in U\subset Y$ such that $g$ equals to an expression of quotients of polynomial, i.e. \[g=\frac{g_1}{g_2}\] where $g_1,g_2\in A$. Then for $p\in X$, take the open neighborhood of it as $\psi^{-1}(U)$, we can see 
+\[g\circ \psi (p) = \frac{g_1(\psi(p))}{g_2(\psi(p))}.\]

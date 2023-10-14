@@ -1,0 +1,16 @@
+\section{Proposition 2.2.}
+
+There are two very technical claims need more details. 
+
+The first one is to prove $\varphi(Y)=Z(T')=Z(\alpha (T)).$
+Unwrap the notation precisely according to the definition \begin{align*}
+    Z(\alpha (T)) ~=&~ \{~ x\in \mathbb A^n ~\mid~ \alpha(g)(x)=0 ~\forall~ g\in T ~\},\\
+    \varphi(Y) ~=&~ \{~ \varphi(y) ~\mid~ y\in Y ~\}.
+\end{align*}
+Notice that $y=[y_0,...,y_n]\in Y\subset \overline{Y}=Z(T)$, therefore $g(y)=0$ for any $g\in T$.
+More precisely, we have 
+\[\alpha(g)(\varphi(g))=g(1,y_1/y_0,...,y_n/y_n)=0\] given $g(y)=0$ and $g\in T\subset S^h$, which proves $\varphi(Y)\subset Z(\alpha (T))$.
+
+Conversely, let's start with an element $x=(x_1,...,x_n)\in Z(\alpha (T))$. There's an element $y=[1,x_1,...,x_n]\in Y$ such that $\varphi(y)=x$. Hence we've proved the equality.
+
+And the second one is to check $\varphi^{-1}(W)=Z(\beta(T'))\cap U=Z(\beta(\alpha(T)))\cap U$.

@@ -1,6 +1,5 @@
-\part{Chapter 1}
 
-\section{Definition of Irreducible}
+\section{Definition: Irreducible}
 
 For equivalent definitions, see Wiki \href{https://en.wikipedia.org/wiki/Irreducible_component}{HERE};
 Also see "dense" on Wiki \href{https://en.wikipedia.org/wiki/Dense_set}{HERE}.
@@ -21,6 +20,9 @@ First approach applied some density argument. While the second approach, similar
 
 See Atiyah's \cite{atiyah1994introduction} Exercise 20 from Chapter 1.
 
+\section{Definition.} 
+"Induced topology". Definition of \textit{quasi affine variety}, see \href{https://math.stackexchange.com/questions/1086839/a-confusion-regarding-the-definition-of-a-quasi-affine-variety}{HERE}.
+
 \section{Prop 1.2 (d)}
 
 According to Hilbert's Nullstellensatz, I agree we'll get $I(Z(\mathfrak a))\subset \sqrt{\mathfrak a}$.
@@ -29,6 +31,57 @@ $$I(Z(\mathfrak a))\supset \sqrt{\mathfrak a}.$$
 
 See Theorem 6 on Page 183, Strong Nullstellensatz, \cite{cox2013ideals}. \todo{\ding{52}}
 
+\section{Theorem 1.3A. Hilbert's Nullstellensatz}
+
+For the case where $k$ isn't algebraically closed, see \cite{reid1995undergraduate} Remarks in 5.6.
+
+\subsection{}
+
+For the proof, see \cite{kemper2011course} Chapter 1 for details.
+
+The followings are some comments for \cite{kemper2011course} Chapter 1 Theorem 1.7.
+
+A post on surjective preimage for maximal ideal \href{https://math.stackexchange.com/questions/1198414/pull-back-image-of-maximal-ideal-under-surjective-ring-homomorphism-is-maximal}{HERE}.
+
+A post on preimage for maximal ideal (not necessarily surj) \href{https://math.stackexchange.com/questions/882524/in-an-extension-of-finitely-generated-k-algebras-the-contraction-of-a-maximal}{HERE}.
+
+For completeness, a post on preimage of prime ideals \href{https://math.stackexchange.com/questions/409999/prove-that-the-preimage-of-a-prime-ideal-is-also-prime}{HERE}.
+
+A post on image of prime ideals \href{https://math.stackexchange.com/questions/1805457/how-to-prove-that-the-image-of-a-prime-ideal-is-also-a-prime-ideal}{HERE}, \href{https://math.stackexchange.com/questions/292829/a-proof-that-shows-surjective-homomorphic-image-of-prime-ideal-is-prime}{HERE}, and \href{https://math.stackexchange.com/questions/1144695/assume-p-is-a-prime-ideal-s-t-k-subset-p-show-fp-is-a-prime-ideal}{HERE}.
+
+See Kemper's \cite{kemper2011course}, Lemma 1.22 on Page 17, which completely described prime and maximal ideals in quotients.
+
+\section{Definition. Height}
+
+Here the definition \textit{height} is specifically for prime ideal $\mathfrak p \vartriangleleft_{pr} R$ for some ring $R$. For a general definition, see a post \href{https://math.stackexchange.com/questions/2689141/definition-of-height-of-an-ideal}{HERE}; see a webpage \href{https://encyclopediaofmath.org/wiki/Height_of_an_ideal}{HERE}; or see \cite{kemper2011course} Definition 6.10 on Page 68.
+
+\section{Proposition 1.7.}
+
+Difference between algebraic set and affine algebraic set? See \href{https://math.stackexchange.com/questions/3486407/difference-between-algebraic-set-and-affine-algebraic-set-in-hartshorne}{HERE}.
+
+For an analogue in Projective, see Exercise 2.6 \ref{} in Chapter 1.2. And a post \href{https://math.stackexchange.com/questions/670156/hartshorne-exercise-2-6}{HERE}.
+
 \section{Theorem 1.8A.}
 
 For transcendence degree, see \href{https://en.wikipedia.org/wiki/Transcendental_extension#CITEREFMilne}{HERE} and a \href{https://www.jmilne.org/math/CourseNotes/FT.pdf}{NOTE} by Milne James.
+
+\section{Proposition 1.10.}
+
+Apart from the proof, we discussed \textit{locally closed subset}.
+See \href{https://en.wikipedia.org/wiki/Locally_closed_subset}{HERE} for its equivalent definitions.
+
+\section{Proposition 1.13.}
+
+See \href{https://math.stackexchange.com/questions/1292811/help-with-proposition-1-13-in-hartshornes-algebraic-geometry}{HERE}.
+
+\section{Exercise 1.1.}
+
+\subsection{(a)}
+
+By definition of affine coordinate ring we have 
+\[A(Y)=A/I(Y)=A/I(Z(f))=A/\sqrt{\langle f\rangle}.\]
+While $f$ is irreducible in U.F.D. $k[x,y]$, the ideal it generated will be a prime ideal, which is radical. Therefore we can further simplify the expression as 
+\[A/\sqrt{\langle f\rangle}=A/\langle f\rangle=k[x,y]/\langle y-x^2\rangle=k[x].\]
+Hence we can conclude $A(Y)$ is isomorphic to a polynomial ring in one variable over $k$.
+
+\subsection{(b)}

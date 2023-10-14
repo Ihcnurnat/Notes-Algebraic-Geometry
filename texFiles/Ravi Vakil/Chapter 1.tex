@@ -1,0 +1,126 @@
+\section{1.3.F. EXERCISE.}
+
+A post discussing this problem is \href{https://math.stackexchange.com/questions/1698085/how-to-show-localization-commutes-with-finite-products-arbitrary-coproducts}{HERE}.
+
+\section{1.3.N}
+
+A crutial step is to define the map such that the diagram commute. 
+In order to prove it satisfies the universal property. We're given $A$ be arbitrary with map $g:A\to X$ and $f:A\to Y$. 
+% https://q.uiver.app/#q=WzAsNSxbMCwwLCJBIl0sWzEsMSwiWFxcdGltZXNfWiBZIl0sWzIsMSwiWSJdLFsxLDIsIlgiXSxbMiwyLCJaIl0sWzAsMiwiZiIsMCx7ImN1cnZlIjotMn1dLFswLDMsImciLDIseyJjdXJ2ZSI6Mn1dLFsxLDMsIlxccGlfMSIsMl0sWzEsMiwiXFxwaV8yIl0sWzIsNCwiXFxiZXRhIl0sWzMsNCwiXFxhbHBoYSIsMl0sWzAsMSwiXFxleGlzdHMgISBcXHZhcnBoaSIsMSx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dXQ==
+\[\begin{tikzcd}
+	A \\
+	& {X\times_Z Y} & Y \\
+	& X & Z
+	\arrow["f", curve={height=-12pt}, from=1-1, to=2-3]
+	\arrow["g"', curve={height=12pt}, from=1-1, to=3-2]
+	\arrow["{\pi_1}"', from=2-2, to=3-2]
+	\arrow["{\pi_2}", from=2-2, to=2-3]
+	\arrow["\beta", from=2-3, to=3-3]
+	\arrow["\alpha"', from=3-2, to=3-3]
+	\arrow["{\exists ! \varphi}"{description}, dashed, from=1-1, to=2-2]
+\end{tikzcd}\]
+We can to define \begin{align*}
+    \varphi:A &\to X\times_{Z} Y ~\text{ by }\\ 
+    a &\mapsto (g(a), f(a)).
+\end{align*}
+And we can verify this definition will make the diagram commute, and is unique.
+
+\section{1.3.O}
+
+It's indeed intersection. 
+A post \href{https://www.reddit.com/r/learnmath/comments/6bu35q/intro_categories_fiber_product_on_the_category_of/}{HERE}.
+
+A post \href{https://math.stackexchange.com/questions/2666425/universal-property-and-fibered-product}{HERE}.
+
+\section{1.3.P.}
+
+Say we have $X\times Y$ and $X\times_Z Y$. By universal property of product and fibered product we can produce two unique map goes in between. Their composition must be identity, hence they're isomorphic.
+Notice it's important for $Z$ being a final object.
+% https://q.uiver.app/#q=WzAsNCxbMCwwLCJYXFx0aW1lcyBZIl0sWzEsMCwiWSJdLFsxLDEsIloiXSxbMCwxLCJYIl0sWzAsMSwiXFxwaV8yIl0sWzAsMywiXFxwaV8xIiwyXSxbMSwyLCJcXGJldGEiXSxbMywyLCJcXGFscGhhIiwyXV0=
+\[\begin{tikzcd}
+	{X\times Y} & Y \\
+	X & Z
+	\arrow["{\pi_2}", from=1-1, to=1-2]
+	\arrow["{\pi_1}"', from=1-1, to=2-1]
+	\arrow["\beta", from=1-2, to=2-2]
+	\arrow["\alpha"', from=2-1, to=2-2]
+\end{tikzcd}\]
+When we trying to make a map from $X\times Y$ to $X\times_Z Y$, we have to make sure two maps 
+$$\beta\circ\pi_1=\alpha\circ\pi_1$$ on $X\times Y$. While $Z$ is the final object, hence they must agree.
+
+There's a cleaner way to state it \href{https://math.stackexchange.com/questions/2120414/fiber-product-coincides-with-product-when-image-of-fiber-coincides-with-final-ob}{HERE}. Crutial part is applying final property of object $Z$.
+
+\section{1.3.Q.}
+
+% https://q.uiver.app/#q=WzAsNyxbMSwxLCJVIl0sWzIsMSwiViJdLFsxLDIsIlciXSxbMiwyLCJYIl0sWzEsMywiWSJdLFsyLDMsIloiXSxbMCwwLCJBIl0sWzAsMSwiZl8xIl0sWzAsMiwiZl8yIiwyXSxbMSwzLCJmXzMiXSxbMiwzLCJmXzQiLDJdLFsyLDQsImZfNSIsMl0sWzMsNSwiZl82Il0sWzQsNSwiZl83IiwyXSxbNiwxLCJnXzEiLDAseyJjdXJ2ZSI6LTF9XSxbNiw0LCJnXzIiLDIseyJjdXJ2ZSI6Mn1dLFs2LDIsIlxcZXhpc3RzICEgXFxwc2kiLDEseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbNiwwLCJcXGV4aXN0cyAhIFxcdmFycGhpIiwxLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV1d
+\[\begin{tikzcd}
+	A \\
+	& U & V \\
+	& W & X \\
+	& Y & Z
+	\arrow["{f_1}", from=2-2, to=2-3]
+	\arrow["{f_2}"', from=2-2, to=3-2]
+	\arrow["{f_3}", from=2-3, to=3-3]
+	\arrow["{f_4}"', from=3-2, to=3-3]
+	\arrow["{f_5}"', from=3-2, to=4-2]
+	\arrow["{f_6}", from=3-3, to=4-3]
+	\arrow["{f_7}"', from=4-2, to=4-3]
+	\arrow["{g_1}", curve={height=-6pt}, from=1-1, to=2-3]
+	\arrow["{g_2}"', curve={height=12pt}, from=1-1, to=4-2]
+	\arrow["{\exists ! \psi}"{description}, dashed, from=1-1, to=3-2]
+	\arrow["{\exists ! \varphi}"{description}, dashed, from=1-1, to=2-2]
+\end{tikzcd}\]
+
+Label the maps as indicated. To prove the universal property with respect to the "outside rectangle", we're given 
+$$f_6f_3g_1=f_7g_2$$ agree on $A$. While $W$ is fibered product, apply universal property of fibered product with resepct to $W$ we immediately get a unique map 
+$$\psi: A\to W$$ that makes the diagram involving $A, W, X, Y, Z$ commute. In particularly, we know $f_4\psi=f_3g_1$. Furthermore, recall that $U$ is the fibered product. We're given the condition that $f_4\psi=f_3g_1$, by universal property of $U$ we know there exists a unique map 
+$$\varphi:A\to U$$ making the diagram involving $A, U, V, W, X$ commute. 
+And we claim that the diagram involving $A, U, V, Y, Z$ commute. This is because 
+$$g_2=f_5\psi=f_5f_2\varphi=(f_5f_2)\varphi ~\text{ and }~ g_1=f_1\varphi.$$
+And this proves that $U$ is the fibered product for the diagram involving $A, U, V, Y, Z$.
+
+A post is \href{https://math.stackexchange.com/questions/3547703/a-tower-of-cartesian-products-is-cartesian}{HERE}.
+
+\section{1.3.R}
+
+% https://q.uiver.app/#q=WzAsNixbMiwxLCJYXzIiXSxbMSwyLCJYXzEiXSxbMiwyLCJZIl0sWzMsMywiWiJdLFsxLDEsIlhfMVxcdGltZXNfWiBYXzIiXSxbMCwwLCJYXzFcXHRpbWVzX1kgWF8yIl0sWzQsMCwiXFxwaV8yIl0sWzQsMSwiXFxwaV8zIiwyXSxbMSwyLCJmXzIiLDJdLFswLDIsImZfMyJdLFsyLDMsImZfMSJdLFs1LDAsIlxccGlfMSIsMCx7ImN1cnZlIjotMn1dLFs1LDEsIlxccGlfNCIsMix7ImN1cnZlIjozfV0sWzUsNCwiXFxleGlzdCAhIFxcdmFycGhpIiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV1d
+\[\begin{tikzcd}
+	{X_1\times_Y X_2} \\
+	& {X_1\times_Z X_2} & {X_2} \\
+	& {X_1} & Y \\
+	&&& Z
+	\arrow["{\pi_2}", from=2-2, to=2-3]
+	\arrow["{\pi_3}"', from=2-2, to=3-2]
+	\arrow["{f_2}"', from=3-2, to=3-3]
+	\arrow["{f_3}", from=2-3, to=3-3]
+	\arrow["{f_1}", from=3-3, to=4-4]
+	\arrow["{\pi_1}", curve={height=-12pt}, from=1-1, to=2-3]
+	\arrow["{\pi_4}"', curve={height=18pt}, from=1-1, to=3-2]
+	%\arrow["{\exist ! \varphi}"', dashed, from=1-1, to=2-2]
+\end{tikzcd}\]
+
+By the universal property of $X_1\times_Z X_2$, we know there exists a unique map 
+\[\varphi:X_1\times_Y X_2\to X_1\times_Z X_2\]
+
+"Natural morphism", a convention discussed \href{https://math.stackexchange.com/questions/569960/what-is-meant-by-a-natural-morphism-tx-times-y-to-tx-times-ty}{HERE}.
+
+\section{Course Notes from Cornell}
+
+See \href{https://pi.math.cornell.edu/~dmehrle/notes/cornell/17fa/6670notes.pdf}{HERE}.
+
+\section{1.3.S. Magic Diagram}
+Didn't finish. Need to See \href{https://mathoverflow.net/questions/80797/magic-square-of-fibered-products-vague-unclear/80812#80812}{HERE}, \href{https://math.stackexchange.com/questions/778186/the-magic-diagram-is-cartesian}{HERE}!!!
+
+\section{1.3.Y. (a)}
+\textsc{Yoneda's Lemma}
+Given what we have, define $g:A\to A'$ as 
+$$g:=i_A(\operatorname{id}_A).$$ 
+
+This is correct, see a post \href{https://math.stackexchange.com/questions/2919959/yoneda-lemma-in-vakil-s-foag-1-3-y}{HERE}.
+
+\section{1.4.C.}
+
+(a) See "A Term of Commutative Algebra", Example 7.3 on Page 52.
+
+\section{1.6.B.}
+Write out everything by definition, and we can finish the proof immediately by applying rank-nullity theorem for linear transformation... 
