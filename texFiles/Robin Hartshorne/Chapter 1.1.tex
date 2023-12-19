@@ -57,6 +57,8 @@ See Kemper's \cite{kemper2011course}, Lemma 1.22 on Page 17, which completely de
 
 Here the definition \textit{height} is specifically for prime ideal $\mathfrak p \vartriangleleft_{pr} R$ for some ring $R$. For a general definition, see a post \href{https://math.stackexchange.com/questions/2689141/definition-of-height-of-an-ideal}{HERE}; see a webpage \href{https://encyclopediaofmath.org/wiki/Height_of_an_ideal}{HERE}; or see \cite{kemper2011course} Definition 6.10 on Page 68.
 
+Nagata's example: Notherian ring with infinite Krull dimension, see \href{https://math.stackexchange.com/questions/1109732/noetherian-ring-with-infinite-krull-dimension-nagatas-example}{HERE} and a post \href{https://mathoverflow.net/questions/21067/noetherian-rings-of-infinite-krull-dimension?_gl=1*1kwuhw1*_ga*MzA3ODU1MDgwLjE2OTY5Nzg1OTg.*_ga_S812YQPLT2*MTY5Njk3ODU5Ny4xLjEuMTY5Njk4MDUwNS4wLjAuMA..}{HERE}.
+
 \section{Proposition 1.7.}
 
 Difference between algebraic set and affine algebraic set? See \href{https://math.stackexchange.com/questions/3486407/difference-between-algebraic-set-and-affine-algebraic-set-in-hartshorne}{HERE}.
@@ -87,3 +89,39 @@ While $f$ is irreducible in U.F.D. $k[x,y]$, the ideal it generated will be a pr
 Hence we can conclude $A(Y)$ is isomorphic to a polynomial ring in one variable over $k$.
 
 \subsection{(b)}
+
+\section{Exericse 1.2.}
+
+My initial guess was incorrect, in which I thought $I(Y)=\langle z-xy\rangle$.
+
+\subsection{}
+
+See a post \href{https://math.stackexchange.com/questions/1864637/the-affine-coordinate-ring-of-twisted-cubic-curve-y-is-ay-kx-y-z-z-x3}{HERE}.
+
+The correct one is $I(Y)=\langle z-x^3,~ z-y^2\rangle$.
+Notice that \[\operatorname{dim}Y=\operatorname{dim}A(Y)=\operatorname{dim}k[x,y,z]/\langle z-x^3,~ z-y^2\rangle=\operatorname{dim}k[z]=\operatorname{tr.deg}_k k(z)=1.\]
+Therefore we proved that $A(Y)$ is isomorphic to a polynomial ring in one variable over $k$.
+
+Question: How to compute $I(\cdot)$ precisely?
+
+\section{Exercise 1.4.}
+
+See a post \href{https://math.stackexchange.com/questions/128102/why-is-the-zariski-topology-on-bbb-a2-not-the-product-topology-on-bbb-a1}{HERE}, \href{https://math.stackexchange.com/questions/2119539/proving-that-the-zariski-topology-in-mathbba2-is-not-the-product-topology}{HERE},
+and \href{https://math.stackexchange.com/questions/1607060/show-that-the-zariski-topology-on-a2-is-not-the-product-topology-on-a1-tim}{HERE}.
+
+The hint was to consider diagonal. Let the coordinate ring of $\mathbb A^2$ be $A(\mathbb A^2)=k[x,y]$ where $k$ is algebraically closed. 
+Then the diagonal \[\Delta =\{(x,y)\in\mathbb A^2 ~\mid~ x=y\}= Z(x-y=0)\] is closed in Zariski topology of $\mathbb A^2$.
+
+But it cannot be countably many union of closed subsets in product topology of copies of Zariski topology on $\mathbb A^1$, which are finitely many points. \todo{Wrong!}
+
+Here we used the fact that $k$ is infinite given it's algebraically closed.
+
+\subsection{}
+
+See the first post!
+Closed subset of product topology on $\mathbb A^1\times \mathbb A^1$ can be uncountable, for example, a line $\{(x_0,y)\in\mathbb A^1\times A^1 ~\mid~ y\in k\}$ where $x_0\in k$ is fixed would be closed. But it's uncountable. 
+
+The reason why $\Delta$ is closed in Zariski topology of $\mathbb A^2$ is correct. 
+
+For product topology, the reason why it's not closed is because Zariski topology on $\mathbb A^1$ is not Hausdorff, by a lemma we mentioned we know $\Delta$ isn't closed. \todo{Verified!}
+

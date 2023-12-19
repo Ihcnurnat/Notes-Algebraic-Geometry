@@ -1,0 +1,67 @@
+\section{Definition: Dominant Rational Map}
+
+\subsection{}
+Well-definess for a rational map being \textit{dominant}.
+
+One thing important to keep in mind is both varieties $X,Y$ are a priori irreducible. There's a completely point-set topological argument \href{https://math.stackexchange.com/questions/182037/dominant-rational-maps}{HERE}. Here a technical detail is "The image of a dense subset under a surjective continuous function is again dense", which is from Wiki's entry. For details of this technicality, see \href{https://math.stackexchange.com/questions/3452534/image-of-a-dense-set-via-a-continuous-surjective-function-is-dense}{HERE}.
+
+See a post on equivalent definition for dominant rational map \href{https://math.stackexchange.com/questions/2557825/equivalent-definitions-of-dominant-rational-map}{HERE}.
+
+A good lecture note \href{https://math.mit.edu/~mckernan/Teaching/09-10/Autumn/18.725/l_14.pdf}{HERE}.
+
+Wiki's entry for \href{https://en.wikipedia.org/wiki/Rational_mapping}{Rational Map}.
+
+Very good note by Vakil \href{https://math.stanford.edu/~vakil/725/class13.pdf}{HERE}.
+
+And a post \href{https://math.stackexchange.com/questions/1843113/how-is-a-dominant-rational-map-well-defined}{HERE}. However, it appears the way used in the proof implicitly required morphism is an open map? So I doubt...
+
+\subsection{}
+Some posts share a technical details from general topology. The following statement is taken from Wiki... 
+
+\textit{The image of a dense subset under a surjective continuous function is again dense. More precisely, assume $f:X\to Y$ with $E$ dense in $X$, then $f(E)$ is dense in $f(X)$.}
+
+\begin{proof}
+    By definition we have $E\subset f^{-1}(f(E))\subset f^{-1}(\overline{f(E)})$, which is closed given $f$ is continuous. 
+    It follows that \[\overline{E}\subset f^{-1}(\overline{f(E)}) ~\Rightarrow~ f(\overline{E})\subset \overline{f(E)}.\]
+    Conversely,
+    \[f(X)=\overline{f(E)}\cap f(X)\supset f(X)\cap f(X)=f(X) ~\Rightarrow~ f(X)\supset \overline{f(E)}\cap f(X).\]
+    Here $\overline{f(E)}$ denotes closure of $f(E)$ in $Y$, while it's intersection with $f(X)$ is the whole $f(X)$, then $f(E)$ is dense in $f(X)$. 
+\end{proof}
+
+\subsection{A Pathological Example}
+
+Another equivalent statement required "surjectivity" and say $f(E)$ is dense in $Y$. It's curtial. Also we can only conclude $f(E)$ is dense merely in $f(X)$ instead of $Y$. Since we have the continuous inclusion map $\iota:\mathbb R\to\mathbb C$, then $\operatorname{id}(\mathbb Q)=\mathbb Q$ is just dense in $\mathbb R$ but not dense in $\mathbb C$.
+
+\subsection{}
+
+Say we start with a dominant rational map $\varphi:X\to Y$ with two representatives 
+\[\langle U,f\rangle,~\langle V,g\rangle.\]
+By definintion of dominant, we know $f(U)$ is dense in $Y$. To check this definition is indepedent of the choice of the representative, we have to check $g(V)$ is dense in $Y$.
+
+Notice that 
+\begin{align*}
+    Y=\overline{f(U)}=\overline{f(\overline{U\cap V}\cap U)}\subset\overline{f(\overline{U\cap V})}\subset \overline{\overline{f(U\cap V)}}=\overline{g(U\cap V)}\subset \overline{g(V)}.
+\end{align*} for $X$ is irreducible and both $U,V$ are non-empty and open then $X=\overline{U\cap V}$. Here the third inclusion is given by the previous technical lemma.
+
+\subsection{Composing Dominant Rational Maps}
+
+See a post \href{https://math.stackexchange.com/questions/459827/how-to-define-the-composition-of-two-dominant-rational-maps}{HERE}.
+
+% https://q.uiver.app/#q=WzAsNSxbMCwwLCJYIl0sWzEsMCwiWSJdLFsyLDAsIloiXSxbMCwxLCIoVSxcXHBoaV9VKSJdLFsxLDEsIihWLFxccHNpX1YpIl0sWzAsMSwiXFxwaGkiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMSwyLCJcXHBzaSIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dXQ==
+\[\begin{tikzcd}
+	X & Y & Z \\
+	{(U,\phi_U)} & {(V,\psi_V)}
+	\arrow["\phi", dashed, from=1-1, to=1-2]
+	\arrow["\psi", dashed, from=1-2, to=1-3]
+\end{tikzcd}\]
+
+To prove the composition is a dominant rational map, we need to find a representative. 
+We define 
+\[W:=\phi_U^{-1}(V).\] \todo{? slightly different than the post online}
+And we claim $(W,~\psi_V\circ\phi_U)$ will be suitable for a representative for $\psi\circ\phi$.
+First of all, notice that $W$ is non-empty. This is because $\phi_U(U)\cap V\neq \emptyset$ given $\phi_U(U)$ is dense in $Y$ and $V$ is assumed to be non-empty open subset. While $Y$ is irreducible, by Lemma 14. of \ref{bosch2013algebraic} on Page 210, which states that $\phi_U(U)\cap V$ is nontrivial. By definition this implies 
+\[\phi_U^{-1}(V)\neq \emptyset.\] This is non-empty and open. Note $X$ is irreducible, hence $W=\phi_U^{-1}(V)$ is dense in $X$. Hence $\psi_V\circ\phi_U (W)$ is dense in $Z$ given both maps are continuous by being a morphism.
+
+\subsection{}
+
+See a post \href{https://math.stackexchange.com/questions/1191794/composition-of-dominant-rational-maps}{HERE}, \href{https://people.maths.bris.ac.uk/~malab/PDFs/Algebraic%20Geometry%20L3.pdf}{HERE}, and \href{https://math.stackexchange.com/questions/431578/questions-about-the-composition-of-two-dominant-rational-maps}{HERE}.
