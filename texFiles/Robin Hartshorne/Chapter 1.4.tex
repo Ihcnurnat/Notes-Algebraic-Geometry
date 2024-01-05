@@ -65,3 +65,56 @@ First of all, notice that $W$ is non-empty. This is because $\phi_U(U)\cap V\neq
 \subsection{}
 
 See a post \href{https://math.stackexchange.com/questions/1191794/composition-of-dominant-rational-maps}{HERE}, \href{https://people.maths.bris.ac.uk/~malab/PDFs/Algebraic%20Geometry%20L3.pdf}{HERE}, and \href{https://math.stackexchange.com/questions/431578/questions-about-the-composition-of-two-dominant-rational-maps}{HERE}.
+
+
+\section{Lemma 4.2.}
+
+See a post \href{https://math.stackexchange.com/questions/4552630/hartshorne-algebraic-geometry-proof-of-lemma-4-2-chapter-i-section-4-on-ratio}{HERE}.
+
+\section{Definition Blowing Up}
+
+On Page 29, Hartshorne defined blowing-up of a closed affine subvariety $Y$ of $\mathbb A^n$ passing through $O$.
+
+See S\'andor's Notes, Lecture 22, \textit{strict transform}.
+
+See Daniel's notes \href{http://therisingsea.org/notes/hartshorne1-4.pdf}{HERE}. Here the notation $(\cdot)^{-}$ stands for taking closure.
+
+\section{Exercise 4.1.}\label{Chapter 1, Ex. 4.1.}
+
+Define a function 
+\begin{align*}
+    h:U\cup V &\to k ~\text{ by }~\\
+     x &\mapsto \begin{cases} f(x) & ~\text{ when }~ x\in U\setminus V\\
+                                g(x) & ~\text{ when }~ x\in V
+                \end{cases}.
+\end{align*} Since $f=g$ on $U\cap V$, hence the function $h$ is well-defined. 
+For any point $p\in U\cup V$, if $p\in U$, then we apply assumption that $f$ is regular. For $p\in V$, similarly apply assumption that $g$ is regular.
+Hence $h$ is regular on $U\cup V$.
+
+Let $f$ be a rational function on $X$. So we take all equivalence class $\{\langle U_i,f_i\rangle\}_{i\in I}$ that represents $f$.
+By the above lemma and the definition of regular function, there's a regular function $g$ that's defined on $U:=\bigcup_{i\in I}U_i$ that extends all $f_i$. 
+Therefore we can take a representative of $f$ as 
+\[ \langle U,g\rangle.\] Note $\langle U,g\rangle=\langle U_i,f_i\rangle$ by definition, hence it's indeed a representative of $f$. 
+
+Also $U$ is the largest open set. Suppose it's not, then we have $\langle U_{i_0},f_{i_0}\rangle$ represents $f$ such that $U_{i_0}\supsetneq U$. And this will contradicts the construction of $U$, which must contain $U_{i_0}$.
+
+\section{Exercise 4.2.}
+
+We're given a rational map $\varphi:X\dashrightarrow Y$. Suppose we have two equivalent representatives
+\[ \langle U,\varphi_U\rangle,~\langle V,\varphi_V\rangle.\] This means two morphisms $\varphi_U,\varphi_V$ agree on $U\cap V$.
+
+It suffices to prove that we can define a morphism $\psi:U\cup V\to Y$ that extends both $\varphi_U$ and $\varphi_V$. 
+Similarly, we can apply argument of \ref{Chapter 1, Ex. 4.1.} to conclude the existence of a largest open set on which $\varphi$ is represented by a morphism.
+
+Both $\varphi_U,\varphi_V$ are continuous function that agree on their intersection, then we can define 
+\begin{align*}
+    \psi:U\cup V &\to Y ~\text{ by }~ \psi(x)=\begin{cases}
+        \varphi_U(x) & ~\text{ when }~ x\in U\setminus V\\
+        \varphi_V(x) & ~\text{ when }~ x\in V 
+    \end{cases}.
+\end{align*}
+Clearly it's a well-defined continuous function. For any open subset $W\subset Y$ with an arbitrary regular function $f:W\to k$. 
+We have $f\circ \psi:\psi^{-1}(W)\to k$ is a regular function since it extends both 
+\[f\circ \varphi_U:\varphi_U^{-1}(W)\to k,~ f\circ \varphi_V:\varphi_V^{-1}(W)\to k.\]
+While both two regular functions agree on their intersection, then we can conclude using \ref{Chapter 1, Ex. 4.1.} that $f\circ\psi$ is a regular function. 
+And this proves that $\psi$ is indeed a morphism on $U\cup V\to Y$.

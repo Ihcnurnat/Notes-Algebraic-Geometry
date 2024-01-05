@@ -96,6 +96,9 @@ My initial guess was incorrect, in which I thought $I(Y)=\langle z-xy\rangle$.
 
 \subsection{}
 
+See a post \href{https://math.stackexchange.com/questions/3137828/proving-y-x2-z-xy-generate-the-ideal-of-the-twisted-cubic}{HERE}.
+
+
 See a post \href{https://math.stackexchange.com/questions/1864637/the-affine-coordinate-ring-of-twisted-cubic-curve-y-is-ay-kx-y-z-z-x3}{HERE}.
 
 The correct one is $I(Y)=\langle z-x^3,~ z-y^2\rangle$.
@@ -125,3 +128,64 @@ The reason why $\Delta$ is closed in Zariski topology of $\mathbb A^2$ is correc
 
 For product topology, the reason why it's not closed is because Zariski topology on $\mathbb A^1$ is not Hausdorff, by a lemma we mentioned we know $\Delta$ isn't closed. \todo{Verified!}
 
+\section{Exercise 1.7.}
+
+\subsection{(a)}
+
+(i) $\Rightarrow$ (ii) and (iii) $\Rightarrow$ (iv): Zorn's Lemma.
+
+(ii) $\Rightarrow$ (i) and (iv) $\Rightarrow$ (iii): contrapositive, with Axiom of Dependent Choice.
+
+(i) $\Leftrightarrow$ (iii): taking complement.
+
+\subsection{(b)}
+
+A similar statement is Exercise 17. (v) of \cite{atiyah1994introduction}, which states that $\operatorname{Spec}A$ is quasi-compact for a ring $A$.
+
+For a given open cover of $\{U_i\}_{i\in I}$ of $X$, we can throw away open subset $U_i$ such that $U_i\subset U_j$ for some $j\in I$. Here $I$ is some index set.
+So we can assume in this open cover, we don't have $U_i\subset U_j$ for any $i,j\in I$.
+Then we have a ascending chain of open subsets 
+\[U_i\subseteq U_i\cup U_j \subseteq\cdots.\]
+Noetherian condition imposed gives us finitely many index, and they form a finite subcover as expected.
+
+\subsubsection{}
+
+A very simple proof \href{https://math.stackexchange.com/questions/1442665/a-noetherian-topological-space-is-compact}{HERE} used maximality property.
+
+A stronger statement \href{https://math.stackexchange.com/questions/2745543/v-is-noetherian-space-if-only-if-every-open-subset-of-v-is-compact}{HERE}.
+
+\section{Exercise 1.10.}
+
+\subsection{(a)}
+
+Clear, since any chain of $Y$ is also a chain in $X$, and we use property of sup mentioned on Prop 2.8. of \href{https://www.math.ucdavis.edu/~hunter/m125b/ch2.pdf}{HERE}.
+
+\subsection{(b)}
+
+\subsection{(c)}
+
+\subsection{(d)}
+
+\subsection{(e)}
+
+See a post \href{https://mathoverflow.net/questions/21067/noetherian-rings-of-infinite-krull-dimension?_gl=1*1sl382c*_ga*MTI0OTg5MDM2My4xNjk0NjI0Nzc1*_ga_S812YQPLT2*MTcwMzU3MjAxNS4xNjIuMS4xNzAzNTcyMDE4LjAuMC4w}{HERE}, 
+\href{https://math.stackexchange.com/questions/1109732/noetherian-ring-with-infinite-krull-dimension-nagatas-example}{HERE}, 
+
+See the notes by Vakil \href{https://math.stanford.edu/~vakil/0708-216/216class19.pdf}{HERE}.
+
+See the notes from UofT \href{https://www.uio.no/studier/emner/matnat/math/MAT4210/v18/mat4210notes5.pdf}{HERE}.
+
+See a post \href{https://math.stackexchange.com/questions/4013748/example-of-a-locally-noetherian-space-x-and-a-point-x-such-that-dim-xx-in}{HERE}.
+
+
+Example in topological space is actually easier to say than Nagata's example.
+
+Take our topological space as $X=[0,1]\subset\mathbb R$. And define the topology by declaring all closed subsets as
+\[\{\emptyset,X,\{[1/n,1]\subset \mathbb R~\mid~ i\geq 2, i\in\mathbb Z\}\}.\]
+Clearly we can check it satisfies infinite intersection and finite union axiom.
+
+It's Noetherian for any descending chain of closed subsets must terminate. 
+
+It's of infinite Krull dimension. For any $n>0$, we can construct a chain of such length. Hence the dimension, defined as supremum cannot be finite.
+
+Another weird example could be found \href{https://www.uio.no/studier/emner/matnat/math/MAT4210/v18/mat4210notes5.pdf}{HERE}, in which we give $\mathbb N$ the topology empty set, entire space, and $\{x\in\mathbb N ~\mid~ x\geq q\}$ for some $a\in \mathbb N$.
