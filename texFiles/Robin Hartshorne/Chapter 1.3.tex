@@ -4,6 +4,20 @@ See Sandor's Notes Lecture 4, Lemma 2.6.
 
 Closedness can be checked locally. See a post \href{https://math.stackexchange.com/questions/717382/how-to-prove-that-z-is-closed-subset-iff-x-can-be-covered-by-open-subsets}{HERE}.
 
+\subsection{Closedness local criterion}
+
+This is HW 2.3. of Sandor's notes. 
+
+\textit{Let $X$ be a topological space and $W \subset X$ a subset. Then $W$ is closed if and only if for every $P\in X$ there is an open subset $U \subset X$ such that $P \in U$ and $W \cap U \subset U$ is a closed subset in $U$.}
+
+\begin{proof}
+	Assume $W$ is closed, we can simply take $U=X$ for any $P$.
+
+	Conversely, we only need to verify that $X\setminus W$ is open. More precisely, we wish to prove that every point $P\in X\setminus W$ has an open neighborhood that contains in $X\setminus W$. This is ensured by Proposition 2.8. on Page 24 of \cite{lee2010introduction}. 
+
+	Now start with an arbitrary point $q\in X\setminus W$, there exists open subset $U_q$ of $X$ such that \[W\cap U_q\subset U_q\] is closed in $U_q$. Then we can take $U_q\setminus W$ as the open neighborhood of $q$ in $X\setminus W$ as expected. Hence we know $X\setminus W$ is open.
+\end{proof} 
+
 \section{Remark 3.1.1.}
 
 See Sandor's Notes Lecture 5, Corollary 2.10.
@@ -77,4 +91,60 @@ Secondly, fix an arbitrary open subset $V\subset Y$ with an arbitrary regular fu
 
 \section{Exercise 3.6.}
 
-See a post \href{https://math.stackexchange.com/questions/2120717/there-are-quasi-affine-varieties-which-are-not-affine#:~:text=I%20see%20this%20sentence%20in,(0%2C0)%7D.}{HERE}. 
+See a post \href{https://math.stackexchange.com/questions/2120717/there-are-quasi-affine-varieties-which-are-not-affine#:~:text=I%20see%20this%20sentence%20in,(0%2C0)%7D.}{HERE}.
+
+\section{Exercise 3.17.}
+\textit{\textbf{Normal Varieties.} A vareity $Y$ is \textbf{normal at a point} $P\in Y$ if $\mathscr O_p$ is an integrally closed ring. $Y$ is \textbf{normal} if it is normal at every point.}
+
+\subsection{(a)}\textit{Show that every conic in $\mathbb P^2$ is normal.}
+
+\begin{proof}
+According to Exercise 1.1.(c), we assume conic $Y$ in $\mathbb P^2_{x,y,z}$ is defined by an irreducible homogeneous polynomial of degree $2$. 
+
+And by Exercise 3.1.(c) we know every conic in $\mathbb P^2$ is isomorphic to $\mathbb P^1$. To check it's normal, we need to show for any $P\in Y=\mathbb P^1$, the local ring $\mathscr O_P$ is an integrally closed ring. 
+
+Notice that 
+\[I(\mathbb P^1)=\{f\in k[x,y,z]^h ~\mid~ \forall X\in \mathbb P^1,~ f(X)=0\}=\langle x,y\rangle\trianglelefteq k[x,y,z].\] According to Theorem 3.4, we can compute 
+\begin{align*}
+	\mathscr O_P =& S(Y)_{(\mathfrak m_P)}\\
+	=& (k[x,y,z]/I(\mathbb P^1))_{(\mathfrak m_P)}\\
+	=& k[z]_{(\mathfrak m_P)}
+\end{align*}
+This is degree $0$ part of the localisation $k[z]_{\mathfrak m_P}$, which is UFD given localisation preserves UFD and subring $k[z]_{(\mathfrak m_P)}$ is UFD. While UFD is integrally closed ring, so we have every $\mathscr O_P$ is integrally closed. Hence every conic in $\mathbb P^2$ is normal.\\\\
+
+Or we can notice (?)
+\[\mathscr O_{P,\mathbb P^1}\simeq \mathscr O_{P,\mathbb A}=A(\mathbb A^1)_{\mathfrak m_P}=(k[x])_{\mathfrak m_P}.\]
+
+\end{proof}
+
+\subsection{(b)}
+\textit{Show that the quadric surfaces $Q_1,Q_2$ in $\mathbb P^3$ given by equations $Q_1: xy-zw$; $Q_2:xy=z^2$ are normal (cf. (II. Ex. 6.4) for the latter.)}
+
+\begin{proof}
+	Denote $Q_1=Z(xy-zw)\subset \mathbb P^3_{x,y,z,w}$. We have to compute the localisation of its homogeneous coordinate ring at some point $P\in Q_1$
+	\begin{align*}
+		\mathscr O_P =& S(Q_1)_{(\mathfrak m_P)}\\
+		=& (k[x,y,z,w]/I(Q_1))_{(\mathfrak m_P)}\\
+		=& (k[x,y,z,w]/\langle xy-zw\rangle)_{(\mathfrak m_P)}\\
+	\end{align*}
+
+\end{proof}
+
+\subsection{(c)}
+\textit{Show that the cuspidal cubic $y^2=x^3$ in $\mathbb A^2$ is not normal.}
+
+\subsection{(d)}
+\textit{If $Y$ is affine, then $Y$ is normal $\Leftrightarrow$ $A(Y)$ is integrally closed.}
+
+\subsection{(e)}
+\textit{Let $Y$ be an affine variety. Show that there is a normal affine variety $\widetilde Y$, and a morphism $\pi: \widetilde Y\to Y$, with the property that whenever $Z$ is a normal variety, and $\varphi:Z\to Y$ is a \textbf{dominant} morphism (i.e., $\varphi(Z)$ is dense in $Y$), then there is a unique morphism $\theta:Z\to \widetilde Y$ such that $\varphi=\pi\circ\theta$. $\widetilde Y$ is called the \textbf{normalization} of $Y$. You will need (3.9A) above.}
+
+\section{Exercise 3.18.}
+\textit{\textbf{Projectively Normal Varieties.} A projective variety $Y\subset \mathbb P^n$ is \textbf{projectively normal} (with respect to the given embedding) if its homogeneous coordinate ring $S(Y)$ is integrally closed.}
+
+\subsection{(a)}
+
+\section{Exercise 3.20.}
+\textit{Let $Y$ be a variety of dimension $\geq 2$, and let $P\in Y$ be a normal point. Let $f$ be a regular function on $Y-P$.}
+
+\subsection{(a)}
