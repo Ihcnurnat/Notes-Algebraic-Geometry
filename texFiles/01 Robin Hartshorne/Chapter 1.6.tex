@@ -1,0 +1,38 @@
+\section{Exercise 6.1.}
+
+\textit{Recall that a curve is \textbf{rational} if it is birationally equivalent to $\mathbb P^1$ (Ex 4.4). Let $Y$ be a nonsingular rational curve which is not isomorphic to an open subset of $\mathbb P^1$.}
+
+\subsection{(a)}
+\textit{Show that $Y$ is isomorphic to an open subset of $\mathbb A^1$.}
+
+\begin{proof}
+    Nonsingular rational curve $Y$ is a nonsingular quasi-projective curve, which is isomorphic to an abstract nonsingular curve by Proposition 6.7.
+
+    According to Corollary 6.10., an abstract nonsingular curve is isomorphic to an open subset of a nonsingular projective curve $Z$. Therefore by Theorem 4.4. we have \[\mathbb P^1\sim_{\text{bir}}Y\sim_{\text{bir}}Z ~\Rightarrow~ K(\mathbb P^1)\simeq K(Z).\]
+
+    ? This shows that it's isomorphic to an open subset of $\mathbb P^1$ therefore some open subset in $\mathbb A^1$.
+
+\end{proof}
+
+\subsection{Hint}
+
+See a post \href{https://math.stackexchange.com/questions/4193108/abstract-nonsingular-curve-birational-to-mathbbp1-is-isomorphic-to-mat}{HERE}.
+
+See REB's solution \href{https://math.berkeley.edu/~reb/courses/256A/1.6.pdf}{HERE}.
+
+
+\section{Exercise 6.2.}
+
+\subsection{(a)}
+
+\begin{proof}
+We compute the Jacobian of $I(Y)$ as:
+\begin{align*}
+    \begin{pmatrix}
+        -3x^2+1(P) & 2y(P)
+    \end{pmatrix}
+\end{align*}
+This matrix evaluate at some point $P\in Y$ will have rank $n-r=2-1=1$ given both functions cannot be $0$ at the same time, therefore the curve is non-singular. Hence we know 
+\[\mathscr O_{P,Y}\] is regular local ring for any $P\in Y$. While it's a local property(?), we know $A(Y)$ is regular local. While coordinate ring of this curve $Y$ is Noetherian domain of dimension $1$, hence Theorem 6.2A. implies it's an integrally closed domain.
+
+\end{proof}

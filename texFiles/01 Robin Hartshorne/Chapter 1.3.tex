@@ -93,6 +93,14 @@ Secondly, fix an arbitrary open subset $V\subset Y$ with an arbitrary regular fu
 
 See a post \href{https://math.stackexchange.com/questions/2120717/there-are-quasi-affine-varieties-which-are-not-affine#:~:text=I%20see%20this%20sentence%20in,(0%2C0)%7D.}{HERE}.
 
+\section{Exercise 3.10. \textbf{Subvarieties}}
+
+\subsection{Locally Closed} 
+
+See Wiki's notes \href{https://en.wikipedia.org/wiki/Locally_closed_subset}{HERE}. 
+
+See a post \href{https://math.stackexchange.com/questions/341665/image-of-a-morphism-of-varieties}{HERE}: image of a variety can be not even locally-closed.
+
 \section{Exercise 3.17.}
 \textit{\textbf{Normal Varieties.} A vareity $Y$ is \textbf{normal at a point} $P\in Y$ if $\mathscr O_p$ is an integrally closed ring. $Y$ is \textbf{normal} if it is normal at every point.}
 
@@ -103,17 +111,10 @@ According to Exercise 1.1.(c), we assume conic $Y$ in $\mathbb P^2_{x,y,z}$ is d
 
 And by Exercise 3.1.(c) we know every conic in $\mathbb P^2$ is isomorphic to $\mathbb P^1$. To check it's normal, we need to show for any $P\in Y=\mathbb P^1$, the local ring $\mathscr O_P$ is an integrally closed ring. 
 
-Notice that 
-\[I(\mathbb P^1)=\{f\in k[x,y,z]^h ~\mid~ \forall X\in \mathbb P^1,~ f(X)=0\}=\langle x,y\rangle\trianglelefteq k[x,y,z].\] According to Theorem 3.4, we can compute 
-\begin{align*}
-	\mathscr O_P =& S(Y)_{(\mathfrak m_P)}\\
-	=& (k[x,y,z]/I(\mathbb P^1))_{(\mathfrak m_P)}\\
-	=& k[z]_{(\mathfrak m_P)}
-\end{align*}
-This is degree $0$ part of the localisation $k[z]_{\mathfrak m_P}$, which is UFD given localisation preserves UFD and subring $k[z]_{(\mathfrak m_P)}$ is UFD. While UFD is integrally closed ring, so we have every $\mathscr O_P$ is integrally closed. Hence every conic in $\mathbb P^2$ is normal.\\\\
+Note that
+\[\mathscr O_{P,\mathbb P^1}\simeq \mathscr O_{P,\mathbb A^1}=A(\mathbb A^1)_{\mathfrak m_P}=(k[x])_{\mathfrak m_P}.\] While $k[x]$ is integrally closed, so we know its localisation is integrally closed hence every conic in $\mathbb P^2$ is normal. ???
 
-Or we can notice (?)
-\[\mathscr O_{P,\mathbb P^1}\simeq \mathscr O_{P,\mathbb A}=A(\mathbb A^1)_{\mathfrak m_P}=(k[x])_{\mathfrak m_P}.\]
+Or we can use Exercise 3.18 (a). Notice that the homogeneous coordinate ring $S(\mathbb P^1)$ is clearly integrally closed, then it's projectively normal therefore normal.?
 
 \end{proof}
 
@@ -127,24 +128,70 @@ Or we can notice (?)
 		=& (k[x,y,z,w]/I(Q_1))_{(\mathfrak m_P)}\\
 		=& (k[x,y,z,w]/\langle xy-zw\rangle)_{(\mathfrak m_P)}\\
 	\end{align*}
+	It suffices to check the quotient ring
+	\[k[x,y,z,w]/\langle xy-zw\rangle \] is an integrally closed ring.???\\\\
+
+	Another approach is to use Jacobian matrix to check it's "smooth $\Rightarrow$ regular $\Rightarrow$ normal". Dimension of a surface is $2$, then $n-r=4-2=2\geq 1$. Here $1$ is the rank of Jacobian matrix at any point on the surface (for we choose only one polynomial $xy-zw$ as generator for $I(Q_1)$). 
+
+	Similarly we can check for $Q_2$.
 
 \end{proof}
 
 \subsection{(c)}
 \textit{Show that the cuspidal cubic $y^2=x^3$ in $\mathbb A^2$ is not normal.}
 
+\begin{proof}
+	Let $P=(0,0)$, we wish to show that the local ring $\mathscr O_P$ is not integrally closed. Let $X=Z(y^2-x^3)$, and note that $y^2-x^3$ is irreducible in $k[x,y]$.
+	\begin{align*}
+		\mathscr O_P =& A(X)_{\mathfrak m_P} = k[x,y]/I(X)_{\mathfrak m_P}=k[x,y]/(y^2-x^3)_{\mathfrak m_P}.
+	\end{align*}
+	While integrally closed is a local property, it's equivalent to check $k[x,y]/(y^2-x^3)$ is an integrally closed domain. Since $y^2-x^3$ is irreducible in UFD, then this quotient ring an integral domain. Denote $R=k[x,y]/(y^2-x^3)$. Notice that $y/x\in \operatorname{Frac}(R)$ is an integral element since 
+	\[(y/x)^2-x=0\in R.\] On the other hand, the element $y/x\notin R$. Because otherwise we'll have $y/x=f$ for some polynomial $f\in R$, which is an integral domain. In integral domain, the difference between the degree of variables will give a contradiction. Hence $k[x,y]/(y^2-x^3)$ isn't integrally closed ring.
+\end{proof}
+
+See a post \href{https://math.stackexchange.com/questions/880433/is-mathbbcx-y-y2-x3-a-pid}{HERE}, \href{https://math.stackexchange.com/questions/2701183/the-following-domain-is-not-integrally-closed-mathbb-cx-y-langle-y2-x3}{HERE}.
+
+\subsubsection{Hint}
+
+According to Example 2 of Chapter 9 on Integral Extension on Page 65 of \cite{matsumura1989commutative}, we know 
+\[k[x,y]/\langle y^2-x^3\rangle\sim k[t^2,t^3]\subsetneq k[t].\] Hence it's not an integrally closed domain.
+
 \subsection{(d)}
 \textit{If $Y$ is affine, then $Y$ is normal $\Leftrightarrow$ $A(Y)$ is integrally closed.}
 
+\begin{proof}
+	For $Y$ affine, we have $Y$ being normal is equivalent to say $\mathscr O_{P,Y}=A(Y)_{\mathfrak m_P}$ is integrally closed for any point $P\in Y$. While being integrally closed is a local property, it's equivalent to say $A(Y)$ is integrally closed.
+\end{proof}
+
 \subsection{(e)}
 \textit{Let $Y$ be an affine variety. Show that there is a normal affine variety $\widetilde Y$, and a morphism $\pi: \widetilde Y\to Y$, with the property that whenever $Z$ is a normal variety, and $\varphi:Z\to Y$ is a \textbf{dominant} morphism (i.e., $\varphi(Z)$ is dense in $Y$), then there is a unique morphism $\theta:Z\to \widetilde Y$ such that $\varphi=\pi\circ\theta$. $\widetilde Y$ is called the \textbf{normalization} of $Y$. You will need (3.9A) above.}
+
+\begin{proof}
+	Use Prof. S\'andor's notes on Lecture 29 Theorem 4.16.
+
+	To complete the proof, we have to check the pre-variety defined in the proof is actually a variety. ?
+\end{proof}
 
 \section{Exercise 3.18.}
 \textit{\textbf{Projectively Normal Varieties.} A projective variety $Y\subset \mathbb P^n$ is \textbf{projectively normal} (with respect to the given embedding) if its homogeneous coordinate ring $S(Y)$ is integrally closed.}
 
 \subsection{(a)}
+\textit{If $Y$ is projectively normal, then $Y$ is normal.}
+
+\begin{proof}
+Since $Y$ is projectively normal, then we know $S(Y)$ is integrally closed. Then we need to show 
+\[\mathscr O_P=S(Y)_{(\mathfrak m_P)}\] is integrally closed. Clearly, $S(Y)_{\mathfrak m_P}$ is integrally closed. By definition we know $\mathscr O_P=S(Y)_{(\mathfrak m_P)}$ is a subring composed of degree $0$ elements in $\mathscr O_P=S(Y)_{\mathfrak m_P}$. It is again integrally closed for any element $f/g\in \mathscr O_P=S(Y)_{\mathfrak m_P}$ that is integral over $\mathscr O_P=S(Y)_{(\mathfrak m_P)}$ satisfy the following equations 
+\[(f/g)^n+a_{n-1}(f/g)^{n-1}+a_0=0\] for some $a_{i}\in \mathscr O_P=S(Y)_{(\mathfrak m_P)}$ where $0\leq i\leq n-1$. Taking degree function on both sides, then it follows that $f/g$ must be of degree $0$, hence $\mathscr O_P=S(Y)_{(\mathfrak m_P)}$ is integrally closed. 
+
+\end{proof}
+
+\subsection{(b)}
+\textit{}
+
 
 \section{Exercise 3.20.}
 \textit{Let $Y$ be a variety of dimension $\geq 2$, and let $P\in Y$ be a normal point. Let $f$ be a regular function on $Y-P$.}
+
+See a post \href{https://math.stackexchange.com/questions/1791250/regular-functions-extension-to-normal-points-of-varieties}{HERE}. 
 
 \subsection{(a)}

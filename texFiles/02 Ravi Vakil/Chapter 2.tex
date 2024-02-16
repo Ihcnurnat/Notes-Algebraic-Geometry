@@ -1,0 +1,239 @@
+\section{2.2.6. Definition: Sheaf.}
+
+Comments on $\mathscr{F} (\emptyset)$. In category $\textbf{Set}$, the empty set is initial object and one element set is terminal. See Wiki's examples \href{https://en.wikipedia.org/wiki/Initial_and_terminal_objects#:~:text=Similarly%2C%20the%20empty%20space%20is,hence%20the%20unique%20zero%20object.}{HERE}.
+
+\subsection{Example}
+
+\section{2.2.B. Presheaves that are not SHEAVES.}
+
+\subsection{(a)}
+For (a): see Wiki's counterexample \href{https://en.wikipedia.org/wiki/Sheaf_(mathematics)}{HERE}, which gave an explanation for presheaves on $\mathbb R$ instead of $\mathbb C$.
+See a post \href{https://math.stackexchange.com/questions/2946197/why-is-the-bounded-functions-not-a-sheaf}{HERE}.
+
+\subsection{(b)}
+
+See a post \href{https://math.stackexchange.com/questions/38423/presheaf-which-is-not-a-sheaf-holomorphic-functions-which-admit-a-holomorphic}{HERE}, \href{https://math.stackexchange.com/questions/1372943/do-analytic-functions-on-open-subsets-of-mathbbc-with-an-analytic-square-ro}{HERE}, and \href{https://math.stackexchange.com/questions/1938930/why-is-the-presheaf-of-holomorphic-functions-that-admit-a-square-root-not-a-shea}{HERE}.
+
+\begin{proof}
+This problem is based on some knowledge from complex analysis. Here are some facts: \begin{itemize}
+	\item When does a complex function have a \href{https://math.stackexchange.com/questions/188359/when-does-a-complex-function-have-a-square-root}{square root}?
+	\item Theorem 6.2 on Page 100 of \cite{stein2010complex}. This means $f(x)=x$ as a function on $\mathbb C$ does not admit a square root for it will vanish.
+\end{itemize}
+However, we can cover $\mathbb C$ by two slit regions $U_1=\mathbb C-(-\infty,0],U_2=\mathbb C-[0,\infty)$. And on each $U_i$, $f\mid_{U_i}$ admits a square root and satisfy gluability axiom.
+
+The solution given in \href{https://math.stackexchange.com/questions/38423/presheaf-which-is-not-a-sheaf-holomorphic-functions-which-admit-a-holomorphic}{HERE} is saying on annulus, $f(x)=x$ cannot have a square root. And then we can follow argument of \href{https://math.stackexchange.com/questions/1372943/do-analytic-functions-on-open-subsets-of-mathbbc-with-an-analytic-square-ro}{HERE}.
+
+\end{proof}
+
+\section{2.2.7.}
+
+See Daping's Notes Definition 2.5 on Page 4 \href{http://www.math.uchicago.edu/%7Emay/VIGRE/VIGRE2011/REUPapers/WengD.pdf}{HERE}; also a post \href{https://math.stackexchange.com/questions/4080618/describe-sheaf-properties-via-equalizers}{HERE}; also a post \href{https://math.stackexchange.com/questions/453203/definition-of-sheaf-using-equalizer}{HERE}.
+
+See a post \href{https://math.stackexchange.com/questions/4156317/sheaf-axioms-and-limits-intuition}{HERE} and \href{https://math.stackexchange.com/questions/455706/gluing-sheaves-can-we-realize-mathcalfw-as-some-kind-of-limit}{HERE} regarding gluing sheaves. 
+
+\section{2.2.C.}
+
+Since $\cup U_i$ is colimit for $\{U_i\}$, then $\mathscr F(\cup U_i)$ will be limit because of the contravariance.\todo{?}
+
+See an expository post \href{https://math.stackexchange.com/questions/4156317/sheaf-axioms-and-limits-intuition}{HERE}.
+
+See another post, with more detailed explanations \href{https://math.stackexchange.com/questions/455706/gluing-sheaves-can-we-realize-mathcalfw-as-some-kind-of-limit}{HERE}. "In fancy language, it's stack"...
+
+\section{2.2.D.}\label{2.2.D.}
+
+(b) Motivating example for definition of sheaf.
+
+\section{2.2.E.}
+
+See comments for Exercise 1.1. of Chapter 2 \cite{hartshorne2013algebraic}.
+
+\section{2.2.F.}
+
+Almost by definition.
+
+\section{2.2.G.}
+
+\subsection{(a)}
+
+
+
+\section{2.2.9.}
+
+See a post \href{https://math.stackexchange.com/questions/385591/question-on-sheafification-of-a-presheaf}{HERE}.
+
+\section{2.2.10.}
+It's different from a post \href{https://math.stackexchange.com/questions/195363/constant-presheaf-not-necessarily-a-sheaf-proof}{HERE}, and Wiki's page on \href{https://en.wikipedia.org/wiki/Constant_sheaf}{Constant pre-Sheaf}. \todo{Why???}\\\\
+
+Clearly it's a contravariant functor 
+\[\mathscr F:=\underline{S}_{\text{pre}}:\mathbf{Top}(X)\to \mathbf{Set}\]
+
+Let $X=\{a,b\}$ with discrete topology. Pick two sections 
+\[s_1\in\mathscr F(\{a\})=S,~ s_2\in\mathscr F(\{b\})=S\] such that $s_1\neq s_2$ given $S$ has at least two distinct elements. 
+Clearly we have 
+\[s_1\mid_{\{a\}\cap \{b\}}=s_1\mid_{\emptyset}=e=\cdots=s_2\mid_{\{a\}\cap\{b\}}.\]
+If it's a sheaf then there exists a global section $s\in\mathscr F(\{a,b\})=S$ such that 
+\[s_1=s\mid_{\{a\}}=s\mid_{\{b\}}=s_2,\] contradiction. It follows that constant presheaf defined this way is not necessarily a sheaf.
+
+\section{2.2.E.}
+
+We have to deceptively identical pre-sheaves $\mathscr F_1$ defined as locally closed, and $\mathscr F_2$ defined by giving $S$ discrete topology\dots 
+
+We wish to prove they, as pre-sheaves, are isomorphic. Equivalent, we need to exhibit a natural transformation that admits an inverse. And it suffices to prove by element inclusions: 
+\begin{itemize}
+	\item Let $f:U\to S$ be a map that's locally constant. Now we take $g(u)=f(u)$ as a map $g:U\to S$ with $S$ endowed with a discrete topology. We claim that $g$ is continuous. It suffices to check for each $s\in S$, the fiber $g^{-1}(s)$ is open. For any point $a\in g^{-1}(s)=f^{-1}(s)$, there exists an open neighborhood $V_a\subset f^{-1}(s)$ such that 
+	\[f(V_a)=\{s\}\] given $f$ is locally constant. While $V_a\subset g^{-1}(s)$, therefore we know $g^{-1}(s)$ is open and $g$ is continuous. 
+	\item Conversely, we assume $g:U\to S$ with $S$ given a discrete topology is continuous. We claim $f=g$ is locally constant. For any point $p\in U$, there is an open neighborhood \[g^{-1}(f(p))\ni p\] such that $f$ is constant because $f(g^{-1}(f(p)))=\{p\}$. 
+\end{itemize}
+
+Now we try to check constant sheaf $\mathscr F$ is indeed a sheaf. We're going to prove identity axiom and gluability axiom using the "better description", which is much easier to check:
+\begin{itemize}
+	\item If we have two functions, which equal whenever we restric to any open subset from an open cover, then they must be equal. For functions are precisely defined this way.
+	\item Define the global section for any choice, and it's going to be well-defined for they're compatible.
+\end{itemize}
+Therefore $\mathscr F=\underline S$ is indeed a sheaf. 
+ 
+\section{2.2.F.}
+Same argument as \ref{2.2.D.}.
+
+\section{2.2.G.}
+
+\subsection{(a)}
+It's clearly a pre-sheaf.
+
+Fix an open subset $U\subset X$ with an open cover $\{U_i\}_{i\in I}$ for some index set $I$. Denote the presheaf as $\mathscr F$.
+
+Pick two continuous maps $s_1,s_2:Y\to X$ that satisfying the requirements, i.e. $s_1,s_2\in\mathscr F(U)$.
+
+Both functions will agree on $U$ since 
+\[\operatorname{Res}_{U,U_i}~ s_1=\operatorname{Res}_{U,U_i}~ s_1\] for arbitrary $U_i$, whose union is $U$. So we must have $s_1=s_2$.
+
+Again with this open cover $\{U_i\}_{i\in I}$ and $a_i\in \mathscr F(U_i)$ for $i\in I$. Equivalently, we know $a_i:U_i\to Y$ is a continuous map satisfying $\mu\circ a_i=\operatorname{Id}\mid_{U_i}$.
+Now let's define a map 
+\begin{align*}
+    f:U &\to Y\\
+    u &\mapsto a_i(u) ~\text{ when }~ u\in U_i.     
+\end{align*}It's well-defined by our assumption. Also it's continuous since preimage of an open set in $V\subset Y$ is a union of open subsets given by continuity of each $a_i$. Similarly we can check $\mu\circ f=\operatorname{Id}\mid_{U}$ as expected.\todo{Unverified ?}
+
+\subsection{(b)}
+
+
+
+\section{2.2.11. Espace \'Etal\'e}
+See a post discussion accent letter in LaTeX \href{https://tex.stackexchange.com/questions/8857/how-to-type-special-accented-letters-in-latex}{HERE}.
+
+See an exercise in \cite{hartshorne2013algebraic} Chapter 2, Exercise 1.13.
+
+See the discussion after Lemma 7. on Page 229 of \cite{bosch2013algebraic}.
+
+For \textit{section}, see Wiki's explanation for \href{https://en.wikipedia.org/wiki/Section_(fiber_bundle)}{\textit{section}} in context of fiber bundle; and \href{https://en.wikipedia.org/wiki/Section_(category_theory)}{\textit{section}} in terms of category theory.
+
+See a detailed post \href{https://math.stackexchange.com/questions/3625209/section-of-a-presheaf-can-be-viewed-as-functions}{HERE}.
+
+\section{2.2.H.}
+Clearly it's again a contravariant functor, therefore $\pi_{\ast}\mathscr F$ must be a pre-sheaf. When $\mathscr F$ is a sheaf, I checked identity axiom (lots of things to write down).
+
+\section{2.3.A.}
+
+I'm planning to use universal property to define the induced map $\phi_P$.
+
+One crutial step is to verify the diagram below is commutative
+
+% https://q.uiver.app/#q=WzAsNSxbMCwwLCJcXG1hdGhzY3IgRihVKSJdLFswLDEsIlxcbWF0aHNjciBHKFUpIl0sWzIsMCwiXFxtYXRoc2NyIEYoVikiXSxbMiwxLCJcXG1hdGhzY3IgRyhWKSJdLFsxLDIsIlxcbWF0aHNjciBHX1AiXSxbMCwxLCJcXHBoaShVKSIsMl0sWzAsMiwiXFxyaG9fe1VWfSJdLFsxLDMsIlxcdGF1X3tVVn0iLDJdLFsyLDMsIlxccGhpKFYpIl0sWzEsNF0sWzMsNF1d
+\[\begin{tikzcd}
+	{\mathscr F(U)} && {\mathscr F(V)} \\
+	{\mathscr G(U)} && {\mathscr G(V)} \\
+	& {\mathscr G_P}
+	\arrow["{\phi(U)}"', from=1-1, to=2-1]
+	\arrow["{\rho_{UV}}", from=1-1, to=1-3]
+	\arrow["{\tau_{UV}}"', from=2-1, to=2-3]
+	\arrow["{\phi(V)}", from=1-3, to=2-3]
+	\arrow[from=2-1, to=3-2]
+	\arrow[from=2-3, to=3-2]
+\end{tikzcd}\]
+
+And this is because the square diagram in the upper half commute given $\phi$ is a natural transformation; the lower half is by definition of $\mathscr G_P$. Then by universal property of colimit induces a map
+\[\phi_P:\mathscr F_P\to\mathscr G_P\] which makes the diagram commute.
+
+See a post defined the map \href{https://math.stackexchange.com/questions/1387214/the-induced-map-on-stalks-is-well-defined}{HERE}.
+
+\section{2.3.B.}
+To define a functor $\pi_{\ast}:\textbf{Set}_X\to\textbf{Set}_Y$.
+Firstly, we have to define for any $\mathscr F\in \textbf{Set}_X$, 
+\[\pi_{\ast}(\mathscr F)(U)=\mathscr F(\pi^{-1}(U))\] for any $U\in \mathfrak{Top}(X)$ as in \ref{2.2.H.}. 
+
+Secondly, for any natural transformation $\phi:\mathscr F\to\mathscr G$, we define $\pi_{\ast}(\phi)$ by specifying 
+\[\pi_{\ast}(\phi)(U) ~\mapsto \mathscr F(\pi^{-1}(U))\to\mathscr G(\pi^{-1}(U)).\]\todo{? Is this correct}
+
+\section{2.3.C.}
+
+This is Exercise 1.15. from Chapter II of \cite{hartshorne2013algebraic} on Page 67.
+
+\begin{proof}
+Clearly $\operatorname{Hom}(\mathscr F,\mathscr G)(U)$ takes value in the set of all natural transformations from $\mathscr F\mid_U$ to $\mathscr G\mid_U$. Namely, we have 
+
+\[U\mapsto \operatorname{Mor}(\mathscr F\mid_U,\mathscr G\mid_U).\]
+The restriction map induced by $V\subset U$ is given by consider a natural morphism $\alpha\in\operatorname{Mor}(\mathscr F\mid_U,\mathscr G\mid_U)$ as a natural morphism from 
+\[\mathscr F\mid_V\to \mathscr G\mid_V.\]So set-theoretically restriction map is identity map, with exception that it regard an element as a presheaf on a smaller open subset.\todo{?}
+
+Hence $\operatorname{Hom}(\mathscr F,\mathscr G)(\cdot)$ is a presheaf. 
+
+Fix an open subset $U\subset X$, with an open covering $\{U_i\}_{i\in I}$ for some index set $I$. Pick two natural transformations $\alpha,\beta\in\operatorname{Mor}(\mathscr F\mid_U,\mathscr G\mid_U)$. Assume for any $i\in I$, 
+\[\operatorname{Res}_{U,U_i}\alpha=\operatorname{Res}_{U,U_i}\beta.\]
+More precisely, this means for any open subset $V_i\subset U_i$ where $i\in I$ is arbitrary, we have 
+\[\alpha\mid_{U_i}(V_i)=\beta\mid_{U_i}(V_i).\]
+However, note $\{U_i\}_{i\in I}$ is an open cover for the whole space $U$ we're considering. It follows that for any open subset $W\subset U$, we can denote $W_i=W\cap U_i$ and express $W$ as a union of $W_i$ where $i\in I$.
+\begin{align*}
+	\alpha(W)=&\alpha\left(\bigcup_{i\in I} W_i\right) \in \operatorname{Obj}(\textbf{Set})\\
+	=& \bigcup_{i\in I}\alpha(W_i)\\
+	=& \bigcup_{i\in I}\alpha\mid_{U_i}(W_i)\\
+	=& \bigcup_{i\in I}\beta\mid_{U_i}(W_i)\\
+	=& \cdots\\
+	=&\beta(W).
+\end{align*}Here the third equality holds by the definition of restriction map. While $W\subset U$ is arbitrary, it follows that $\alpha=\beta\in\operatorname{Mor}(\mathscr F\mid_U,\mathscr G\mid_U)$ as expected. 
+
+It remains to check gluability. Again $\{U_i\}_{i\in I}$ is an open cover of $U$. Pick natural transformations $\alpha_i\in \operatorname{Mor}(\mathscr F\mid_{U_i},\mathscr G\mid_{U_i})$. They're compatiable in the sense that for any open subset $W_{ij}\subset U_i\cap U_j$, we know 
+\[\operatorname{Res}_{U_i,U_i\cap U_j}\alpha_i=\operatorname{Res}_{U_j,U_i\cap U_j}\alpha_j ~\Rightarrow~ \alpha_i(W_{ij})=\alpha_{j}(W_{ij}).\]
+Now we try to define a natrual transformation $\alpha\in\operatorname{Mor}(\mathscr F\mid_U,\mathscr G\mid_U)$ such that $\alpha\mid_{U_i}=\alpha_i$. For any open subset $Y\subset U$, denotes $Y_i:=Y\cap U_i$. 
+\begin{align*}
+	\alpha(Y) : \mathscr F\mid_{U}(Y)\to &~ \mathscr G\mid_{U}(Y)\\
+	\mathscr F\mid_{U}(Y_i)\ni x \mapsto &~ \alpha_i(x).
+\end{align*} 
+This is map in sets, it's well-defined for $\{Y_i\}_{i\in I}$ is an open covering for $Y$ and each $\alpha_i$ is compatiable. By construction we know $\alpha\mid_{U_i}=\alpha_i$. Hence we've checked gluability.\todo{Need to check, but I think it's basically unwrapping a long long defintion}
+
+\end{proof}
+
+\subsection{}
+
+See a post \href{https://math.stackexchange.com/questions/294802/prove-that-sheaf-hom-is-a-sheaf}{HERE}.
+
+Also see a lemma from Stacks Project \href{https://stacks.math.columbia.edu/tag/00AK}{HERE}. This lemma basically proves gluability and uniqueness, based on the fact that Sheaf Hom is already a pre-sheaf.
+In the proof of the above lemma, we defined the natural transformation in the way such that the following diagram commute 
+
+% https://q.uiver.app/#q=WzAsNCxbMCwwLCJzXFxpblxcbWF0aHNjciBGKFUpIl0sWzEsMCwiXFxtYXRoc2NyIEcoVSkiXSxbMCwxLCJcXG1hdGhzY3IgRihWKSJdLFsxLDEsIlxcbWF0aHNjciBHKFYpIl0sWzAsMSwiXFx2YXJwaGlfVSJdLFswLDJdLFsxLDNdLFsyLDMsIlxcdmFycGhpX1YiLDJdXQ==
+\[\begin{tikzcd}
+	{s\in\mathscr F(U)} & {\mathscr G(U)} \\
+	{\mathscr F(V)} & {\mathscr G(V)}
+	\arrow["{\varphi_U}", from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow[from=1-2, to=2-2]
+	\arrow["{\varphi_V}"', from=2-1, to=2-2]
+\end{tikzcd}\]
+And this relies on the fact that $\mathscr G$ is a sheaf!, by looking at every $U\cap U_i$, which covers $U$.
+
+\subsection{}
+
+Sheaf Hom does not commute with taking stalks. We wish to check 
+\begin{align*}
+	&\operatorname{Hom}(\mathscr F,\mathscr G)_p\to \operatorname{Hom}(\mathscr F_p,\mathscr G_p)\\
+	& \{(\alpha,U)~\mid~ p\in U,~ \alpha\in \operatorname{Mor}(\mathscr F\mid_U,\mathscr G\mid_U)\}/\sim_1 \mapsto ... 
+\end{align*}
+
+\subsection{Hint}
+
+See a post \href{https://math.stackexchange.com/questions/16203/why-doesnt-hom-commute-with-taking-stalks}{HERE}.
+
+The direction was correct\todo{\ding{42}}, see a post \href{https://mathoverflow.net/questions/642/stalks-of-sheaf-hom}{HERE}.
+
+See Stefan's notes on Page 18 for a concrete example \href{https://www.math.toronto.edu/jkamnitz/seminar/perverse/stefan.pdf}{HERE}.
+
+One comment on "Hom functor preserve limit" \href{https://ncatlab.org/nlab/show/hom-functor+preserves+limits}{HERE}.

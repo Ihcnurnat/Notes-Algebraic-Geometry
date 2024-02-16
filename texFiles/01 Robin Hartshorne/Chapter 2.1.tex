@@ -1,0 +1,196 @@
+\section{Defintion: Presheaf}
+
+\subsection{Two Pathological Examples}
+
+Here are two examples taken from Tennison's \cite{tennison1975sheaf}.
+
+Let $X$ be any topological space with more thatn one point, i.e. $X=\{0,1\}$ or $X=\{0,1\}\to\mathbb R$.
+
+Define a presheaf $\mathscr P_1$ by 
+\begin{align*}
+    \begin{cases}
+        \mathscr P_1(X)=\mathbb Z \\
+        \mathscr P_1(U)=0 ~\text{ for open }~ U\subsetneq X\\
+        \text{All restrictions except $\rho_{XX}$ being constant maps.}
+    \end{cases}.
+\end{align*}Here $0$ denotes the trivial Abelian group.
+
+Pick $x_0\in X$. Define a presheaf $\mathscr P_2$ by 
+\begin{align*}
+    \begin{cases}
+        \mathscr P_2(U)=\mathbb Z ~\text{ for $U$ open in $X$ such that $x_0\in U$}\\
+        \mathscr P_2(U)=0 ~\text{ for $U$ open in $X$ such that $x_0\notin U$}\\
+        \text{restrictions }~ \rho_{UV}=\begin{cases}
+            \operatorname{id}_{\mathbb Z} &~\text{ if $x_0\in V\subset U$}\\
+            0 & ~\text{ trivial map if not}
+        \end{cases}
+    \end{cases}.
+\end{align*}Here the second appearance of $0$ denotes the trivial map.
+
+\section{Example 1.0.3.}
+
+See some examples of presheaves that are not sheaves \href{https://en.wikipedia.org/wiki/Sheaf_(mathematics)}{HERE}; a post \href{https://math.stackexchange.com/questions/195363/constant-presheaf-not-necessarily-a-sheaf-proof}{HERE}.
+
+In Wiki's page \href{https://en.wikipedia.org/wiki/Sheaf_(mathematics)}{HERE}, it introduced non-separated presheaf, i.e. presheaf that doesn't satisfy locality axiom for sheaf.
+
+\section{Proposition-Definition 1.2. Sheafification}
+
+See \href{https://stacks.math.columbia.edu/tag/007X}{\textit{Sheafification}} on The Stacks Project.
+
+See solution of problem 3 \href{https://www2.math.ethz.ch/education/bachelor/lectures/fs2016/math/alg_geom/Solution11.pdf}{HERE}.
+
+Of course, consult Ravi's Notes on Sheafification; 
+
+Or see Section 6.5 on Page 232 of \cite{bosch2013algebraic}.
+
+Also, see a REU paper \href{http://www.math.uchicago.edu/%7Emay/VIGRE/VIGRE2011/REUPapers/WengD.pdf}{HERE} by Daping Weng.
+
+A short paper by Tom is \href{https://www.maths.ed.ac.uk/~tl/sheaves.pdf}{HERE}.
+
+\subsection{Isomorphism on stalk}
+
+This is for Lemma 007Z of \href{https://stacks.math.columbia.edu/tag/007X}{Stacks Project}. Similar contents could be found in Rising Sea 2.4.L.
+
+% https://q.uiver.app/#q=WzAsNSxbMSwwLCJzXFxpblxcbWF0aHNjciBGKFUpIl0sWzIsMCwiXFxtYXRoc2NyIEZee1xcc2hhcnB9KFUpXFxuaSAoc191KV97dVxcaW4gVX0iXSxbMSwxLCIoVSx4KVxcaW4gXFxtYXRoc2NyIEZfeCJdLFsyLDEsIlxcbWF0aHNjciBGX3hee1xcc2hhcnB9XFxuaSAoVSwoc191KV97dVxcaW4gVX0pIl0sWzAsMSwidFxcaW5cXG1hdGhzY3IgRihXKSJdLFswLDFdLFswLDJdLFsxLDNdLFsyLDMsIlxcZXhpc3RzICEiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMCw0XV0=
+\[\begin{tikzcd}
+	& {s\in\mathscr F(U)} & {\mathscr F^{\sharp}(U)\ni (s_u)_{u\in U}} \\
+	{t\in\mathscr F(W)} & {(U,x)\in \mathscr F_x} & {\mathscr F_x^{\sharp}\ni (U,(s_u)_{u\in U})}
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-2, to=2-2]
+	\arrow[from=1-3, to=2-3]
+	\arrow["{\exists !}", dashed, from=2-2, to=2-3]
+	\arrow[from=1-2, to=2-1]
+\end{tikzcd}\]
+
+According to Stacks Project, injectivity is proved. 
+
+We focus on proving the surjectivity of $\mathscr F_x\to \mathscr F^{\sharp}_x$. We constructed the induced map on stalks of presheaves based on universal property of $\mathscr F_x$ being a colimit. Therefore the map is unique. And we wish to get an explicit description of that. While for the diagram we know all but the induced map explicity, therefore the map defined such that making the diagram commute must be the induced map by uniqueness of universal property. It follows that we have 
+\begin{align*}
+    \mathscr F_x &\to \mathscr F^{\sharp}_x \\
+    (U,s) &\mapsto (U, (s_u)_{u\in U})
+\end{align*} where $x\in U\subset X$, $s\in \mathscr F(U)$, and $(s_u)_{u\in U}\in \prod_{x\in U} \mathscr F_x$ is a compatible germ. 
+
+We could also check this map is well-defined. But it must be for it makes the diagram commute, hence it's the unique induced map on stalk for a given $x\in X$.\todo{do we care?}
+
+The facts that $x\in U$ and $(s_u)_{u\in U}$ is a compatible germ enable us, by definition of sheafification, find: \begin{itemize}
+    \item a neighborhood $W\subset U$ such that $x\in W$;
+    \item a section $t\in\mathscr F(W)$ such that 
+    $t_w=s_w$ for any $w\in W$.
+\end{itemize}
+
+And we claim $(W,t)\in \mathscr F_x$ will be the preimage of $(U,(s_u)_{u\in U})$. Now we're ready to compute the image of $(W,t)$ as 
+
+% https://q.uiver.app/#q=WzAsNCxbMCwxLCIoVyx0KVxcaW5cXG1hdGhzY3IgRl94Il0sWzAsMCwidFxcaW5cXG1hdGhzY3IgRihXKSJdLFsxLDAsIih0X3UpX3t1XFxpbiBVfVxcaW4gXFxtYXRoc2NyIEZee1xcc2hhcnB9KFcpIl0sWzEsMSwiKFUsKHRfdSlfe3VcXGluIFV9KVxcaW4gXFxtYXRoc2NyIEZee1xcc2hhcnB9X3giXSxbMSwyXSxbMSwwXSxbMiwzXSxbMCwzLCIiLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=
+
+% https://q.uiver.app/#q=WzAsNCxbMCwxLCIoVyx0KVxcaW5cXG1hdGhzY3IgRl94Il0sWzAsMCwidFxcaW5cXG1hdGhzY3IgRihXKSJdLFsxLDAsIih0X3UpX3t1XFxpbiBVfVxcaW4gXFxtYXRoc2NyIEZee1xcc2hhcnB9KFcpIl0sWzEsMSwiKFcsKHRfdSlfe3VcXGluIFd9KVxcaW4gXFxtYXRoc2NyIEZee1xcc2hhcnB9X3giXSxbMSwyXSxbMSwwXSxbMiwzXSxbMCwzLCIiLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=
+\[\begin{tikzcd}
+	{t\in\mathscr F(W)} & {(t_u)_{u\in U}\in \mathscr F^{\sharp}(W)} \\
+	{(W,t)\in\mathscr F_x} & {(W,(t_u)_{u\in W})\in \mathscr F^{\sharp}_x}
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow[from=1-2, to=2-2]
+	\arrow[dashed, from=2-1, to=2-2]
+\end{tikzcd}\]
+
+We claim that \[(W,(t_u)_{u\in W})=(U,(s_u)_{u\in U})\in \mathscr F^{\sharp}_x\]
+This is because there exists $W\subset W\cap U$ such that \begin{align*}
+    (s_u)_{u\in U}\mid_W =& (s_u)_{u\in W}\\
+    =& (t_u)_{u\in W}\\
+    =& (t_u)_{u\in W}\mid_W.
+\end{align*}Here the first and third equality is given by restriction map. The second equality holds: by definition we claimed that $s_w=t_w$ for any $w\in W$. Therefore we've checked that $(W,t)$ is the preimage for an arbitrary element $(U,(s_u)_{u\in U})\in \mathscr F^{\sharp}_x$, and it follows that $\mathscr F\to\mathscr F^{\sharp}$ is surjective.
+
+\subsection{Hint}
+
+The above approach is based on Stacks Project. But Proposition 2.24. on Page 53 of Algebraic Geometry I: Schemes \cite{gortz2020algebraic} gives another solution, which is \textbf{much} more efficient!
+
+It identitifies, in the sense of colimi, that
+\[\operatorname{colim}\mathscr F^{\sharp}=\mathscr F_x.\]
+  
+
+\section{Definition: Inverse Image Sheaf}
+
+See \href{https://en.wikipedia.org/wiki/Inverse_image_functor}{Wiki} for motivation of such definition.
+
+See a \href{https://en.wikipedia.org/wiki/Inverse_image_functor}{POST} that gives more details, as well as a counterexample.
+
+From Prof. S\'andor's Email: Let $X$ by disjoint union of two copies of $Y$ with a continuous map $f:X\to Y$. Assume $Y$ is irreducible and let $\mathscr G$ be a constant sheaf on $Y$. We claim that $f^{-1}_{\text{pre}} \mathscr G$ is just a presheaf, but not a sheaf. 
+
+Any open subset $W_1, W_2\in X$ will have intersection in $Y$. Then any section will agree on their intersections. Take two sections from $0\amalg Y$ and $Y\amalg Y$, there won't be a global section such that restriction is either of them.
+
+\section{Exercise 1.1.}
+
+See "Rising Sea" by Ravi Exercise 2.2.E. on Page 74. It gave another potentially equivalent definition of constant sheaf, which could be easier to check it is indeed sheafification of constant pre-sheaf.
+
+Let $\mathscr F$ denotes the constant pre-sheaf. Then we can compute, by using universal property of colimit that stalk at $p\in U$ is $\mathscr F_p=S$. 
+
+Now we have a concrete description of the compatible germs as 
+\begin{align*}
+    \mathscr F^{\sharp}(U)=&~\{s:U\to\amalg_{p\in U}\mathscr F_p ~\mid~ ...\}\\
+    =&~\{s:U\to \amalg_{p\in U}S ~\mid~ \\
+    &\forall~ p\in U,~ \exists~ \text{an open neighorbood}~ V\subset U~ \text{containing}~ p \text{ and } \exists~ t\in \mathscr F(V).\\
+    &\text{such that}~ s(q)=s_q=t_q ~\forall~ q\in V.\}
+\end{align*}
+But notice that for constant presheaf $\mathscr F$, all restriction maps and natural map to stalk is identity as
+% https://q.uiver.app/#q=WzAsMyxbMiwwLCJcXG1hdGhzY3IgRigpPVMiXSxbMCwwLCJcXG1hdGhzY3IgRigpPVMiXSxbMSwxLCJcXG1hdGhzY3IgRl9QPVMiXSxbMSwwLCJcXHRleHR7aWR9Il0sWzEsMiwiXFx0ZXh0e2lkfSIsMl0sWzAsMiwiXFx0ZXh0e2lkfSJdXQ==
+\[\begin{tikzcd}
+	{\mathscr F()=S} && {\mathscr F()=S} \\
+	& {\mathscr F_P=S}
+	\arrow["{\text{id}}", from=1-1, to=1-3]
+	\arrow["{\text{id}}"', from=1-1, to=2-2]
+	\arrow["{\text{id}}", from=1-3, to=2-2]
+\end{tikzcd}\]
+So we can simplify the expression as 
+\begin{align*}
+    \mathscr F^{\sharp}(U)=&~\{f:U\to \amalg_{p\in U}S ~\mid~ \\
+    &\forall~ p\in U,~ \exists~ \text{an open neighorbood}~ V\subset U~ \text{containing}~ p \text{ and } \exists~ t\in S.\\
+    &\text{such that}~ f(q)=t_q=\operatorname{id}(t)=t ~\forall~ q\in V\}.
+\end{align*}
+We claim there's a bijection between two sets 
+\[\Phi:\mathscr F^{\sharp}(U)\to\underline{S}(U)\]
+For a given $f\in\mathscr F^{\sharp}(U)$, we can define a map $g:U\to S$ by 
+\[g(p):= \operatorname{pr}_{p}\circ f(p)\] where the projection map is $\operatorname{pr}_{p}:\amalg_{i\in I} S_i\to S_p$ defined by projection to $p$-coordinate. For any $p\in U$, by definition of sheafification we know there is an open neighborhood $p\in V\subset U$ and $t\in S$ such that 
+\[g(q)=\operatorname{pr}_{q}\circ f(q)=t\] for any $q\in V$. And this is precisely saying $g$ is locally constant. Different choices of $f$ will result in different $g$, therefore it's injective. 
+
+Clearly, if we're given a locally constant map $g:U\to S$, we can form a tuple indexed by $p\in U$ as
+\[\prod_{u\in U} (g(u))\in \amalg_{u\in U}S.\] And this corresponds to a function in $\mathscr F^{\sharp}(U)$ that satisfies the requirements precisely because $g$ is locally constant. Therefore it's surjective.
+
+What we've shown is that there's a bijection between 
+\[\Phi:\mathscr F^{\sharp}(U)\to\underline{S}(U)\] where $\mathscr F$ is constant pre-sheaf. Therefore we conclude that constant sheaf is indeed the sheafification of constant pre-sheaf.
+
+\subsection{References}
+
+See a post \href{https://math.stackexchange.com/questions/249961/sheafification-of-the-constant-presheaf}{HERE}, \href{https://math.stackexchange.com/questions/3834390/sheafification-of-constant-presheaf}{HERE}.
+
+Basically, we need to prove $\underline{S}_{\text{pre}}^{\sharp}\simeq \underline{S}$. And I did by exhibiting a bijection on when they both evaluate at an open subset $U$, i.e. I checked isomorphism between two functors by showing the natural transformation is natural isomorphism.
+I didn't do this on stalk for I'm afraid it could be more complicated.\todo{But could we?}
+
+\section{Exercise 1.3.}
+
+See a post \href{https://math.stackexchange.com/questions/1387214/the-induced-map-on-stalks-is-well-defined}{HERE} for explicit information of induced map on stalks. 
+
+See the solution from a post \href{https://math.stackexchange.com/questions/4450406/surjective-morphism-of-sheaves}{HERE}.
+
+See \href{https://www.math.arizona.edu/~cais/CourseNotes/AlgGeom04/Hartshorne_Solutions.pdf}{HERE} for a partial solution, as well as a counterexample. 
+\subsection{(a)}
+
+Now assume $\varphi$ is surjective. Fix an open subset $U\subset X$ and a section $s\in\mathscr G(U)$. Now we can pick any point $p\in U$, consider the stalk at it.
+
+
+\section{Exercise 1.8.}
+
+See Rotman's \cite{rotman2009introduction}, Lemma 6.68. on Page 378.
+
+\section{Exercise 1.15.}
+
+See Rising Sea 2.3.C.
+
+\section{Exercise 1.22.}
+
+\subsection{Hint}
+See Stacks Project \href{https://stacks.math.columbia.edu/tag/00AK}{Glueing Sheaves}, in which condition (2) is called \textit{glueing data}. 
+
+According to the following Lemma 00AL, there exists (not necessarily unique) a sheaf $\mathscr F$ on $X$ such that \dots
+
+It remains to use (1) in the prompt to verify such a sheaf is unique.
+
+See a post \href{https://math.stackexchange.com/questions/455706/gluing-sheaves-can-we-realize-mathcalfw-as-some-kind-of-limit}{HERE}.

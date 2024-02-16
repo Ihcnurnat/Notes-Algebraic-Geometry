@@ -22,6 +22,34 @@ Conversely, let's start with an element $x=(x_1,...,x_n)\in Z(\alpha (T))$. Ther
 And the second one is to check $\varphi^{-1}(W)=Z(\beta(T'))\cap U=Z(\beta(\alpha(T)))\cap U$.
 
 
+\section{Exercise 2.13.}
+\textit{Let $V\subset \mathbb P^5$ be the Veronese ($2$-uple) embedding of $\mathbb P^2$. Prove that for any closed curve (a \textbf{curve} is a variety of dimension $1$) $C\subset V$ there exists a hypersurface $H\subset \mathbb P^5$ such that $C=V\cap H$.}
+
+\subsection{References}
+
+A partial solution by REB \href{https://math.berkeley.edu/~reb/courses/256A/1.2.pdf}{HERE}.
+
+Another solution \href{http://mcs.unife.it/alex.massarenti/files/exag1.pdf}{HERE}.
+
+And a post \href{https://math.stackexchange.com/questions/550816/why-this-property-holds-in-a-veronese-surface}{HERE}.
+
+\begin{proof}
+    The $2$-uple embedding is defined as 
+    \begin{align*}
+        \rho_2:\mathbb P^2 &\to\mathbb P^5\\
+         [x:y:z] &\mapsto[x^2:y^2:z^2:xy:yz:zx].
+    \end{align*}
+    By Exercise 2.12, we know that $\rho_2$ is a homeomorphism onto its image \[\rho_2:\mathbb P^2\simeq V.\] Therefore a curve $C\subset V$ is given by 
+    $C=\rho_2(Z(f))$ for some irreducible homogeneous polynomial $f\in S(\mathbb P^2)$ such that $\operatorname{dim}Z(f)=1$.
+
+    %Recall in Exercise 2.12.(a) we had a surjective map \[\theta:S(\mathbb P^5)\to S(\mathbb P^2).\] Hence we define $H:=Z(\theta^{-1}(f))\supset Z(\operatorname{Ker}\theta)=V$. 
+
+    Notice that $f^2=g$ for some $g\in k[x^2:y^2:z^2:xy:yz:zx]$. Therefore if we define $H=Z(g)$, then
+    \[C=Z(f)=Z(f^2)=Z(g)\cap \rho_2(\mathbb P^2)=H\cap V.\]
+
+\end{proof}
+
+
 \section{Exercise 2.12.}
 
 For all monomial of degree $d$ in $n+1$ variables $x_0,...,x_n$. 
