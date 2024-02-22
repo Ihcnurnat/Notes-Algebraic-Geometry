@@ -202,7 +202,7 @@ This is map in sets, it's well-defined for $\{Y_i\}_{i\in I}$ is an open coverin
 
 \end{proof}
 
-\subsection{}
+\subsection{Verification}
 
 See a post \href{https://math.stackexchange.com/questions/294802/prove-that-sheaf-hom-is-a-sheaf}{HERE}.
 
@@ -220,20 +220,57 @@ In the proof of the above lemma, we defined the natural transformation in the wa
 \end{tikzcd}\]
 And this relies on the fact that $\mathscr G$ is a sheaf!, by looking at every $U\cap U_i$, which covers $U$.
 
-\subsection{}
+\subsection{Warning}
 
-Sheaf Hom does not commute with taking stalks. We wish to check 
+Sheaf Hom does not commute with taking stalks. But there exists at least one map from 
 \begin{align*}
 	&\operatorname{Hom}(\mathscr F,\mathscr G)_p\to \operatorname{Hom}(\mathscr F_p,\mathscr G_p)\\
 	& \{(\alpha,U)~\mid~ p\in U,~ \alpha\in \operatorname{Mor}(\mathscr F\mid_U,\mathscr G\mid_U)\}/\sim_1 \mapsto ... 
 \end{align*}
 
-\subsection{Hint}
+\subsection{Warning: References}
 
-See a post \href{https://math.stackexchange.com/questions/16203/why-doesnt-hom-commute-with-taking-stalks}{HERE}.
+See a post \href{https://math.stackexchange.com/questions/16203/why-doesnt-hom-commute-with-taking-stalks}{HERE}, which contains a link to the detailed version of the counterexample \href{http://www.jliumath.com/teaching/fall2022AG/Sheet5.pdf}{HERE}. According to post \href{https://mathoverflow.net/questions/642/stalks-of-sheaf-hom}{HERE}, The direction was correct.\todo{\ding{42}}
 
-The direction was correct\todo{\ding{42}}, see a post \href{https://mathoverflow.net/questions/642/stalks-of-sheaf-hom}{HERE}.
+See Stefan's notes on Page 18 for a concrete example \href{https://www.math.toronto.edu/jkamnitz/seminar/perverse/stefan.pdf}{HERE}. One comment on "Hom functor preserve limit" \href{https://ncatlab.org/nlab/show/hom-functor+preserves+limits}{HERE}.
 
-See Stefan's notes on Page 18 for a concrete example \href{https://www.math.toronto.edu/jkamnitz/seminar/perverse/stefan.pdf}{HERE}.
+\newpage\subsection{Counterexample}
+\begin{proof}
+	For any $U\subset X$, where $\mathscr F$ is skycraper sheaf at $p\in X$ with value group $A$ and $\mathscr G$ is a constant sheaf on topological space $X$ with value group $A$. We claim that 
+	\[\mathcal Hom (\mathscr F,\mathscr G)(U)=\operatorname{Mor}(\mathscr F\mid_U,\mathscr G\mid_U)=0\] as an Abelian group for arbitrary $U\subset X$. 
+	
+	It suffices to check the above statment is correct when $U=X$ for $\mathcal Hom(\mathscr F,\mathscr G)$ is a sheaf, i.e. we need to show the group
+	\[\mathcal Hom(\mathscr F,\mathscr G)(X)=\operatorname{Mor}(\mathscr F,\mathscr G)=0\] 
+	
+	Pick any natural transformation $\alpha\in\operatorname{Mor}(\mathscr F,\mathscr G)$. We wish to show the group homomorphism $\alpha(U)$ is $0$ (i.e. sends everything to $0$ in the codomain $\mathscr G(U)$). For an open subset $U$, it admits an open covering $\{U_i\}$ in which every $U_i$ is connected. While $\mathscr G$ is a sheaf, to prove $\alpha(U)=0$ it suffices to check $\alpha(U_i)=0$. Fix $i$ and denote $U_i=U_0$. When $p\notin U_0$, then $\mathscr F(U_0)=0$ and the map $\alpha(U_0)=0$.
 
-One comment on "Hom functor preserve limit" \href{https://ncatlab.org/nlab/show/hom-functor+preserves+limits}{HERE}.
+	Now assume $p\notin U_0$. We can still argue $\alpha(U_0)$ is $0$ group homomorphism by restrict it to a smaller open subset that doesn't contain $p$, because the skycraper sheaf will be $0$ group. 
+
+	Assume $p$ is closed an not open, which means it's not isolated\todo{?}. Then $V:=U\setminus \{p\}$ is an open subset that doesn't contain $p$, hence $\mathscr F(V)=0$ by definition. 
+	% https://q.uiver.app/#q=WzAsNixbMCwwLCJcXG1hdGhzY3IgRihVKSJdLFsxLDAsIlxcbWF0aHNjciBHKFUpPVxcb3BsdXNfe2lcXGluIEl9IEEiXSxbMSwxLCJcXG1hdGhzY3IgRyhVX2kpPUEiXSxbMCwxLCJcXG1hdGhzY3IgRihVX2kpIl0sWzAsMiwiXFxtYXRoc2NyIEYoVl9pKT0wIl0sWzEsMiwiXFxtYXRoc2NyIEcoVl9pKT1BIl0sWzAsMSwiXFxhbHBoYShVKSJdLFsxLDJdLFswLDNdLFszLDIsIlxcYWxwaGFfaShVKSJdLFszLDRdLFs0LDVdLFsyLDUsIlxcb3BlcmF0b3JuYW1le2lkfSJdXQ==
+
+% https://q.uiver.app/#q=WzAsNCxbMSwwLCJcXG1hdGhzY3IgRyhVXzApPUEiXSxbMCwwLCJcXG1hdGhzY3IgRihVXzApIl0sWzAsMSwiXFxtYXRoc2NyIEYoVik9MCJdLFsxLDEsIlxcbWF0aHNjciBHKFYpIl0sWzEsMCwiXFxhbHBoYShVKSJdLFsxLDIsIlxcb3BlcmF0b3JuYW1le1Jlc31fe1VfMFZ9IiwyXSxbMiwzXSxbMCwzXV0=
+\[\begin{tikzcd}
+	{\mathscr F(U_0)} & {\mathscr G(U_0)=A} \\
+	{\mathscr F(V)=0} & {\mathscr G(V)}
+	\arrow["{\alpha(U)}", from=1-1, to=1-2]
+	\arrow["{\operatorname{Res}_{U_0V}}"', from=1-1, to=2-1]
+	\arrow[from=2-1, to=2-2]
+	\arrow[from=1-2, to=2-2]
+\end{tikzcd}\]
+
+We claim that $\mathscr G(U_0)\to \mathscr G(V)$ is an injection: 
+\begin{itemize}
+	\item ?
+\end{itemize} Therefore by commutativity of the diagram we know $\alpha(U_0)=0$ as expected.
+
+
+\end{proof}
+
+%\subsection{Remarks} In fact, we can avoid the argument above. Because for any open subset $U$, we can cover it by an open covering of connected subset. Therefore we can assume $U=\cup_{i\in J}U_j$ for each $U_j$ being connected. It suffices to check for each $U_j$, the map $\alpha(U_j)$ is $0$ group homomorphism. 
+
+
+\subsection{Abelian group structure}
+	The Abelian group structure on $\mathcal Hom(\mathscr F,\mathscr G)(U)$ is given by defining 
+	\[\alpha+\beta (U):\mathscr F(U)\to \mathscr G(U) ~ x\mapsto \alpha(U)x+\beta(U)x\] for two natrual transformations $\alpha,\beta\in \mathcal Hom(\mathscr F,\mathscr G)(U)$. Notice that $\alpha+\beta$ is indeed a natural transformation, because it's compatible with restriction maps, which we could check by definition... 
+	Element $0\in \mathcal Hom(\mathscr F,\mathscr G)(U)$ is just a natural transformation sends everything to $0\in \mathscr G(U)$.
