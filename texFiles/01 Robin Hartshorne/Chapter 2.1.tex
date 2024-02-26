@@ -47,6 +47,8 @@ Also, see a REU paper \href{http://www.math.uchicago.edu/%7Emay/VIGRE/VIGRE2011/
 
 A short paper by Tom is \href{https://www.maths.ed.ac.uk/~tl/sheaves.pdf}{HERE}.
 
+A \href{https://math.stackexchange.com/questions/889497/sheafification-definition}{post} discussing two equivalent definitions of sheafification: one based on compatible germs, and the other one is based on \text{continuous sections}.
+
 \subsection{Isomorphism on stalk}
 
 This is for Lemma 007Z of \href{https://stacks.math.columbia.edu/tag/007X}{Stacks Project}. Similar contents could be found in Rising Sea 2.4.L.
@@ -106,6 +108,11 @@ The above approach is based on Stacks Project. But Proposition 2.24. on Page 53 
 It identitifies, in the sense of colimi, that
 \[\operatorname{colim}\mathscr F^{\sharp}=\mathscr F_x.\]
   
+\section{Definition: Image Sheaf}
+
+See a \href{https://math.stackexchange.com/questions/3838804/image-presheaf-which-is-not-a-sheaf}{post} explaining an example of image presheaf that's not a sheaf.
+
+See a very good \href{https://www2.math.ethz.ch/education/bachelor/lectures/fs2016/math/alg_geom/Solution12.pdf}{solution} for details.
 
 \section{Definition: Inverse Image Sheaf}
 
@@ -179,6 +186,20 @@ Now assume $\varphi$ is surjective. Fix an open subset $U\subset X$ and a sectio
 \section{Exercise 1.8.}
 
 See Rotman's \cite{rotman2009introduction}, Lemma 6.68. on Page 378.
+
+\section{Exercise 1.9. Direct Sum}
+
+In the context of the prompt, both sheaves on space $X$ take value in category of Abelian group. Let $\{U_i\}_{i\in I}$ be a covering of arbitrary open subset $U\subset X$ where $I$ is some index set. Assume $f=(s,t)\in \mathscr F\oplus\mathscr G(U)$ for some $s\in\mathscr F(U)$ and $t\in\mathscr G(U)$. 
+\begin{align*}
+    f\vert_{U_i}=\operatorname{Res}_{U,U_i}(f)=\operatorname{Res}_{U,U_i}((s,t))=(\operatorname{Res}_{U,U_i}(s),\operatorname{Res}_{U,U_i}(t))=0\in \mathscr F(U_i)\oplus\mathscr G(U_i).
+\end{align*}
+Then we must have $s\vert_{U_i}=0$ for all $i$, then $s\vert_U=0$ for $\mathscr F$ is a sheaf. Then we can conclude that $f\vert_{U}=(s\vert_U,t\vert_U)=0$.
+
+For gluability, ...
+
+\subsection{Warning}
+
+Example \href{https://stacks.math.columbia.edu/tag/006Y}{006Y} on \cite{stacks-project}, which shows we cannot extend to taking infinitely many direct sum: it is a presheaf, but not sheaf in general. 
 
 \section{Exercise 1.15.}
 

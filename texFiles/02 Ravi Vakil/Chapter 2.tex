@@ -164,7 +164,7 @@ Firstly, we have to define for any $\mathscr F\in \textbf{Set}_X$,
 Secondly, for any natural transformation $\phi:\mathscr F\to\mathscr G$, we define $\pi_{\ast}(\phi)$ by specifying 
 \[\pi_{\ast}(\phi)(U) ~\mapsto \mathscr F(\pi^{-1}(U))\to\mathscr G(\pi^{-1}(U)).\]\todo{? Is this correct}
 
-\section{2.3.C.}
+\section{2.3.C.}\label{2.3.C.}
 
 This is Exercise 1.15. from Chapter II of \cite{hartshorne2013algebraic} on Page 67.
 
@@ -234,7 +234,12 @@ See a post \href{https://math.stackexchange.com/questions/16203/why-doesnt-hom-c
 
 See Stefan's notes on Page 18 for a concrete example \href{https://www.math.toronto.edu/jkamnitz/seminar/perverse/stefan.pdf}{HERE}. One comment on "Hom functor preserve limit" \href{https://ncatlab.org/nlab/show/hom-functor+preserves+limits}{HERE}.
 
-\newpage\subsection{Counterexample}
+Also, the first argument $\mathscr F$ doesn't have to be a sheaf, a pre-sheaf is enough. See a post \href{https://math.stackexchange.com/questions/155188/about-sheaf-hom}{HERE}.
+
+\subsection{Counterexample}
+
+I'll add some details to the first example mentioned in the \href{https://math.stackexchange.com/questions/16203/why-doesnt-hom-commute-with-taking-stalks}{post} linked above.
+
 \begin{proof}
 	For any $U\subset X$, where $\mathscr F$ is skycraper sheaf at $p\in X$ with value group $A$ and $\mathscr G$ is a constant sheaf on topological space $X$ with value group $A$. We claim that 
 	\[\mathcal Hom (\mathscr F,\mathscr G)(U)=\operatorname{Mor}(\mathscr F\mid_U,\mathscr G\mid_U)=0\] as an Abelian group for arbitrary $U\subset X$. 
@@ -252,18 +257,27 @@ See Stefan's notes on Page 18 for a concrete example \href{https://www.math.toro
 % https://q.uiver.app/#q=WzAsNCxbMSwwLCJcXG1hdGhzY3IgRyhVXzApPUEiXSxbMCwwLCJcXG1hdGhzY3IgRihVXzApIl0sWzAsMSwiXFxtYXRoc2NyIEYoVik9MCJdLFsxLDEsIlxcbWF0aHNjciBHKFYpIl0sWzEsMCwiXFxhbHBoYShVKSJdLFsxLDIsIlxcb3BlcmF0b3JuYW1le1Jlc31fe1VfMFZ9IiwyXSxbMiwzXSxbMCwzXV0=
 \[\begin{tikzcd}
 	{\mathscr F(U_0)} & {\mathscr G(U_0)=A} \\
-	{\mathscr F(V)=0} & {\mathscr G(V)}
+	{\mathscr F(V)=0} & {\mathscr G(V)=\oplus A}
 	\arrow["{\alpha(U)}", from=1-1, to=1-2]
 	\arrow["{\operatorname{Res}_{U_0V}}"', from=1-1, to=2-1]
 	\arrow[from=2-1, to=2-2]
 	\arrow[from=1-2, to=2-2]
 \end{tikzcd}\]
-
+Notice that we assumed $U_0$ to connected, therefore $\mathscr G(U_0)=A$ is composed of single one copy of $A$. While $\mathscr G(V)=\oplus_{j\in J} A$ for some index set $J$.
 We claim that $\mathscr G(U_0)\to \mathscr G(V)$ is an injection: 
 \begin{itemize}
-	\item ?
-\end{itemize} Therefore by commutativity of the diagram we know $\alpha(U_0)=0$ as expected.
-
+	\item We claim that the map is in fact diagonal map by considering the following commutative diagram 
+	% https://q.uiver.app/#q=WzAsNCxbMCwwLCJhXFxpbiBcXG1hdGhzY3IgRyhVXzApIl0sWzAsMSwiXFxhbWFsZ197cFxcaW4gVV8wfVxcbWF0aHNjciBHX3A9XFxhbWFsZ197cFxcaW4gVV8wfUEiXSxbMSwwLCIoYSxhLC4uLixhKVxcaW5cXG1hdGhzY3IgRyhWKSJdLFsxLDEsIlxcYW1hbGdfe3BcXGluIFZ9QSJdLFswLDEsIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoiYm90dG9tIn19fV0sWzIsMywiIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoiaG9vayIsInNpZGUiOiJib3R0b20ifX19XSxbMCwyXSxbMywxLCIiLDEseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6ImJvdHRvbSJ9fX1dXQ==
+\[\begin{tikzcd}
+	{a\in \mathscr G(U_0)} & {(a,a,...,a)_{j\in J}\in\mathscr G(V)} \\
+	{\amalg_{q\in U_0}\mathscr G_q=\amalg_{q\in U_0}A} & {\amalg_{q\in V}A}
+	\arrow[hook', from=1-1, to=2-1]
+	\arrow[hook', from=1-2, to=2-2]
+	\arrow[from=1-1, to=1-2]
+	\arrow[hook', from=2-2, to=2-1]
+\end{tikzcd}\]
+	Because the map from $\mathscr G(U_0)\to \amalg_{q\in U_0}\mathscr G_q=\amalg_{q\in U_0}A$ is the diagonal map, therefore the map we considering must factor through it. Hence it could only be the diagonal map, with index set $J$. 
+\end{itemize} Therefore by commutativity of the diagram together with the injectivity of the above map we can conclude $\alpha(U_0)=0$ as expected.
 
 \end{proof}
 
@@ -274,3 +288,245 @@ We claim that $\mathscr G(U_0)\to \mathscr G(V)$ is an injection:
 	The Abelian group structure on $\mathcal Hom(\mathscr F,\mathscr G)(U)$ is given by defining 
 	\[\alpha+\beta (U):\mathscr F(U)\to \mathscr G(U) ~ x\mapsto \alpha(U)x+\beta(U)x\] for two natrual transformations $\alpha,\beta\in \mathcal Hom(\mathscr F,\mathscr G)(U)$. Notice that $\alpha+\beta$ is indeed a natural transformation, because it's compatible with restriction maps, which we could check by definition... 
 	Element $0\in \mathcal Hom(\mathscr F,\mathscr G)(U)$ is just a natural transformation sends everything to $0\in \mathscr G(U)$.
+
+
+\section{2.3.D.}
+
+\subsection{(a)}
+
+Since the stalk doesn't commute with sheaf hom, I guess it could be more complicated to compute the stalk for sheaf hom $\mathcal Hom$. So I'll check two functors are isomorphic in terms of \textit{natural transformation}. 
+
+Let $\mathscr C:=\underline{\{p\}}$ denotes the constant sheaf with value set $\{p\}$.
+Firstly, by definition we know for any open subset $U\subset X$
+\begin{align*}
+	\mathcal Hom (\mathscr C,\mathscr F)(U) =&~ \operatorname{Mor}(\mathscr C\vert_U,\mathscr F\vert_U).
+\end{align*}
+Pick any element $\alpha\in\operatorname{Mor}(\mathscr C\vert_U,\mathscr F\vert_U)$, which is a natural transformation. 
+
+Endow $\{p\}$ with discrete topology. 
+For any open subset $V_1\subset U$, we have set map $\alpha(V_1)$
+% https://q.uiver.app/#q=WzAsMixbMCwwLCJmXFxpblxcbWF0aHNjciBDXFxtaWRfVShWXzEpPVxcbWF0aHNjciBDKFZfMSkiXSxbMSwwLCJcXG1hdGhzY3IgRlxcbWlkX1UoVl8xKT1cXG1hdGhzY3IgKFZfMSkiXSxbMCwxXV0=
+\[\begin{tikzcd}
+	{\alpha(V_1):~\mathscr C\vert_U(V_1)=\mathscr C(V_1)} & {\mathscr F\vert_U(V_1)=\mathscr F(V_1)}
+	\arrow[from=1-1, to=1-2].
+\end{tikzcd}\]
+The domain only contains one element: the set is all continuous map from some open subset in $V_1$ to $\{p\}$, hence there's only such function and we denote it as $f$. It follows that the map is completely determined by where $f$ goes, $\alpha(V_1)$ could be identified with an element in $\mathscr F(V_1)$. In particular, for any $\alpha\in\operatorname{Mor}(\mathscr C\vert_U,\mathscr F\vert_U)$, $\alpha\in \mathscr F(U)$, and 
+\[\mathcal Hom (\mathscr C,\mathscr F)(U) = \operatorname{Mor}(\mathscr C\vert_U,\mathscr F\vert_U)= \mathscr F(U)\] for any $U\subset X$, notice that it's in fact set-theorically bijection, hence it's a natural isomorphism and therefore two functors are isomorphic as expected. \todo{Need to verify}
+
+\subsection{References}
+
+A potentially related post \href{https://math.stackexchange.com/questions/3755492/isomorphism-of-hom-sheaf}{HERE}.
+
+\section{2.3.E.}
+
+\begin{itemize}
+
+\item Diagram Chase: ?
+
+\item Universal Property: According to Definition 1.6.4., Kernel was defined using universal property. Therefore we can use universal property of $\operatorname{Ker}(\phi(U))$ to deduce the unique existence of such map for $\operatorname{Ker}(\phi(V))\to \mathscr G(U)=0$.
+\end{itemize}
+
+\section{2.3.G. 2.3.H.}
+
+Notice that we're talking about pre-sheaves here. Hence these properties are satisfied by definition\dots
+
+\section{2.3.J.}
+
+Question: wouldn't it be better if $\underline{\mathbb Z}$ is replaced by $\underline{\mathbb C}$?
+
+\subsection{References}
+
+See a post \href{https://math.stackexchange.com/questions/847367/cokernel-of-a-sheaf-morphism-not-being-a-sheaf}{HERE}.
+In fact, the quotient sheaf could be not separated, see a post \href{https://mathoverflow.net/questions/182386/is-the-cokernel-of-a-map-of-sheaves-a-seperated-presheaf}{HERE}.
+
+See a detailed lecture note \href{https://www.kth.se/polopoly_fs/1.291614.1550158503!/Menu/general/column-content/attachment/Lecture1AlgGeo.pdf}{HERE}.
+
+And a solution \href{https://math.mit.edu/~mckernan/Teaching/09-10/Autumn/18.725/model5.pdf}{HERE} and \href{https://metaphor.ethz.ch/x/2017/fs/401-3146-12L/ex/SolSheet5.pdf}{HERE}.
+
+Here's another \href{https://www.kth.se/polopoly_fs/1.291614.1550158503!/Menu/general/column-content/attachment/Lecture1AlgGeo.pdf}{example} where image presheaf might not be a sheaf.
+
+
+\section{2.4.A.}
+
+\subsection{Hint}
+See G\;ortz's book \cite{gortz2020algebraic}, page 52, Prop 2.23. (1); or Lemma 2.9. on Page 35 of \cite{qing2006algebraic}. 
+
+
+\section{2.4.2. Compatible Germs}\label{2.4.2.}
+
+See a \href{https://math.stackexchange.com/questions/2042363/compatible-germs-and-the-espace-étalé}{post} regarding compatible germs and Espace \'Etal\'e.
+
+\subsection{Two Equivalent Definitions}
+The following two definitions are equivalent:
+\begin{itemize}
+	\item \textit{Element $(s_p)_{p\in U}\in \prod_{p\in U}\mathscr F_p$ consists of compatible germs \dots }
+	\item \textit{There is an open covering $\{U_i\}$ of U, \dots}
+\end{itemize}
+\begin{proof}
+	For any $p\in U$, pick some representative of $s_p\in\mathscr F_p$ as follow: \[(U_p,\Tilde{s}_p)\]where open subset $U_p\subset U$ contains $p$ with $\Tilde s_p\in\mathscr F(U_p)$. Then we take \[\{U_p\}_{p\in U}\] as an open covering of $U$ and take corresponding sections $\Tilde s_p\in\mathscr F(U_p)$ for $p\in U$. We can check conditions for the second statement is satisfied: Clearly $p\in U_p$ and $s_p$ is the germ of $\Tilde s_p$ at $p$ for the first condition required this is true for any $q\in U_p$.
+
+	Conversely, pick any $p\in U$. We can find some $U_i$ that contains $p$ with a section $f_i\in\mathscr F(U_i)$ such that $s_p$ is the germ of $f_i$ at $p$. So we take 
+	\[(f_i\in\mathscr F(U_i),~U_p)\in\mathscr F_p\] as representative of $f_i$. Notice that germ of $f_i$ at any $q\in U_i$ is $s_q$ as expected. 
+\end{proof}
+
+\subsection{Section induces a choice of compatible germs}
+\textit{Any sections $s$ of $\mathscr F$ over $U$ gives a choice of compatible germs for $U$.}
+\begin{proof}
+	Let $s\in \mathscr F(U)$ as given and pick any open covering $\{U_i\}_{i\in I}$ of $U$ where $I$ is an index set. And define $f_i:=s\vert_{U_i}\in \mathscr F(U_i)$. Now we may assume $p\in U_i$ for some $U_i$.
+	The following diagram is commute for any $p\in U_i$, with element being the image under corresponding maps.
+	% https://q.uiver.app/#q=WzAsNixbMCwwLCJcXG1hdGhzY3IgRihVKSJdLFsxLDAsIlxcbWF0aHNjciBGKFVfaSkiXSxbMiwwLCJcXG1hdGhzY3IgRl9wIl0sWzAsMSwicyJdLFsxLDEsImZfaTo9c1xcdmVydF97VV9pfSJdLFsyLDEsInNfcCJdLFswLDFdLFsxLDJdLFszLDQsIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1hcHMgdG8ifX19XSxbMyw1LCIiLDIseyJjdXJ2ZSI6Mn1dXQ==
+\[\begin{tikzcd}
+	{\mathscr F(U)} & {\mathscr F(U_i)} & {\mathscr F_p} \\
+	s & {f_i:=s\vert_{U_i}} & {s_p}
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[maps to, from=2-1, to=2-2]
+	\arrow[curve={height=12pt}, from=2-1, to=2-3]
+\end{tikzcd}\]
+	Assume $p\in U_i$ for a fixed $i\in I$, then 
+	\[s_p=(\mathscr F(U)\to \mathscr F_p)(s)=(\mathscr F(U_p)\to \mathscr F_p)(f_i)\] by commutativity of the above diagram. Hence $s_p$ is germ of $f_i$ at $p$ as expected.
+\end{proof}
+
+\section{2.4.B.}\label{2.4.B.}
+\[\mathscr F(U)\to \prod_{p\in U}~\mathscr F_p\]
+In the last subsection of \Cref{2.4.2.}, we checked that any section will induce something called compatible germs on the left of the above map. Question is that what are the images of the above map? The following lemma will give us complete description of the image of the map above.
+
+\subsection{}
+\textit{Any choice of compatible germs is the image of a section.}
+\begin{proof}
+	I'll take the second definitions of a choice of compatible germs: there is an open cover $\{U_i\}_{i\in I}$ of $U$ where $I$ is understood as an index set, and there are sections $f_i\in\mathscr F(U_i)$ such that $s_p$ is the germ of $f_i$ at any $p\in U_i$.
+
+	
+	Let's consider two open subsets $U_i,U_j\subset U$ where $i,j\in I$ with $f_i\in \mathscr F(U_i), f_j\in\mathscr F(U_j)$. Assume $U_i\cap U_j\neq\emptyset$. Then for any $p\in U_i\cap U_j$, $s_p$ is the germ of $f_i$ and $f_j$ at $p$, i.e. 
+	\[[U_i,f_i]=s_p=[U_j,f_j]\in\mathscr F_p.\] Hence there exists open subset $W_{ij,p}\subset U_i\cap U_j$ containing $p$ such that $f_i\vert_{W_{ij,p}}=f_j\vert_{W_{ij}}$. Notice that $p\in U_i\cap U_j$ is arbitrary, therefore for any $p$ there exists some $W_{ij,p}$ (depending on $p$). And all such $\{W_{ij,p}\}_{p\in U_i\cap U_j}$ will be an open covering for $U_i\cap U_j$, by Identity Axiom we know \[f_i\vert_{U_i\cap U_j}=f_j\vert_{U_i\cap U_j}.\]
+
+	While $i,j$ were arbitrary, Gluability Axiom implies there exists $f\in\mathscr F(U)$ such that $f\vert_{U_i}=f_i$. And we can check that $f$ is indeed the preimage of the given choice of compatible germs: pick some $U_i$ containing $p$, \[f_p=(\mathscr F(U_i)\to \mathscr F_p)(f\vert_{U_i})\] Hence $f_p$ is the germ of $f_i$ at $p$. 
+
+\end{proof}
+
+\subsection{Hint}
+
+See this \href{https://math.stackexchange.com/questions/3587877/showing-that-compatible-germs-are-the-image-of-a-section}{post}.
+
+\section{2.4.C.}\label{2.4.C.}
+
+According to the hint, we have the following diagram commute for according to construction of 2.3.A.
+
+% https://q.uiver.app/#q=WzAsNCxbMCwwLCJcXG1hdGhzY3IgRihVKSJdLFsxLDAsIlxcbWF0aHNjciBHKFUpIl0sWzAsMSwiXFxwcm9kX3twXFxpbiBVfVxcbWF0aHNjciBGX3AiXSxbMSwxLCJcXHByb2Rfe3BcXGluIFV9XFxtYXRoc2NyIEdfcCJdLFswLDEsIlxccGhpXzEoVSkiLDAseyJvZmZzZXQiOi0xfV0sWzAsMSwiXFxwaGlfMihVKSIsMix7Im9mZnNldCI6MX1dLFsxLDMsIlxcaW90YSIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn19fV0sWzIsMywiXFxQaGkiLDIseyJvZmZzZXQiOjF9XSxbMCwyLCJcXHBpIiwyLHsib2Zmc2V0IjotMX1dXQ==
+\[\begin{tikzcd}
+	{\mathscr F(U)} & {\mathscr G(U)} \\
+	{\prod_{p\in U}\mathscr F_p} & {\prod_{p\in U}\mathscr G_p}
+	\arrow["{\phi_1(U)}", shift left, from=1-1, to=1-2]
+	\arrow["{\phi_2(U)}"', shift right, from=1-1, to=1-2]
+	\arrow["\iota", hook, from=1-2, to=2-2]
+	\arrow["\Phi"', shift right, from=2-1, to=2-2]
+	\arrow["\pi"', shift left, from=1-1, to=2-1]
+\end{tikzcd}\]
+
+Hence we have 
+\begin{align*}
+	\iota\circ\phi_1(U)=\Phi\circ\pi=\iota\circ\phi_2(U)
+	~\Rightarrow~ \phi_1(U)=\phi_2(U)
+\end{align*}for $\iota$ is injective. 
+
+\section{2.4.D.}
+
+See Hartshorne \cite{hartshorne2013algebraic} Chapter II, Proposition 1.1.
+
+\subsection{Warning}
+
+It could happen that two non-isomorphic sheaves have isomorphic stalks. See Sheaf Hom \Cref{2.3.C.} regarding skycraper sheaf and constant sheaf. 
+
+See a post \href{https://math.stackexchange.com/questions/43314/failure-of-isomorphisms-on-stalks-to-arise-from-an-isomorphism-of-sheaves}{HERE}.
+
+\section{2.4.E.}
+
+\subsection{(a)}
+
+Pick a non-separated presheaf: See Stacks Project Definition \href{https://stacks.math.columbia.edu/tag/0078}{007A}\todo{?} 
+
+\href{https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwit-uamm8WEAxUoHTQIHf3_AbwQFnoECA4QAw&url=https%3A%2F%2Fmath.stackexchange.com%2Fquestions%2F1904223%2Fexample-of-a-gluable-unseparated-presheaf%23%3A~%3Atext%3DSuppose%2520Y%2520admits%2520a%2520non%2Cequal%252C%2520but%2520not%2520globally%2520equal.&usg=AOvVaw1IZBw2qkgpiNTBtY1d9HpB&opi=89978449}{Here} is an example of gluable unseparated presheaf.
+
+See a \href{https://math.stackexchange.com/questions/323466/example-of-a-section-s-of-a-presheaf-mathcalf-which-is-not-determined-by}{post} discussing two examples where section isn't determined by stalks.
+
+\subsection{(b)}
+
+For \Cref{2.4.C.}, it's important to assume $\mathscr G$ is a sheaf. 
+
+See the answer by Andreas Blass \href{https://math.stackexchange.com/questions/323466/example-of-a-section-s-of-a-presheaf-mathcalf-which-is-not-determined-by}{HERE}.
+For two pre-sheaves $\mathscr F,\mathscr G$, we might encounter a counterexample as follows:
+
+\textit{Let $X=\{p,q\}$ be a discrete topological space with two points. Define two pre-sheaves $\mathscr F,\mathscr G$ on $X$ with values in set $\{0,1\}$.}
+We specify two pre-sheaves as follow: 
+\begin{center}
+	\begin{tabular}{ |c|c|c|c|c| }
+		\hline
+		$U\subset X$ & $\{p,q\}$ & $\{p\}$ & $\{q\}$ & $\emptyset$\\
+		\hline
+		$\mathscr F(U)$ & $\{0,1\}$ & $\{0\}$ & $\{0\}$ & $\{0\}$ \\
+		\hline
+		$\mathscr G(U)$ & $\{0,1\}$ & $\{1\}$ & $\{1\}$ & $\{1\}$\\
+		\hline
+	\end{tabular}
+\end{center} where the restriction maps for $\mathscr F$ and $\mathscr G$ are the only possible ones. Now we wish to define two different morphism of sheaves $\alpha,\beta:\mathscr F\to\mathscr G$ as natural transformations. For all open subsets except $U=\{p,q\}$, we have 
+\[\alpha(U)=\beta(U):\{0\}\to\{1\}.\]
+The place we intentionally make them different is when $U=\{p,q\}$:
+\begin{align*}
+	\alpha(U)&:\{0,1\}\to \{0,1\} ~\text{ by }~ 0\mapsto 0,~ 1\mapsto 1;\\
+	\beta(U)&:\{0,1\}\to \{0,1\} ~\text{ by }~ 0\mapsto 1,~ 1\mapsto 0.
+\end{align*}
+Clearly as morphisms $\alpha\neq\beta$. But we have 
+\begin{align*}
+	\alpha_p\times\alpha_q:~ \prod_{x\in \{p,q\}}\mathscr F_x &\to \prod_{x\in\{p,q\}} \mathscr G_x\\ 
+	\{0\}\times\{0\} &\mapsto\{1\}\times\{1\}.
+\end{align*}
+
+But notice that there's only \textbf{one} choice of induced morphism between $\mathscr F_x\to\mathscr G_x$ for any $x\in X=\{p,q\}$. This means, even if we're given another different maps $\beta$, it will induce the same map on stalks.\todo{?}
+
+
+
+\subsection{(c)}
+
+Take a pre-sheaf $\mathscr F$ (on space $X$) that is not a sheaf. For example, constant pre-sheaf. We know the stalk of its sheafification at any $p\in X$ is 
+\[\mathscr F_p=\mathscr F^{\sharp}_p.\]
+
+\section{2.4.O.}
+
+A post \href{https://math.stackexchange.com/questions/58306/examples-of-surjective-sheaf-morphisms-which-are-not-surjective-on-sections}{HERE}, \href{https://math.stackexchange.com/questions/232049/surjectivity-of-morphisms-of-sheaves-on-a-base}{HERE}.
+
+Another related \href{https://math.stackexchange.com/questions/3939622/example-of-isomorphic-sheaves-whose-sections-arent-isomorphic}{post} explaining isomorphic sheaves will give rise to injective and surjective maps on sections, this does not contradict the fact that surjectivity of morphism of sheaves cannot have analogus statement on sections.
+
+See Richard on YouTube, Scheme Lecture 03 last example. Let $U=\mathbb C\setminus \{0\}$ with classical topology. 
+\[\mathscr O_X(U)\to\mathscr O_X^{\ast}(U)\] is not surjective for $x\in\mathscr O_X^{\ast}(U)$ doesn't admits a holomorphic log for $f(0)=0$ while exponential function can never be $0$. Because we cannot find $log x$ as a holomorphic function on $\mathbb C$.
+
+\subsection{Complex analysis background}
+
+See a note \href{https://math.berkeley.edu/~vvdatar/m185f16/notes/Lecture-15_Logarithm.pdf}{HERE}. 
+A post \href{https://math.stackexchange.com/questions/1803352/why-cant-we-define-a-branch-of-log-fz-in-the-whole-complex-plane}{HERE}.
+
+\section{2.5.1.}
+
+\subsection{Remarks}
+
+We can also define, for general open subset by taking limit: see comments of \href{https://stacks.math.columbia.edu/tag/009H}{009H} by \cite{stacks-project}; and \cite{gortz2020algebraic} Proposition 2.20. on Page 51 with discussion above it.
+
+\section{2.5.B.}
+
+\begin{proof}
+	...	
+\end{proof}
+
+\subsection{Another Proof}
+
+\begin{proof}
+A potentially wrong\todo{?} approach is to recognise that, in the definition of $\mathscr F(U)$: we set 
+\[\mathscr F(B):=\{(f_p\in F_p)_{p\in B} ~\mid~ \star\}.\]
+The condition $\star$ is exactly the definition of compatible germs. While $F(B)$ could be identified with it's image in an injective map
+\[F(B)\to \prod_{p\in B}F_p.\]
+We proved in \Cref{2.4.B.} that the image is precisely the compatible germs, therefore we must have they're isomorphic.
+\end{proof}
+
+\subsection{Remarks}
+
+In fact, for sheaf on base $F$, the map
+\[F(U)\to\prod_{p\in U}F_p\] is injective. The proof is essentially the same as for sheaf on $X$.
