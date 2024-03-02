@@ -85,3 +85,43 @@ Here the second rows will induce, by exactness of localisation
 And this concludes the desired isomorphism. One crutial observation I missed was $(xy)_x=(y)_x$.
 
 \end{proof}
+
+\section{3.2.T.}
+
+I guess it's\todo{?} 
+\[f(x+\epsilon)=f(x)+\epsilon f'(x)\in k[x,\epsilon]/(\epsilon^2)\]
+
+\section{3.5.E.}\label{3.5.E.}
+
+Notice that 
+\begin{align*}
+	D(f) \subset D(g) &~\Leftrightarrow~ V(\langle f\rangle)\supset V(\langle g\rangle)\\
+	\Leftrightarrow~ f\in \sqrt{\langle f\rangle}\subset \sqrt{\langle g\rangle} &~\Rightarrow~ f^n\in\langle g\rangle ~\text{ for some }~ n\geq 1.
+\end{align*}In fact, if we have $f^n\in \langle g\rangle$ for some integer $n$, then \[f\in \sqrt{\langle g\rangle} ~\Rightarrow~ \langle f\rangle \subset \sqrt{\langle g\rangle} ~\Rightarrow~ \sqrt{\langle f\rangle}\subset\sqrt{\langle g\rangle}.\] Hence the equivalence of the first two statements are checked. 
+
+Now if we assume $f^n\in\langle g\rangle$ for some integer $n$, then $cg=f^n$ for some $c\in A$. Hence 
+\[\frac{g}{1}\cdot \frac{c}{f^n}=1,\] which means $g$ is an invertible element of $A_f$. Conversely, $g$ being an invertible element in $A_f$ means there exists $a/f^m$ such that 
+\[g/1\cdot a/f^m=ga/f^m=1/1\in A_f ~\Rightarrow~ f^{l}(ga-f^m)=0\in A\] for some integers $l,m$. Hence take $n:=l+m$ leads to $f^lf^m=f^lga\in \langle g\rangle$.
+
+\subsection{References}
+
+Checked at Lemma \href{https://stacks.math.columbia.edu/tag/01HR}{01HR} of \cite{stacks-project}.
+
+
+\section{3.6.6.}
+
+
+This is related to the counterexample \Cref{4.3.E.}.
+
+The inclusion map is given by universal property of coproduct:
+for a fixed $i\in I$, we have a continuous projection $\pi_i:\prod_{j\in\mathbb N}A_i\to A_i$ which induces $\operatorname{Spec}A_i\to \operatorname{Spec}\prod_{j\in\mathbb N}A_i$. More explicitly, this map on topological spaces is defined by taking pre-image of a prime ideal. Two distinct prime ideals $\mathfrak p,\mathfrak q\triangleleft A_i$ will give rise to different pre-image of prime ideals. Hence this map is injective.\todo{?} And this induces, by universal property of coproduct i.e. disjoint union of two topological spaces, a map \[\amalg_{j\in\mathbb N}\operatorname{Spec}A_i \to \operatorname{Spec}\prod_{j\in\mathbb N}A_i.\] This map is injective for the inclusion from $\operatorname{Spec}A_i\to\amalg_{j\in\mathbb N}A_j$ is injective, the commutative diagram proves the injectivity.
+
+% https://q.uiver.app/#q=WzAsMyxbMCwwLCJcXG9wZXJhdG9ybmFtZXtTcGVjfUFfaiJdLFsxLDEsIlxcb3BlcmF0b3JuYW1le1NwZWN9XFxwcm9kX3tqXFxpbiBcXG1hdGhiYiBOfUFfaiJdLFsxLDAsIlxcYW1hbGdfe2pcXGluXFxtYXRoYmIgTn1cXG9wZXJhdG9ybmFtZXtTcGVjfUFfaiJdLFswLDIsIiIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn19fV0sWzAsMSwiIiwyLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoiaG9vayIsInNpZGUiOiJ0b3AifX19XSxbMiwxLCIiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6InRvcCJ9fX1dXQ==
+\[\begin{tikzcd}
+	{\operatorname{Spec}A_j} & {\amalg_{j\in\mathbb N}\operatorname{Spec}A_j} \\
+	& {\operatorname{Spec}\prod_{j\in \mathbb N}A_j}
+	\arrow[hook, from=1-1, to=1-2]
+	\arrow[hook, from=1-1, to=2-2]
+	\arrow[hook, from=1-2, to=2-2]
+\end{tikzcd}\]
+

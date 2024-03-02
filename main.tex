@@ -8,7 +8,7 @@
 \usepackage{indentfirst}
 \usepackage{import}
 \usepackage{eurosym}
-\usepackage{quiver}
+\usepackage{Style/quiver} % for tikz diagram
 \usepackage{tikz,tikz-cd}
 \usepackage{xcolor}
 \usepackage{multirow}
@@ -17,18 +17,21 @@
 \usepackage[tikz]{ocgx2} 
 %see here:  https://tex.stackexchange.com/questions/520455/how-to-hide-some-text-until-the-reader-clicks-on-it
 
-
 % See here: https://tex.stackexchange.com/questions/8458/making-the-bibliography-appear-in-the-table-of-contents
 % this is for displaying bibliography in tableOfContents
 \usepackage[nottoc,numbib]{tocbibind}
-
 
 % Bibliography, see here: 
 % https://www.overleaf.com/learn/latex/Bibliography_management_in_LaTeX
 %\usepackage[backend=biber,style=alphabetic,sorting=ynt]{biblatex}
 %\addbibresource{bibliography.bib}
 
-
+\newcommand{\spec}{\operatorname{Spec}}
+\newcommand{\colim}{\operatorname{colim}}
+%\newcommand{\lim}{\operatorname{Lim}}
+\newcommand{\supp}{\operatorname{Supp}}
+\newcommand{\ass}{\operatorname{Ass}}
+\newcommand{\ann}{\operatorname{Ann}}
 
 % todo comments, see here:
 % http://tug.ctan.org/macros/latex/contrib/todonotes/todonotes.pdf
@@ -41,6 +44,9 @@
 \setuptodonotes{fancyline, color=orange!60}
 \graphicspath{ {./images/} }
 
+\usepackage{makeidx}
+\makeindex % see here: https://www.overleaf.com/learn/latex/Management_in_a_large_project
+
 \title{Notes Algebraic Geometry}
 \author{runchitan }
 \date{September 2023}
@@ -48,6 +54,7 @@
 \begin{document}
 
 %\maketitle
+
 \tableofcontents
 
 \newpage\subimport{texFiles/}{Notes.tex}
@@ -65,6 +72,7 @@
 \subimport{texFiles/02 Ravi Vakil/}{Chapter 1.tex}
 \subimport{texFiles/02 Ravi Vakil/}{Chapter 2.tex}
 \subimport{texFiles/02 Ravi Vakil/}{Chapter 3.tex}
+\subimport{texFiles/02 Ravi Vakil/}{Chapter 4.tex}
 
 \newpage\part{Algebraic Geometry and Arithmetic Curves Qing Liu}
 \subimport{texFiles/03 Qing Liu/}{Chapter 1.tex}
@@ -73,7 +81,8 @@
 \newpage\part{Gathmann}
 \subimport{texFiles/04 Gathmann/}{Chapter 2.tex}
 
-\newpage\bibliographystyle{plain}
+
+\bibliographystyle{plain}
 \bibliography{bibliography.bib}
 
 \end{document}

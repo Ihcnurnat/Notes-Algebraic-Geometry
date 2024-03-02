@@ -1,0 +1,134 @@
+\section{4.1.1. Definition: Structure Sheaf on Base}
+
+As stated, we define 
+\begin{align*}
+    \mathscr O_{\operatorname{Spec} A}(D(f)) :=&~ S_{D(f)}^{-1}A\\
+    :=&~ \{g\in A ~\mid~ V(g)\subset V(f)\}^{-1}A.
+\end{align*} This is well-define, i.e. independent of the choice $f$ because when we have $D(f')=D(f)$, the localisation will be the same. 
+
+Also, we claim $S_{D(f)}$ is indeed a multiplicatively closed subset of $A$: 
+\begin{itemize}
+    \item $1\in S_{D(f)}$ for $V(1)=\emptyset\subset V(f)$ for any choice of $f\in A$.
+    \item Assume $g_1,g_2\in S$, then \[D(f)\subset D(g_1g_2)=D(g_1)\cap D(g_2) ~\Rightarrow~ V(g_1g_2)\subset V(f).\]
+\end{itemize}
+
+\section{Definition of Restriction Map}
+
+Here are some remarks for the restriction map. 
+Notice that we have 
+\[D(f')\subset D(f) ~\Rightarrow~ S_{D(f)}^{-1}\subset S_{D(f')}.\]
+Hence the restriction is just inclusion map.\todo{?}
+
+\subsection{References}
+
+The map is given explicitly on Page 4 on the \href{https://www.dam.brown.edu/people/mumford/alg_geom/papers/AGII.pdf}{BOOK}.
+
+\section{4.1.A.}
+
+% https://q.uiver.app/#q=WzAsMyxbMSwwLCJBIl0sWzAsMSwiQV9mIl0sWzIsMSwiU197RChmKX1eey0xfUE9XFxtYXRoc2NyIE9fe1xcb3BlcmF0b3JuYW1le1NwZWN9QX0oRChmKSkiXSxbMCwxLCJcXGFscGhhIiwyXSxbMCwyLCJcXGJldGEiXSxbMSwyLCJcXGV4aXN0ICEiLDIseyJjdXJ2ZSI6MSwic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzIsMSwiXFxleGlzdHMgISIsMix7ImN1cnZlIjoxLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=
+\[\begin{tikzcd}
+	& A \\
+	{A_f} && {S_{D(f)}^{-1}A=\mathscr O_{\operatorname{Spec}A}(D(f))}
+	\arrow["\alpha"', from=1-2, to=2-1]
+	\arrow["\beta", from=1-2, to=2-3]
+	\arrow["{\exists !}"', curve={height=6pt}, dashed, from=2-1, to=2-3]
+	\arrow["{\exists !}"', curve={height=6pt}, dashed, from=2-3, to=2-1]
+\end{tikzcd}\]
+
+Here $\alpha,\beta$ denotes the localisation map. For $\beta$, we have $f\in S_{D(f)}$ for $V(f)\subset V(f)$. Since it's a multiplicatively closed set, then 
+\begin{align*}
+	\beta(\{1,f,f^2,...\})\subset (S_{D(f)}^{-1}A)^{\times} 
+\end{align*} will become units, therefore by universal property of $A_f$ there exists a unique map from $A_f$ to $S_{D(f)}^{-1}A$ making the diagram commute. 
+
+Conversely, by Exercise 3.5.E. \Cref{3.5.E.}, while $V(g)\subset V(f)~\Rightarrow~D(f)\subset D(g)$, then $g$ is invertible in $A_f$. Hence 
+\begin{align*}
+	\alpha(S_{D(f)})=&~\{\alpha(g) ~\mid~ g\in S_{D(f)}\}\subset (A_f)^{\times}
+\end{align*} and by universal property we can factor uniquely through $A_f$ to $\mathscr O_{\operatorname{Spec}A}(D(f))$. Their composition must be identity hence we're done.
+
+\subsection{References}
+
+See \cite{gortz2020algebraic} (2.10) on Page 59 for details.
+
+\section{4.1.B.}
+See next section \Cref{4.1.C.}
+
+\section{4.1.C.}\label{4.1.C.}
+
+See KEY LEMMA 1.13. on Page 5 of a book \href{https://www.dam.brown.edu/people/mumford/alg_geom/papers/AGII.pdf}{HERE}. 
+
+Previously we proved that for arbitrary $i,j$ \[g_j^M\cdot b'_i=g_i^M\cdot b'_j.~\star\]
+In this lemma, the final equality is given by the following: let $f^k=\sum_{i\in I} a'_ig_i^M$ for some index set $I$ and denote $b=\sum_{i\in I}a'_jb'_j$. For a fixed $i\in I$ with $j\in J$ arbitrary, we have
+\begin{align*}
+	g_i^Mb =&~ g_i^M\left(\sum_{j\in I} a'_jb'_j\right)\\
+		=&~ \left(\sum_{j\in I} a'_jg_i^Mb'_j\right)\\
+		=&~ \left(\sum_{j\in I} a'_jg_j^Mb'_i\right) ~\text{ by applying } \star\\
+		=&~ \left(\sum_{j\in I} a'_jg_j^M\right)b'_i=f^kb'_i.
+\end{align*}
+
+\section{4.1.D.}\label{4.1.D.}
+
+\subsection{Hint}
+See Def \href{https://stacks.math.columbia.edu/tag/01HR}{01HT} of \cite{stacks-project}, in which a lemma \href{https://stacks.math.columbia.edu/tag/00CR}{00CR} build connection between localisation and colimit. For this lemma, see also "A Term"... 
+
+For relations between colimit and localisation, see this \href{https://math.stackexchange.com/questions/664471/representing-localization-as-a-direct-limit}{post}.
+
+\section{4.1.E.}\label{4.1.E.}
+
+See \Cref{4.1.D.}
+
+\section{4.1.F.}\label{4.1.F.}
+
+(a) See Atiyah \cite{atiyah1994introduction} Chapter 3 Local Property.
+
+(b) By 2.4.A. and \Cref{4.1.E.}, we have sheaf $\widetilde M$. According to Lemma \href{https://stacks.math.columbia.edu/tag/01HR}{01HV} (2), we have an injection
+\begin{align*}
+	\widetilde M (\mathcal O_{\operatorname{Spec}A})=M \to \prod_{[\mathfrak p]\in \operatorname{Spec}A} \widetilde M_{[\mathfrak p]}=\prod_{\mathfrak p\in\operatorname{Spec}A}M_{\mathfrak p}.
+\end{align*} 
+
+\section{4.3.A.}\label{4.3.A.}
+
+See Hartshorne \cite{hartshorne2013algebraic}?
+
+\section{4.3.B.}\label{4.3.B.}
+\section{4.3.C.}
+\section{4.3.D.}
+
+By definition of a scheme, we know the union of all affine open subschemes will cover the scheme. 
+
+Given two affine open $(X_1,\mathcal O_{X_1}), (X_2,...)$. For any point $p\in X_1\cap X_2$, we know there exists an open neighborhood $U$ such that $p\in U\subset X_1\cap X_2$ given both $X_1,X_2$ are open. While we know distinguish sets form a base, there exists some \[p\in D(f)\subset U\subset X_1\cap X_2.\] And by \ref{4.3.B.} or \ref{Hart Ex 2.1.} we know $D(f)$ is an affine open as expected. 
+
+Therefore we've checked that affine opens form a base for Zariski topology.\todo{?}
+
+\section{4.3.E.}\label{4.3.E.}
+
+The topology on $\amalg X_i$ is box topology or product topology? I guess product topology\dots See a \href{https://math.stackexchange.com/questions/871610/why-are-box-topology-and-product-topology-different-on-infinite-products-of-topo}{post} regrading box topology and product topology.
+
+\subsection{(a)}
+
+Assume $I$ is a finite index set. For each $i\in I$, we have an affine scheme $(X_i,\mathcal O_{X_i})$ where $X_i=\operatorname{Spec}A_i$ for some ring $A_i$. According to Exercise 3.6.A, we denote $A=\prod_{i\in I}A_i$. While we proved in \cite{hartshorne2013algebraic} Chap II Exercise 1.9. \ref{Hart Ex 1.9.}. that finite number of direct sum of sheaves is again a sheaf. We claim that
+\[(\amalg_{i\in I} X_i,\oplus_{i\in I}\mathcal O_{X_i})\simeq (\operatorname{Spec}(A),\mathcal O_{\operatorname{Spec}A}).\]
+Exercise 3.6.A. checked two topological spaces are homeomorphic via $\pi:\amalg_{i\in I} X_i\to \operatorname{Spec}A$. It remains to check isomorphism of sheaves 
+\[\mathcal O_{\operatorname{Spec}A}\to\pi_{\ast}(\oplus_{i\in I}\mathcal O_{X_i}).\]
+
+The map on sheaves is given by free if we assume Chap II Proposition 2.3. of \cite{hartshorne2013algebraic} and its counterpart statement (which is slightly stronger) in here \ref{4.3.A.}. Basic idea is that we have homeomorphism of two topological spaces, then apply the theorem, which will give us a unique morphism of sheaves. Do this conversely...
+
+\subsection{(b)}
+
+Suppose index set $I$ is infinite. Assume for the sake of contradiction that $\amalg_{i\in I}X_i\simeq \operatorname{Spec}A$ for some ring $A$. Quasi-compact is preserved by homeomorphism, the $\operatorname{Spec}A$ is quasi-compact, but I claim the left hand side is not quasi-compact.\todo{?} 
+
+See 3.6.6.
+
+\subsection{References}
+
+See \href{https://math.stackexchange.com/questions/778440/spectrum-of-a-product-of-rings-isomorphic-to-the-product-of-the-spectra}{post} regarding some concrete counterexamples.
+
+Verification for part (a), \href{https://math.stackexchange.com/questions/321018/why-is-the-disjoint-union-of-a-finite-number-of-affine-schemes-an-affine-scheme#:~:text=We%20know%20that%20the%20disjoint,space%20is%20not%20quasi%2Dcompact.}{post}.
+
+For non-compactness of (b). See a solution \href{https://metaphor.ethz.ch/x/2017/fs/401-3146-12L/ex/SolSheet6.pdf}{HERE} by Pink. See \href{https://math.stackexchange.com/questions/3038162/proving-mathbbn-is-not-compact}{post}, then we know the space in (b) is not quasi-compact because we can choose a covering in which each open subset $U_i=A\times\cdot\times B_i\times \cdot A$ where $B_i\subsetneq A_i$. It cannot reduce to a finite sub-cover.
+
+See \href{https://stacks.math.columbia.edu/tag/00ED}{Tag 00ED}, \href{https://stacks.math.columbia.edu/tag/01I5}{Lemma 01I5} for more rigorous approach to (a).
+
+
+\section{4.4.A.}
+
+Suppose we're given schemes $(X_i,\mathcal O_{X_i})$ indexed by $i\in I$. 

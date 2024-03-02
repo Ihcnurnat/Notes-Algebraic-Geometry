@@ -499,6 +499,8 @@ Another related \href{https://math.stackexchange.com/questions/3939622/example-o
 See Richard on YouTube, Scheme Lecture 03 last example. Let $U=\mathbb C\setminus \{0\}$ with classical topology. 
 \[\mathscr O_X(U)\to\mathscr O_X^{\ast}(U)\] is not surjective for $x\in\mathscr O_X^{\ast}(U)$ doesn't admits a holomorphic log for $f(0)=0$ while exponential function can never be $0$. Because we cannot find $log x$ as a holomorphic function on $\mathbb C$.
 
+See a very detailed solution \href{https://www2.math.ethz.ch/education/bachelor/lectures/fs2016/math/alg_geom/Solution12.pdf}{HERE}.
+
 \subsection{Complex analysis background}
 
 See a note \href{https://math.berkeley.edu/~vvdatar/m185f16/notes/Lecture-15_Logarithm.pdf}{HERE}. 
@@ -530,3 +532,18 @@ We proved in \Cref{2.4.B.} that the image is precisely the compatible germs, the
 
 In fact, for sheaf on base $F$, the map
 \[F(U)\to\prod_{p\in U}F_p\] is injective. The proof is essentially the same as for sheaf on $X$.
+
+\section{2.7.A.}
+
+I couldn't give a complete example \dots
+
+\subsection{Solution}
+
+A \href{https://math.stackexchange.com/questions/439769/inverse-image-presheaf}{post} on inverse image presheaf.
+
+\textit{Let $X=\{p,q\}, Y=\{w\}$ with discrete topolgoy. Let $\mathscr G$ be a constant sheaf on $Y$ with value group $A$ which contains at least two elements. Compute inverse image presheaf.}
+\begin{proof}
+	For any $U\subset X$, we have 
+	\[\pi_{\text{pre}}^{-1}\mathscr F(U)=\operatorname{Colim}_{V\supset \pi(U)=\{w\}}\mathscr G(V)=\operatorname{Colim}_{V=\{w\}}\mathscr G(V)=A.\]
+	Hence it's the inverse image pre-sheaf $\pi_{\text{pre}}^{-1}\mathscr F$ is a constant pre-sheaf. It's not a sheaf for exactly the same reason constant pre-sheaf isn't a sheaf for failure of gluability.\todo{?}
+\end{proof}
