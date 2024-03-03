@@ -129,7 +129,7 @@ For non-compactness of (b). See a solution \href{https://metaphor.ethz.ch/x/2017
 See \href{https://stacks.math.columbia.edu/tag/00ED}{Tag 00ED}, \href{https://stacks.math.columbia.edu/tag/01I5}{Lemma 01I5} for more rigorous approach to (a).
 
 
-\section{4.4.A.}
+\section{4.4.A.}\label{4.4.A.}
 
 Suppose we're given schemes $(X_i,\mathcal O_{X_i})$ indexed by $i\in I$.
 
@@ -141,3 +141,13 @@ Then we define
 From a special case of $S$-scheme, \cite{qing2006algebraic} Lemma 3.33 of Chapter 2 on Page 49.
 
 From \href{https://stacks.math.columbia.edu/tag/01JA}{Section 01JA} of \cite{stacks-project} on Glueing Schemes.
+
+\subsection{Cocycle Condition}
+Given Cocycle Condition, we claim that both "inverse" and "identity" requirements are redundent. 
+\begin{itemize}
+
+\item For "identity": let all index to be $i$
+\item For "inverse": See the diagram (2) of \href{https://stacks.math.columbia.edu/tag/01JA}{Tag 01JA}, we simply let $k=i$, which will give us $\varphi_{ji}\circ\varphi_{ij}=\operatorname{id}_{U_{ij}}$. Swap $i,j$ will give us another equality, hence we must have $\varphi_{ij}=\varphi{ji}^{-1}$.
+\end{itemize}
+
+For confirmation, see \cite{gortz2020algebraic} Definition 3.9. on Page 71.
