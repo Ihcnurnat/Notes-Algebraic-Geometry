@@ -114,6 +114,8 @@ See a \href{https://math.stackexchange.com/questions/3838804/image-presheaf-whic
 
 See a very good \href{https://www2.math.ethz.ch/education/bachelor/lectures/fs2016/math/alg_geom/Solution12.pdf}{solution} for details.
 
+See another example on Page 14 of a brilliant notes \href{https://pi.math.cornell.edu/~apatotski/7400-notes.pdf}{HERE} by Yuri.
+
 \section{Definition: Inverse Image Sheaf}
 
 See \href{https://en.wikipedia.org/wiki/Inverse_image_functor}{Wiki} for motivation of such definition.
@@ -204,6 +206,54 @@ Example \href{https://stacks.math.columbia.edu/tag/006Y}{006Y} on \cite{stacks-p
 \section{Exercise 1.15.}
 
 See Rising Sea 2.3.C.
+
+\section{Exercise 1.19.}\label{Hart Chap 2 Ex 1.19.}
+
+\textit{\textbf{Extending a Sheaf by Zero.} Let $X$ be a topological space, let $Z$ be a closed subset, let $i:Z\to X$ be the inclusion, let $U=X-Z$ be the complementary open subsets, and let $j:U\to X$ be its inclusion.}
+
+\subsection{(a)}
+\textit{Let $\mathscr F$ be a sheaf on $Z$. Show that the stalk $(i_{\ast}\mathscr F)_P$ of the direct image sheaf on $X$ is $\mathscr F_P$ if $P\in Z$, $0$ if $P\notin Z$. Hence we call $i_{\ast}\mathscr F$ the sheaf obtained by extending $\mathscr F$ be zero outside $Z$. By abuse of notation we will sometimes write $\mathscr F$ instead of $i_{\ast}\mathscr F$, and say "consider $\mathscr F$ as a sheaf on $X$," when we mean "consider $i_{\ast}\mathscr F$." }
+
+\subsection{(b)}
+
+
+\subsection{(c)}
+
+\subsection{Remarks}
+
+The sheaf $j_{!}\mathscr F$ is defined as sheafification of the presheaf that we denote as $\mathscr G$, i.e. $j_{!}\mathscr F=\mathscr G^{\sharp}$. We'll demonstrate that it's crutial to sheafify. We define the presheaf $\mathscr G$ on $U\subset X$ by 
+\begin{align*}
+    \mathscr G(V)=\begin{cases}
+        \mathscr F(V) & \text{ for } V\subset U \\
+        0 & \text{ for } V\not\subseteq U.
+    \end{cases}
+\end{align*}
+
+Let $X=\mathbb R$. 
+Now we fix an open subset $W\subset X$ with $\{W_i\}_{i\in I}$ being an open cover for some index set $I$. We define 
+\[\mathscr F(U):=\{\text{ continuous function from } U\to \mathbb R~\}\]
+
+\begin{itemize}
+    \item It satisfies Identity Axiom: if we're given an element $s\in \mathscr G(W)$ such that $s\mid_{W_i}=0$, then $s=0$ as a function.
+    \item Let the open subset $W\subset X$ endowed with an open covering $\{W_1,W_2\}$ such that $W_1\cap W_2\not\subset U$. Then we can pick to different non-zero constant function $C_1
+    in\mathscr G(W_1),C_2\in\mathscr G(W_2)$. They agree on the overlap for $C_1\vert_{W_1\cap W_2}=0=C_2\vert_{W_1\cap W_2}$. But there cannot exist a continuous function on... 
+\end{itemize}\todo{I didn't find a counterexample according to the hint on Rising Sea}
+
+\subsection{A Counterexample}
+
+\textit{Let $X=\{u_1,u_2\}$ be a topological space endowed with discrete topology. The inclusion map is $j:\{u_1\}\to X$. Assume we have a sheaf $\mathscr F$ on $\{u_2\}$ such that $\mathscr F(\{u_2\})\neq 0$. Show $j_{!}^{\text{pre}}\mathscr F$ is not a sheaf.}
+
+\begin{proof}
+    We denote $\mathscr G:=j_{!}^{\text{pre}}\mathscr F$.
+    In general, the pre-sheaf $\mathscr G$ satisfies the Identity Axiom. However, we can pick a non-zero section $s_1\in\mathscr G(\{u_1\})$ and a section $s_2\in\mathscr G(\{u_2\})=0$. 
+    Notice that 
+    \[s_1\vert_{\{u_1\}\cap\{u_2\}}=s_1\vert_{\emptyset}=0=\cdots=s_2\vert_{\{u_1\}\cap\{u_2\}}.\] Hence if we assume $\mathscr G$ is a sheaf then there must exist a global section $s_3\in \mathscr G(X)=0$ such that 
+    \[0=s_3\vert_{\{u_1\}}=s_1,\] contradiction.
+\end{proof}
+
+\subsection{References}
+
+See Rising Sea \cite{RaviRisingSea} Exercise 23.4.F.
 
 \section{Exercise 1.22.}
 
