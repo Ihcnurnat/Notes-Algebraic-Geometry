@@ -1,0 +1,33 @@
+\section{5.2.A.}
+
+\begin{proof}
+    
+See 3.2.1. When we say two functions $f,g$ agree at all points, this means 
+\[f\equiv g\pmod{p}\] for all $p\in \Gamma(X,\mathcal O_X)$.    
+
+To prove $f=g$, we wish to use the Identity Axiom of Sheaf. Fix an open covering $\{U_i\}_{i\in I}$ of $X$ where $I$ an index set. It suffices to check $f\mid_{U_i}=g\mid_{U_i}$.
+
+We can identify them by injective map 
+% https://q.uiver.app/#q=WzAsMixbMCwwLCJcXG1hdGhjYWwgT19YKFgpIl0sWzEsMCwiXFxwcm9kX3twXFxpbiBYfVxcbWF0aGNhbCBPX3tYLHB9Il0sWzAsMSwiIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoiaG9vayIsInNpZGUiOiJ0b3AifX19XV0=
+\[\begin{tikzcd}
+	{\mathcal O_X(U_i)} & {\prod_{p\in U_i}\mathcal O_{X,p}}
+	\arrow[hook, from=1-1, to=1-2]
+\end{tikzcd}\]
+This forces $f=g$ when they have same ???
+
+\end{proof}
+
+\subsection{References}
+
+See this \href{https://math.stackexchange.com/questions/3834821/equality-of-functions-in-a-reduced-scheme}{POST}: but is the definition of value of function correct?
+
+See another \href{https://math.stackexchange.com/questions/1157904/functions-on-reduced-schemes-are-determined-by-their-values-at-each-point}{POST}.
+
+\section{5.2.C.}
+
+Localisation of reduced ring is again reduced for reduce is a local property. 
+
+For $\mathbb A^n_k$: 
+polynomial ring $k[x_1,...,x_n]$ is reduced.
+
+For $\mathbb P^n_k$: it's similar, since taking subring will preserve reducedness.

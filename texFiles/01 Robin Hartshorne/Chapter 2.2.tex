@@ -19,6 +19,11 @@ For $a/f^n=b/f^m$ for some integers $m,n$, the maps is defined as
     a/f^n &\mapsto s: D(f)\to\prod_{\mathfrak p\in D(f)}A_{\mathfrak p}
 \end{align*}where $s(\mathfrak p):=a/f^n\in A_{\mathfrak p}$. Substituting $b/f^m$ into $a/f^n$ will not change the value of the map, therefore it's independent of the choice of representative.
 
+\section{Example 2.3.2.}
+
+\subsection{References}
+See this \href{https://math.mit.edu/~mckernan/Teaching/09-10/Autumn/18.725/l_11.pdf}{NOTE}.
+
 \section{Example 2.3.5.}
 
 For a more general treatment, see \href{https://stacks.math.columbia.edu/tag/01JA}{Section 01JA} of \cite{stacks-project}.
@@ -28,6 +33,42 @@ For a more general treatment, see \href{https://stacks.math.columbia.edu/tag/01J
 Why it's not affine? See this \href{https://mathoverflow.net/questions/87480/explanation-on-a-scheme-which-is-not-affine-scheme}{POST} and a detailed \href{https://math.stackexchange.com/questions/4281800/example-of-scheme-which-is-not-an-affine-scheme}{POST}. 
 
 Some arguments heavily rely on \textit{separated}.
+
+\section{Proj S: Homogeneous Spectrum}
+
+\subsection{Homogeneous}
+
+See this \href{https://math.stackexchange.com/questions/4027174/homogeneous-ideal-in-kx-0-x-n}{POST} for equivalent definitions of homogeneous prime ideal. 
+
+According to \href{https://stacks.math.columbia.edu/tag/00JM}{Tag 00JM}, we have
+
+\textit{To check that a homogeneous ideal $\mathfrak p$ is prime it suffices to check that $\star$ if $ab\in \mathfrak p$ with $a,b$ homogeneous then either $a\in \mathfrak p$ or $b\in \mathfrak p$.}
+
+Say $A,B$ are two elements in the graded ring $S$ such that $AB\in \mathfrak p$, which is assumed to be homogeneous prime. We assume the assumption of $\star$ and we wish to show $A\in\mathfrak p$ or $B\in\mathfrak p$. First of all, we can decompose the elements 
+\[A=\sum_{1\leq i\leq n} a_i, B=\sum_{1\leq j\leq m}b_j\] where $a_i\in S_i, b_j\in S_j$ and $n,m$ are some integers. Suppose the assumption $\star$ holds for arbitrary pair of $(a_i,b_j)$, it will implies their sum $A\in \mathfrak p$ or $B\in...$. 
+
+\section{Proposition 2.5.}
+
+\subsection{(a)}
+
+\subsection{(b)}
+
+Notice that when defining homogeneous spectrum, we excluded those homenegeous prime ideal that contains $S_+$. This is because we wish to cover $\operatorname{Proj}S$ with $D_+(f)$. We need to prove the non-trivial inclusion 
+\[\operatorname{Proj}S\subset \bigcup_{f\in S_+\cap S^h}D_+(f).\]
+Pick an element from LHS, i.e. a homogeneous prime ideal $\mathfrak p$ such that $S_+\not\subset \mathfrak p$. Hence there exists some $f\in S_+$ such that $f'\notin \mathfrak p$, then we can pick a homogeneous part $f:=f'\cap S^h$ such that $f_0\notin \mathfrak p$. This gives us 
+\[\mathfrak p\in D_+(f_0).\]
+And this proves the desired inclusion, with the converse inclusion apparently holds, we can conclude 
+\[\{D_+(f)\}_{f\in S_+\cap S^h}\] is an open covering of homogeneous spectrum $\operatorname{Proj}S$.
+
+\subsection{References}
+
+For more details, see \cite{qing2006algebraic} Chap 2 Lemma 3.36. on Page 52.
+
+\section{Proposition 2.6.}
+
+\subsection{References}
+
+See this \href{https://math.mit.edu/~mckernan/Teaching/09-10/Autumn/18.725/l_13.pdf}{NOTE} Theorem 13.13. for details.
 
 \section{Exercise 2.1.}\label{Hart Ex 2.1.}
 
@@ -43,6 +84,33 @@ See \cite{qing2006algebraic} Chap 2 Lemma 3.7.
 
 See \cite{qing2006algebraic} Chap 2 Lemma 3.9.
 
+\section{Exercise 2.3.}
+\textit{\textbf{Reduced Schemes}. A scheme $(X,\mathcal O_X)$ is \textbf{reduced} if for every open set $U\subset X$, the ring $\mathcal O_X(U)$ has no nilpotent elements.}
+
+\subsection{(a)}
+
+\begin{proof}
+    We can express the stalk as a filtered colimit 
+    \begin{align*}
+        \mathcal O_{X,P}
+        =&~ \operatorname{colim}_{P\in U}\mathcal O_X(U).
+    \end{align*} where each $\mathcal O_X(U)$ is assumed to be reduced. 
+    And I claim colimit of reduced ring is again reduced \todo{?}:
+    Suppose it has a nilpotent element $a\in\mathcal O_{X,P}$, then there exists some $(U,a)\in \mathcal O_X(U)$ such that $a$ is the image of $(U,a)$ under colimit map $\varphi$ which is a ring homomorphism. Then we have $(U,a)^n$ for some integer $n$ will be mapped to $0$ in the stalk $\mathcal O_{X,P}$. By \cite{altman2013term} Corollary 7.5. (c), there exists some $\mathcal O_X(V)$ for $V\subset U$ such that the image of $(U,a)^n$ will be mapped to $0$ under a transition map $\rho_{UV}$, hence $\rho_{UV}((U,a))^n=0\in\mathcal O_X(V)$, which forces $\rho_{UV}((U,a))=0$ given ring $\mathcal O_X(V)$ is reduced. By commutativity, we have $a$, being an image of $\rho_{UV}((U,a))$, equals to $0$. 
+\end{proof} 
+
+\subsection{(b)}
+
+
+
+\subsection{References}
+See \href{https://stacks.math.columbia.edu/tag/01IZ}{Tag 01IZ}.
+
+See \href{https://math.stackexchange.com/questions/437227/colimit-of-reduced-rings}{POST}, and \href{https://math.stackexchange.com/questions/2737301/reducedness-and-colimit}{POST} discussing colimit of reduced ring.
+
+See a solution \href{https://www.math.ncku.edu.tw/~fjmliou/alg/reduced_scheme.pdf}{HERE}.
+
+
 \section{Exercise 2.12.}
 
 \subsection{Remarks}
@@ -50,3 +118,13 @@ See \cite{qing2006algebraic} Chap 2 Lemma 3.9.
 Notice that in order to be defined, the diagram of morphism $\varphi_{ik}=\varphi_{jk}\circ\varphi_{ij}$ admits a diagram as in \href{https://stacks.math.columbia.edu/tag/01JA}{Tag 01JA}.
 
 See Rising Sea Exercise 4.4.A. \Cref{4.4.A.}, in fact the inverse condition given as (1) and identity are redundent.
+
+\section{Exercise 2.19.}
+
+\subsection{Hint}
+
+
+
+\subsection{}
+
+Because $\operatorname{Spec}$ is a contravariant functor.
