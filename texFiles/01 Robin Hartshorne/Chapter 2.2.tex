@@ -90,6 +90,7 @@ See \cite{qing2006algebraic} Chap 2 Lemma 3.9.
 \subsection{(a)}
 
 \begin{proof}
+    $\Leftarrow$:
     We can express the stalk as a filtered colimit 
     \begin{align*}
         \mathcal O_{X,P}
@@ -97,6 +98,14 @@ See \cite{qing2006algebraic} Chap 2 Lemma 3.9.
     \end{align*} where each $\mathcal O_X(U)$ is assumed to be reduced. 
     And I claim colimit of reduced ring is again reduced \todo{?}:
     Suppose it has a nilpotent element $a\in\mathcal O_{X,P}$, then there exists some $(U,a)\in \mathcal O_X(U)$ such that $a$ is the image of $(U,a)$ under colimit map $\varphi$ which is a ring homomorphism. Then we have $(U,a)^n$ for some integer $n$ will be mapped to $0$ in the stalk $\mathcal O_{X,P}$. By \cite{altman2013term} Corollary 7.5. (c), there exists some $\mathcal O_X(V)$ for $V\subset U$ such that the image of $(U,a)^n$ will be mapped to $0$ under a transition map $\rho_{UV}$, hence $\rho_{UV}((U,a))^n=0\in\mathcal O_X(V)$, which forces $\rho_{UV}((U,a))=0$ given ring $\mathcal O_X(V)$ is reduced. By commutativity, we have $a$, being an image of $\rho_{UV}((U,a))$, equals to $0$. 
+
+    $\Rightarrow$: 
+    See Lemma 01J1 of \href{https://stacks.math.columbia.edu/tag/01IZ}{Tag 01IZ}. 
+    Pick a section $f\in\mathcal O_X(U)$ such that $f^n=0$ for some integer $n$. 
+    Consider the ring homomorphism $O_X(U)\to O_{X,P}$, which will map $f$ to a nilpotent in $O_{X,P}$ that we assumed to be reduced. Then $f$ will be mapped to $0$ under injective map 
+    \[O_X(U)\to \prod_{P\in U}O_{X,P}.\] This forces $f=0$ as $\mathcal O_X$ is a sheaf.
+    
+
 \end{proof} 
 
 \subsection{(b)}
