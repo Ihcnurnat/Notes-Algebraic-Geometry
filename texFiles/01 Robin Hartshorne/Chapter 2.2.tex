@@ -102,21 +102,29 @@ See \cite{qing2006algebraic} Chap 2 Lemma 3.9.
     $\Rightarrow$: 
     See Lemma 01J1 of \href{https://stacks.math.columbia.edu/tag/01IZ}{Tag 01IZ}. 
     Pick a section $f\in\mathcal O_X(U)$ such that $f^n=0$ for some integer $n$. 
-    Consider the ring homomorphism $O_X(U)\to O_{X,P}$, which will map $f$ to a nilpotent in $O_{X,P}$ that we assumed to be reduced. Then $f$ will be mapped to $0$ under injective map 
+    Consider the ring homomorphism $O_X(U)\to O_{X,P}$, which will map $f$ to a nilpotent in $O_{X,P}$ that we assumed to be reduced. While $P\in U$ is arbitrary, then $f$ will be mapped to $0$ under injective map 
     \[O_X(U)\to \prod_{P\in U}O_{X,P}.\] This forces $f=0$ as $\mathcal O_X$ is a sheaf.
 \end{proof} 
 
-\subsection{(b)}
+\subsection{Failed Attempt of (b)}
+The reduced scheme $(X,(\mathcal O_X)_{\text{red}})$ is indeed a scheme. For every point $P\in X$, there exists an open subset $U$ such that $(U,\mathcal O_X\vert_U)\simeq (\operatorname{Spec}A,\mathcal O_{\operatorname{Spec}A})$.
 
+To define a morphism from $X_{\text{red}}\to X$, we take identity $\operatorname{id}:\operatorname{sp}(X_{\text{red}})\to\operatorname{sp}(X)$ as the homeomorphism between the underlying topological spaces. It remains to define a morphism of sheaves from 
+\[f^{\sharp}:\mathcal O_X\to\operatorname{id}_{\ast}(\mathcal O_X)_{\text{red}}=:\mathcal G\] such that $f^{\sharp}_P:\mathcal O_{X,P}\to \mathcal G_P$ is a local ring homomorphism. 
 
+Fix an open subset $U\subset X$, we define $f^{\sharp}(U)$ as 
+\begin{align*}
+    f^{\sharp}(U):\mathcal O_X(U)\to\mathcal G(U)=\operatorname{id}_{\ast}(\mathcal O_X)_{\text{red}}(U)=\mathcal O_{\text{red}}(U)
+\end{align*}
 
 \subsection{References}
-See \href{https://stacks.math.columbia.edu/tag/01IZ}{Tag 01IZ}.
+See \href{https://stacks.math.columbia.edu/tag/01IZ}{Tag 01IZ}. See \href{https://math.stackexchange.com/questions/437227/colimit-of-reduced-rings}{POST}, and \href{https://math.stackexchange.com/questions/2737301/reducedness-and-colimit}{POST} discussing colimit of reduced ring. See a solution \href{https://www.math.ncku.edu.tw/~fjmliou/alg/reduced_scheme.pdf}{HERE}.
 
-See \href{https://math.stackexchange.com/questions/437227/colimit-of-reduced-rings}{POST}, and \href{https://math.stackexchange.com/questions/2737301/reducedness-and-colimit}{POST} discussing colimit of reduced ring.
+On reduced presheaf isn't a sheaf \href{https://math.stackexchange.com/questions/338185/the-reduced-presheaf}{HERE}. Discussion on Ex 2.3. (b), \href{https://math.stackexchange.com/questions/682230/exercise-2-3-from-hartshornes-algebraic-geometry}{POST}, \href{https://math.stackexchange.com/questions/441031/reduced-schemes-and-global-sections}{POST}. For (b), a standard treatment is \cite{qing2006algebraic} Chapter 2 2.4 on Page 59.
 
-See a solution \href{https://www.math.ncku.edu.tw/~fjmliou/alg/reduced_scheme.pdf}{HERE}.
+\section{Exercise 2.4.}
 
+Isn't this a direct application of Proposition 2.3. \cite{hartshorne2013algebraic}? 
 
 \section{Exercise 2.12.}
 
@@ -125,6 +133,31 @@ See a solution \href{https://www.math.ncku.edu.tw/~fjmliou/alg/reduced_scheme.pd
 Notice that in order to be defined, the diagram of morphism $\varphi_{ik}=\varphi_{jk}\circ\varphi_{ij}$ admits a diagram as in \href{https://stacks.math.columbia.edu/tag/01JA}{Tag 01JA}.
 
 See Rising Sea Exercise 4.4.A. \Cref{4.4.A.}, in fact the inverse condition given as (1) and identity are redundent.
+
+\section{Exercise 2.13.}\label{Hart Chap 2 Ex 2.13.}
+
+\subsection{(a)}
+
+$\Leftarrow$: In particular, the space $X$ is quasi-compact. For any ascending chain of open subsets, they form an open covering of $X$, hence we can reduce to finite many of them. Take the largest one open set $U_0$, the chain will terminate there. 
+
+$\Rightarrow$: Fix an open subset $U$ with an opne covering $\{U_i\}_{i\in I}$ where $I$ is an index set. It must reduce to finite sub-cover otherwise we can form an (strictly) ascending chain of open subsets in $U$, hence in $X$, which contradicts the fact that $X$ is Noetherian. 
+
+\subsection{(b)}
+
+For space $\operatorname{sp}(X)$ is quasi-compact see Atiyah's Exercise in Chapter 1. 
+
+Example of an affine scheme $X$ whose underlying space $\operatorname{sp}(X)$ is not Noetherian: 
+\[\operatorname{Spec}k[x_1,x_2,x_3,...]\] because we have infinitely descending chain of closed subsets, which corresponds to infinitely ascending ideals. \todo{?}
+
+
+\subsection{Verification}
+
+See this \href{https://math.stackexchange.com/questions/1442665/a-noetherian-topological-space-is-compact}{POST}, \href{https://math.stackexchange.com/questions/2745543/v-is-noetherian-space-if-only-if-every-open-subset-of-v-is-compact}{POST}.
+
+For (b), see this \href{https://math.stackexchange.com/questions/4690764/is-this-space-noetherian}{POST}.
+
+See standard counterexample for part (d) \href{https://math.stackexchange.com/questions/1611732/example-of-non-noetherian-ring-whose-spectrum-is-noetherian/1611757#1611757}{HERE}, \href{https://math.stackexchange.com/questions/7392/a-non-noetherian-ring-with-noetherian-spectrum}{HERE}.
+
 
 \section{Exercise 2.19.}
 
