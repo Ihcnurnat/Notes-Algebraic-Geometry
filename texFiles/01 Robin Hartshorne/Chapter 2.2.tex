@@ -126,6 +126,16 @@ On reduced presheaf isn't a sheaf \href{https://math.stackexchange.com/questions
 
 Isn't this a direct application of Proposition 2.3. \cite{hartshorne2013algebraic}? 
 
+\section{Exercise 2.7.}
+
+To specify a morphism in locally ringed space, we have to give a continuous map of topological spaces and morhism of sheave of rings. A continuous map is given by choosing a point of $X$ for the spectrum $\operatorname{Spec}K$ is a single point. Here we denote this map as $f:\operatorname{Spec}K\to X$. We wish to prove a morphism on sheaves of rings 
+\[f^{\sharp}:\mathscr O_{X}\to f_{\ast}\mathscr O_{\operatorname{Spec}K}\] will corresponds bijectively to an inclusion map $k(x)\to K$.  \todo{Use \href{https://stacks.math.columbia.edu/tag/008K}{Tag 008K} to simplify the construction of the morphism?}
+
+Give an open subset $U\subset X$, we can define $f^{\sharp}(U)$ as 
+\begin{align*}
+    \mathscr O_X(U)\to f_{\ast}\mathscr O_{\operatorname{Spec}K} (U)=
+\end{align*}
+
 \section{Exercise 2.12.}
 
 \subsection{Remarks}
@@ -158,6 +168,31 @@ For (b), see this \href{https://math.stackexchange.com/questions/4690764/is-this
 
 See standard counterexample for part (d) \href{https://math.stackexchange.com/questions/1611732/example-of-non-noetherian-ring-whose-spectrum-is-noetherian/1611757#1611757}{HERE}, \href{https://math.stackexchange.com/questions/7392/a-non-noetherian-ring-with-noetherian-spectrum}{HERE}.
 
+\section{Exercise 2.18.}
+
+\subsection{(a)}
+% https://q.uiver.app/#q=WzAsMyxbMCwwLCJmXFxpblxcbWF0aHNjciBPX1goWCkiXSxbMSwwLCJcXG92ZXJsaW5lIGZcXGluXFxtYXRoc2NyIE9fWChVKSJdLFsxLDEsIlxcbWF0aGZyYWsgbV97XFxtYXRoZnJhayBwfVxcdHJpYW5nbGVsZWZ0X3tcXHRleHR7cHJpbWV9fVxcbWF0aHNjciBPX3tYLFxcbWF0aGZyYWsgcH0iXSxbMCwxLCIiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtYXBzIHRvIn19fV0sWzEsMiwiIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibWFwcyB0byJ9fX1dLFswLDIsIiIsMix7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1hcHMgdG8ifX19XV0=
+\[\begin{tikzcd}
+	{f\in\mathscr O_X(X)} & {\overline f\in\mathscr O_X(U)} \\
+	& {f_\mathfrak p=\overline f_{\mathfrak p}\in\mathfrak m_{\mathfrak p}\triangleleft_{\text{prime}}\mathscr O_{X,\mathfrak p}}
+	\arrow[maps to, from=1-1, to=1-2]
+	\arrow[maps to, from=1-2, to=2-2]
+	\arrow[maps to, from=1-1, to=2-2]
+\end{tikzcd}\]
+\begin{align*}
+    U\cap X_f =&~ \{x\in U ~\mid~ f_x\in \mathscr O_{X,x}^{\times}\}\\
+    =&~ \{\mathfrak p\in U ~\mid~ f_{\mathfrak p} \in \mathscr O_{X,\mathfrak p}^{\times}\}\\
+    =&~ \{\mathfrak p\in U ~\mid~ f_{\mathfrak p}\in (B_{\mathfrak p})^{\times}\}\\
+    =&~ \{\mathfrak p\in U ~\mid~ f_{\mathfrak p}\in \mathfrak m_{\mathfrak p}:=\mathfrak p B_{\mathfrak p}\}^C\\
+    =&~ \{\mathfrak p\in \operatorname{Spec}B=U ~\mid~ (\overline f)\subset \mathfrak p\}^C ~\text{ by commutativity of the diagram}\\
+    =&~ D(\overline f).
+\end{align*}
+Therefore $X_f$ is an open subset of $X$ for all affine covering form a basis. 
+
+\subsection{Hint}
+
+
+See Proposition 3.12. Chap 2 of \cite{qing2006algebraic}. See this \href{https://math.stackexchange.com/questions/2815859/hartshorne-algebraic-geometry-exercise-ii-2-16}{POST}. See this \href{https://math.berkeley.edu/~cjdowd/hartshorne.html}{Webpage} which leads to this \href{https://math.stackexchange.com/questions/57077/on-affine-local-properties}{POST}.
 
 \section{Exercise 2.19.}
 
