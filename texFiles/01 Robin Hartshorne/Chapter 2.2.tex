@@ -64,6 +64,12 @@ And this proves the desired inclusion, with the converse inclusion apparently ho
 
 For more details, see \cite{qing2006algebraic} Chap 2 Lemma 3.36. on Page 52.
 
+\section{Definition: scheme over...}
+
+\subsection{Counterexample}
+\textit{Give examples where two $S$-schemes are isomorphic but not isomorphic as $S$-schemes.}
+
+
 \section{Proposition 2.6.}
 
 \subsection{References}
@@ -168,31 +174,59 @@ For (b), see this \href{https://math.stackexchange.com/questions/4690764/is-this
 
 See standard counterexample for part (d) \href{https://math.stackexchange.com/questions/1611732/example-of-non-noetherian-ring-whose-spectrum-is-noetherian/1611757#1611757}{HERE}, \href{https://math.stackexchange.com/questions/7392/a-non-noetherian-ring-with-noetherian-spectrum}{HERE}.
 
-\section{Exercise 2.18.}
+
+\section{Exercise 2.16.}
 
 \subsection{(a)}
+\begin{proof}
+
 % https://q.uiver.app/#q=WzAsMyxbMCwwLCJmXFxpblxcbWF0aHNjciBPX1goWCkiXSxbMSwwLCJcXG92ZXJsaW5lIGZcXGluXFxtYXRoc2NyIE9fWChVKSJdLFsxLDEsIlxcbWF0aGZyYWsgbV97XFxtYXRoZnJhayBwfVxcdHJpYW5nbGVsZWZ0X3tcXHRleHR7cHJpbWV9fVxcbWF0aHNjciBPX3tYLFxcbWF0aGZyYWsgcH0iXSxbMCwxLCIiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtYXBzIHRvIn19fV0sWzEsMiwiIiwwLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoibWFwcyB0byJ9fX1dLFswLDIsIiIsMix7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Im1hcHMgdG8ifX19XV0=
 \[\begin{tikzcd}
-	{f\in\mathscr O_X(X)} & {\overline f\in\mathscr O_X(U)} \\
+	{f\in\mathscr O_X(X)} & {\overline f\in\Gamma(U,\mathscr O_{X\vert U})=B} \\
 	& {f_\mathfrak p=\overline f_{\mathfrak p}\in\mathfrak m_{\mathfrak p}\triangleleft_{\text{prime}}\mathscr O_{X,\mathfrak p}}
 	\arrow[maps to, from=1-1, to=1-2]
 	\arrow[maps to, from=1-2, to=2-2]
 	\arrow[maps to, from=1-1, to=2-2]
 \end{tikzcd}\]
 \begin{align*}
-    U\cap X_f =&~ \{x\in U ~\mid~ f_x\in \mathscr O_{X,x}^{\times}\}\\
+    U\cap X_f =&~ \{x\in U ~\mid~ f_x\notin \mathfrak m_x\}\\
+    =&~ \{x\in U ~\mid~ f_x\in \mathscr O_{X,x}^{\times}\}\\
     =&~ \{\mathfrak p\in U ~\mid~ f_{\mathfrak p} \in \mathscr O_{X,\mathfrak p}^{\times}\}\\
     =&~ \{\mathfrak p\in U ~\mid~ f_{\mathfrak p}\in (B_{\mathfrak p})^{\times}\}\\
     =&~ \{\mathfrak p\in U ~\mid~ f_{\mathfrak p}\in \mathfrak m_{\mathfrak p}:=\mathfrak p B_{\mathfrak p}\}^C\\
     =&~ \{\mathfrak p\in \operatorname{Spec}B=U ~\mid~ (\overline f)\subset \mathfrak p\}^C ~\text{ by commutativity of the diagram}\\
-    =&~ D(\overline f).
+    =&~ \mathbf D_U(\overline f)=\mathbf D(\overline f).
 \end{align*}
-Therefore $X_f$ is an open subset of $X$ for all affine covering form a basis. 
+Therefore $X_f$ is an open subset because all affine open form an open basis and intersection with each is open inside each basis element. 
+\end{proof}
+
+In fact, the notion of $X_f$ generalises this equality $(\operatorname{Spec}B)_g=\operatorname{Spec}B_g$ in which left hand side is regarded in the definition of this exercise and right hand side is regarded in the usual sense. 
+
+\subsection{(b)}
+
+\begin{proof}
+    Given $X$ is quasi-compact, let $U_1,...,U_n$ be affine opens of $X$ where $n$ is some integer. Denote $U=U_1$, we have the following commutative diagram 
+
+    % https://q.uiver.app/#q=WzAsNCxbMSwwLCJhXFxpblxcR2FtbWEoWCxcXG1hdGhjYWwgT19YKT1BIl0sWzAsMSwiXFxHYW1tYShVLFxcbWF0aGNhbCBPX1gpPUJfMSJdLFsyLDEsIlxcR2FtbWEoWF9mLFxcbWF0aGNhbCBPX1gpXFxuaSAwIl0sWzEsMiwiXFxHYW1tYShVXFxjYXAgWF9mLFxcbWF0aGNhbCBPX1gpXFxuaSAwIl0sWzAsMV0sWzAsMl0sWzEsM10sWzIsM11d
+\[\begin{tikzcd}
+	& {a\in\Gamma(X,\mathcal O_X)=A} \\
+	{\Gamma(U,\mathcal O_X)=B_1} && {\Gamma(X_f,\mathcal O_X)\ni 0} \\
+	& {\Gamma(U\cap X_f,\mathcal O_X)\ni 0}
+	\arrow[from=1-2, to=2-1]
+	\arrow[from=1-2, to=2-3]
+	\arrow[from=2-1, to=3-2]
+	\arrow[from=2-3, to=3-2]
+\end{tikzcd}\]
+    We can compute that 
+    \[\Gamma(U\cap X_f,\mathcal O_X)=\Gamma(D_U(\overline f),\mathcal O_X)=B_f.\]
+    While $a$ will restrict to $0$ in $X_f$, hence it will be mapped to $0\in B_f$.
+
+\end{proof}
 
 \subsection{Hint}
 
 
-See Proposition 3.12. Chap 2 of \cite{qing2006algebraic}. See this \href{https://math.stackexchange.com/questions/2815859/hartshorne-algebraic-geometry-exercise-ii-2-16}{POST}. See this \href{https://math.berkeley.edu/~cjdowd/hartshorne.html}{Webpage} which leads to this \href{https://math.stackexchange.com/questions/57077/on-affine-local-properties}{POST}.
+See Proposition 3.12. Chap 2 of \cite{qing2006algebraic}. See this \href{https://math.stackexchange.com/questions/2815859/hartshorne-algebraic-geometry-exercise-ii-2-16}{POST}. See this \href{https://math.berkeley.edu/~cjdowd/hartshorne.html}{Webpage} which leads to this \href{https://math.stackexchange.com/questions/57077/on-affine-local-properties}{POST}. See \href{https://math.stackexchange.com/questions/4686052/hartshorne-ex-ii-2-16-part-b}{POST} for Hartshorne ex II 2.16 part b. See \href{https://math.stackexchange.com/questions/2407252/help-doing-an-exercise-on-a-criterion-for-affiness-from-hartshorne}{POST} for details.
 
 \section{Exercise 2.19.}
 

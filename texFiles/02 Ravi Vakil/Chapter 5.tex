@@ -2,6 +2,12 @@
 
 The hint in the prompt was refering to Exercise 2.13. \Cref{Hart Chap 2 Ex 2.13.} Chapter 2 of Hartshorne \cite{hartshorne2013algebraic}.
 
+\section{5.1.D.}
+
+Remarks: $\Rightarrow$ is easy because affine opens form a basis, while the converse direction is non-trivial. The point is that we only know a specific choice of affine opens. 
+
+Fact: we can build a larger quasi-compact topological spaces by union finitely many quasi-compact topological spaces. See this \href{https://math.stackexchange.com/questions/816938/quasicompact-scheme-are-finite-union-of-affine-scheme}{POST}.
+
 \section{5.2.A.}
 
 \begin{proof}
@@ -38,10 +44,63 @@ For $\mathbb P^n_k$: it's similar, since taking subring will preserve reducednes
 
 \section{5.3.1. Proposition}
 
-For $\operatorname{Spec} B_g=\operatorname{Spec}(A_f)_{g'}$, we need \cite{hartshorne2013algebraic} Hartshorne Chap II Exercise 2.16. See this \href{https://youtu.be/EWnhf0BdAWA?si=zMjtGhr12HSCjzNr}{VIDEO}, this \href{https://math.stackexchange.com/questions/384137/intersection-of-open-affines-can-be-covered-by-open-sets-distinguished-in-both}{POST}.
+\section{}
+We'll try to interpret the equality in the proof by applying Hartshorne \cite{hartshorne2013algebraic} Chap II Exercise 2.16.
+\begin{align*}
+	D_B(g)=&~ \operatorname{Spec}B_g\\
+	=&~ \operatorname{Spec}B_g\cap \operatorname{Spec}A_f\\
+	=&~ (\operatorname{Spec}B)_g \cap \operatorname{Spec}A_f ~\text{ by Hart Ex 2.16}\\
+	=&~ D_{A_f}(g') ~\text{ by Hart Ex 2.16}\\
+	=&~ (\operatorname{Spec}A_f)_{g'}\\
+	=&~ \operatorname{Spec}A_{fg''}.
+\end{align*}
+Here $g''$ is specified as in the textbook \cite{RaviRisingSea}, and $g'$ is defined as \[g\in B_g\to g'\in\Gamma(\operatorname{Spec}A_f,\mathcal O_X\vert_{\operatorname{Spec}A_f})=A_f.\]
 
-See \href{http://mathbabysteps.blogspot.com/2016/12/affine-communication-lemma.html}{POST}, \href{https://math.stackexchange.com/questions/4146296/declaremathoperator-specspecdoubt-about-nikes-lemma-about-the-intersecti}{POST} (discussing the prompty).
+For $\operatorname{Spec} B_g=\operatorname{Spec}(A_f)_{g'}$, we need \cite{hartshorne2013algebraic} Hartshorne Chap II Exercise 2.16. 
+
+\begin{comment}
+See this \href{https://youtu.be/EWnhf0BdAWA?si=zMjtGhr12HSCjzNr}{VIDEO}, this \href{https://math.stackexchange.com/questions/384137/intersection-of-open-affines-can-be-covered-by-open-sets-distinguished-in-both}{POST}.
+
+See \href{http://mathbabysteps.blogspot.com/2016/12/affine-communication-lemma.html}{POST}, \href{https://math.stackexchange.com/questions/4146296/declaremathoperator-specspecdoubt-about-nikes-lemma-about-the-intersecti}{POST}.
+\end{comment}
+
+\subsection{}
+
+Or we could do this...
+
+Consider the following commutative diagram with corresponding ideals and elementes as labeled.
+
+% https://q.uiver.app/#q=WzAsMyxbMSwwLCJnXFxpblxcbWF0aGZyYWsgcCdcXHRyaWFuZ2xlbGVmdCBCIl0sWzIsMSwiZy8xXFxpblxcbWF0aGZyYWsgcFxcdHJpYW5nbGVsZWZ0IEJfZyJdLFswLDEsImcnXFxpblxcbWF0aGZyYWsgcVxcdHJpYW5nbGVsZWZ0IEFfZiJdLFswLDJdLFswLDFdLFsyLDFdXQ==
+\[\begin{tikzcd}
+	& {g\in\mathfrak p'\triangleleft B} \\
+	{g'\in\mathfrak q\triangleleft A_f} && {g/1\in\mathfrak p\triangleleft B_g}
+	\arrow[from=1-2, to=2-1]
+	\arrow[from=1-2, to=2-3]
+	\arrow[from=2-1, to=2-3]
+\end{tikzcd}\]
+By commutativity of the diagram, given a prime ideal $\mathfrak p$ then it corresponding uniquely to $\mathfrak p'$ and $\mathfrak q$; given $g/1$, then there exist $g$ and $g'$.
+\begin{align*}
+	\operatorname{Spec}B_g 
+	\cong &~ \{\mathfrak p'\triangleleft B ~\vert~ g\notin \mathfrak p'\}\\
+	\cong &~ \{\mathfrak q\triangleleft A_f ~\vert~ g'\notin \mathfrak q\}\\
+	\cong &~ \operatorname{Spec}A_f\setminus \{[\mathfrak p] ~:~ g'\in \mathfrak p\}=\operatorname{Spec}(A_f)_{g'}.
+\end{align*}
+
+\section{}
+\textit{Let $X$ be a scheme with \textbf{affine} open subsets $V\subset U\subset X$. Given $f\in \Gamma (U,\mathcal O_X)$ such that $\mathbf D_U(f)\subset V\subset U\subset X$. Then $\mathbf D_U(f)=\mathbf D_V(f\vert_V)$.}\todo{?}
+\begin{comment}
+\begin{proof}
+It suffices to check $\mathbf V_U(f)=\mathbf V_V(f\vert_V)$. 
+\begin{align*}
+	\mathbf V_U(f) = &~ \{\mathfrak p\in U ~\vert~ f\in\mathfrak p\}\\
+	= &~ \{\mathfrak p\in V ~\vert~ f\vert_V\in \mathfrak p\}\\
+	= &~ \mathbf V_V(f\vert_V)
+\end{align*}
+\end{proof}
+\end{comment}
 
 \section{5.3.2. Affine Communication Lemma.}
 
 See this \href{http://mathbabysteps.blogspot.com/2016/12/affine-communication-lemma.html}{POST}.
+
+Question: why stalk-local implies affine-local?
