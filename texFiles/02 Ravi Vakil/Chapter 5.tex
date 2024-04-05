@@ -2,11 +2,19 @@
 
 The hint in the prompt was refering to Exercise 2.13. \Cref{Hart Chap 2 Ex 2.13.} Chapter 2 of Hartshorne \cite{hartshorne2013algebraic}.
 
-\section{5.1.D.}
+\section{5.1.D.}\label{5.1.D.}
 
 Remarks: $\Rightarrow$ is easy because affine opens form a basis, while the converse direction is non-trivial. The point is that we only know a specific choice of affine opens. 
 
 Fact: we can build a larger quasi-compact topological spaces by union finitely many quasi-compact topological spaces. See this \href{https://math.stackexchange.com/questions/816938/quasicompact-scheme-are-finite-union-of-affine-scheme}{POST}.
+
+\section{5.1.F.}
+
+$\Rightarrow$: Let $U,V$ be two affine opens in scheme $X$. We know $U,V$ are quasi-compact, then their intersection $U\cap V$ is quasi-compact. While affine opens form a basis for topology of $X$, by quasi-compactness of $U\cap V$ we can cover it by finitely many affine opens. 
+
+$\Leftarrow$: Let $A,B$ be two quasi-compact open subsets of $X$. By quasi-compactness we can decompose them as 
+\[A=\bigcup_{i=1}^n A_i,~ B=\bigcup_{j=1}^m B_j.\] where all $A_i,B_j$ are affine opens. 
+Notice that \[A\cap B=\bigcup_{1\leq i\leq n,~ 1\leq j\leq m}(A_i\cap B_j)\] is a finite union of $A_i\cap B_j$, by assumption it's a finite union of affine opens. Apply \Cref{5.1.D.} we conclude $A\cap B$ is quasi-compact, which proves $X$ is quasi-separated.
 
 \section{5.2.A.}
 
