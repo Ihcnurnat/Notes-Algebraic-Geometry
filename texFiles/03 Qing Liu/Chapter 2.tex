@@ -11,6 +11,57 @@
 
 Assume $s_x=0$, while in Category of Abelian groups the homomorphism is exactly group homomorphism. So there must exist some $U_x$ such that $s\mid_{U_x}=0$ as a pre-image of $s_x$.
 
+\section{Exercise 2.7.}
+\textit{Let $\mathcal B$ be a base of open subsets on a topological space $X$. Let $\mathcal F,\mathcal G$ be two sheaves on $X$. Suppose that for every $U\in\mathcal B$ there exists a homomorphism $\alpha(U):\mathcal F(U)\to\mathcal G(U)$ which is compatible with restrictions. Show that this extends in a unique way to a homomorphism of sheaves $\alpha:\mathcal F\to\mathcal G$. Show that if $\alpha(U)$ is surjective (resp. injective) for every $U\in\mathcal B$, then $\alpha$ is surjective (resp. injective). }
+
+\begin{proof}
+	There are two definitions of sheaf on the whole space in terms of sheaf on base. One is to define section of an open subset $W\subset X$ (open subset $W$ is not necessarily in base $\mathcal B$) by \textit{compatible germs}, another approach is to define that by \textit{limit}. 
+
+	To construct the map, we just take the definition of \textit{limit}. And the universal property will induce a unique map $\alpha(W)$ for arbitrary open subset $W\subset X$, which implies there exists a unique morphism $\alpha:\mathcal F\to\mathcal G$ as we expected. 
+
+	Notice that for sheaves on base, the stalk at a point $x\in X$ is the same as the sheaf on whole space. 
+	\begin{align*} 
+		\underset{x\in W\subset X,~ W \text{ open}}{\operatorname{colim}}=\mathcal F_x=\underset{x\in U\subset X,~ U\in\mathcal B}{\operatorname{colim}}.
+	\end{align*} Another way to see this (compatible germs) is by 2.5.B. EXERCISE. \cite{RaviRisingSea}. Therefore we have the following diagram, which maps to the same stalk.
+
+	% https://q.uiver.app/#q=WzAsOCxbMCwwLCJcXG1hdGhjYWwgRihVKSJdLFsxLDAsIlxcbWF0aGNhbCBHKFUpIl0sWzAsMSwiXFxtYXRoY2FsIEYoVVxcY2FwIFVfeCkiXSxbMSwxLCJcXG1hdGhjYWwgRyhVXFxjYXAgVV94KVxcbmkgdFxcdmVydF97VVxcY2FwIFVfeH0iXSxbMCwyLCJzXFxpblxcbWF0aGNhbCBGKFcpIl0sWzEsMiwiXFxtYXRoY2FsIEcoVylcXG5pIHRcXHZlcnRfVyJdLFsxLDMsIlxcbWF0aGNhbCBHX3hcXG5pIHRfeCJdLFswLDMsIihXLHMpXFxpblxcbWF0aGNhbCBGX3giXSxbMCwxLCIiLDAseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbNCw1LCIiLDAseyJzdHlsZSI6eyJoZWFkIjp7Im5hbWUiOiJlcGkifX19XSxbMiwzXSxbMCwyXSxbMiw0XSxbMSwzXSxbMyw1XSxbNCw3XSxbNSw2XSxbNyw2XV0=
+\[\begin{tikzcd}
+	{\mathcal F(U)} & {\mathcal G(U)} \\
+	{\mathcal F(U\cap U_x)} & {\mathcal G(U\cap U_x)\ni t\vert_{U\cap U_x}} \\
+	{s\in\mathcal F(W)} & {\mathcal G(W)\ni t\vert_W} \\
+	{(W,s)\in\mathcal F_x} & {\mathcal G_x\ni t_x}
+	\arrow[two heads, from=1-1, to=1-2]
+	\arrow[two heads, from=3-1, to=3-2]
+	\arrow[from=2-1, to=2-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow[from=2-1, to=3-1]
+	\arrow[from=1-2, to=2-2]
+	\arrow[from=2-2, to=3-2]
+	\arrow[from=3-1, to=4-1]
+	\arrow[from=3-2, to=4-2]
+	\arrow[from=4-1, to=4-2]
+\end{tikzcd}\]
+
+	For surjective. We wish to prove the induced map on stalks $\alpha_x:\mathcal F_x\to\mathcal G_x$ is surjective for any $x\in X$. While $\mathcal B$ covers the whole space, we can pick some $U\in\mathcal B$ such that $x\in U$. Given any $t_x\in\mathcal G_x$, i.e. we have $t\in\mathcal G(U_x)$ for some open subset $x\in U_x\subset X$. In case that $U\cap U_x$ isn't in the base, we can further restrict to $t\vert_{W}$ for some $W\in\mathcal B$. By commutativity of the diagram we know there's some $s\in \mathcal F(W)$ such that $s_x=(W,s)$ will be mapped to $t_x$. Hence the map induced on stalk $\alpha_x:\mathcal F_x\to\mathcal G_x$ is surjective. 
+
+	% https://q.uiver.app/#q=WzAsNixbMCwwLCJcXG1hdGhjYWwgRihVKSJdLFsxLDAsIlxcbWF0aGNhbCBHKFUpIl0sWzAsMSwiXFxtYXRoY2FsIEYoVykiXSxbMSwxLCJcXG1hdGhjYWwgRyhXKSJdLFswLDIsIlxcbWF0aGNhbCBGX3giXSxbMSwyLCJcXG1hdGhjYWwgR194Il0sWzAsMV0sWzIsMywiIiwyLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoiaG9vayIsInNpZGUiOiJ0b3AifX19XSxbMCwyXSxbMSwzXSxbNCw1XSxbMiw0XSxbMyw1XV0=
+\[\begin{tikzcd}
+	{\mathcal F(U)} & {\mathcal G(U)} \\
+	{\mathcal F(W)} & {\mathcal G(W)} \\
+	{\mathcal F_x} & {\mathcal G_x}
+	\arrow[from=1-1, to=1-2]
+	\arrow[hook, from=2-1, to=2-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow[from=1-2, to=2-2]
+	\arrow[from=3-1, to=3-2]
+	\arrow[from=2-1, to=3-1]
+	\arrow[from=2-2, to=3-2]
+\end{tikzcd}\]
+
+	For injective. Now we start by picking two elements $a_x,b_x\in\mathcal F_x$, where $a\in \mathcal F(U_a)$ and $b\in\mathcal F(U_b)$. Then we pick an open subset $W\in\mathcal B$ such that $B\subset U\cap U_a\cap U_b$. The $\alpha(W)$ is injective by assumption. Then $a\vert_{W}$ and $b\vert_W$ will be mapped to the same element in $\mathcal G_x$. By commutativity this proves the injective of $\alpha_x$.
+
+\end{proof}
+
 \section{Proposition 3.1.}
 
 \subsection{(b)}
