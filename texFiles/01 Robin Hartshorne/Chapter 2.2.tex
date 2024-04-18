@@ -100,6 +100,8 @@ See a \href{https://math.stackexchange.com/questions/408507/the-distinguished-op
 
 \section{Exercise 2.2.}
 
+Assume $X$ admits affine covering $\{V_i=\Spec A_i \}_{i\in I}$ for some index set $I$ and ring $A_i$. Notice that $V_i\cap U$ is open, hence we can cover it by distinguished open sets. By previous exercise \Cref{Hart Ex 2.1.}, we know distinguished open subset is an affine scheme. Therefore the locally ringed space $(U,\mathcal O_X\vert_{U})$ is a scheme because it's covered by affine schemes. 
+
 \subsection{References}
 
 See \cite{qing2006algebraic} Chap 2 Lemma 3.9.
@@ -144,7 +146,11 @@ On reduced presheaf isn't a sheaf \href{https://math.stackexchange.com/questions
 
 \section{Exercise 2.4.}
 
-Isn't this a direct application of Proposition 2.3. \cite{hartshorne2013algebraic}? 
+Isn't this a direct application of Proposition 2.3. \cite{hartshorne2013algebraic}? We'll use Prop 2.3. in the proof.
+
+\section{references}
+
+See \cite{gortz2020algebraic} Proposition 3.4. Chap 3 on Page 69. Rising Sea \cite{RaviRisingSea} 7.3.4.
 
 \section{Exercise 2.7.}
 
@@ -155,6 +161,26 @@ Give an open subset $U\subset X$, we can define $f^{\sharp}(U)$ as
 \begin{align*}
     \mathscr O_X(U)\to f_{\ast}\mathscr O_{\operatorname{Spec}K} (U)=
 \end{align*}
+
+\section{Exercise 2.9.}
+
+\textit{If $X$ is a scheme, show that every (nonempty) irreducible closed subset has a unique generic point.}
+
+\begin{proof}
+    Let $Z\subset X$ be a non-empty irreducible closed subsets. If we assume the existence of a generic point, then it must be unique. Otherwise we take the closure of two generic points will contradict irreducibility of the $Z$. 
+
+    It remains to check the existence. Take an open subset $U:=X\setminus (X\setminus Z)^{-}\subset Z$, and we can find an affine open $\Spec R\subset \subset U$ for affine opens form a basis for the scheme. Here $R$ is a ring. And the generic point $\xi\in \Spec R$ corresponds to the minimal prime of $R$. The existence of minimal prime implies the existence of generic point $\xi$. 
+    Furthermore, the point $\xi$ will be the generic point for $Z$ because $\Spec R$ is dense in $Z$ given $Z$ is irreducible.
+    \[\operatorname{Cl}_Z(\xi)=\operatorname{Cl}_Z(\operatorname{Cl}_U(\xi))=\operatorname{Cl}_Z(U)=Z.\]
+
+\end{proof}
+    
+
+\subsection{Solution}
+
+See this \href{https://math.stackexchange.com/questions/3744236/every-irreducible-closed-has-a-generic-point#comment7703441_3745580}{POST} \enquote{Every irreducible closed has a generic point}. Another way to describe the generic point $\xi$ is to define it as the nilradical of $R$. Notice that the nilradical here is a prime because \enquote{nonempty aﬃne scheme $X = \Spec(A)$ is irreducible if and only if the nilradical of $A$ is a prime ideal} by this \href{https://ocw.mit.edu/courses/18-726-algebraic-geometry-spring-2009/3723a99e97b581828fd782b9ffd83921_MIT18_726s09_lec11_more_schemes.pdf}{NOTE} Lemma 3 on Page 2.
+
+For existence of minimal prime, see \enquote{A Term...} \cite{altman2013term} 3.17 and Exercise 3.16 on Page 21. 
 
 \section{Exercise 2.12.}
 
