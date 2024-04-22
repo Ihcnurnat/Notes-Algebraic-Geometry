@@ -144,13 +144,17 @@ See \href{https://stacks.math.columbia.edu/tag/01IZ}{Tag 01IZ}. See \href{https:
 
 On reduced presheaf isn't a sheaf \href{https://math.stackexchange.com/questions/338185/the-reduced-presheaf}{HERE}. Discussion on Ex 2.3. (b), \href{https://math.stackexchange.com/questions/682230/exercise-2-3-from-hartshornes-algebraic-geometry}{POST}, \href{https://math.stackexchange.com/questions/441031/reduced-schemes-and-global-sections}{POST}. For (b), a standard treatment is \cite{qing2006algebraic} Chapter 2 2.4 on Page 59.
 
-\section{Exercise 2.4.}
+\section{Exercise 2.4.}\label{Hart Chap 2 Ex 2.4.}
 
 Isn't this a direct application of Proposition 2.3. \cite{hartshorne2013algebraic}? We'll use Prop 2.3. in the proof.
 
 \section{references}
 
 See \cite{gortz2020algebraic} Proposition 3.4. Chap 3 on Page 69. Rising Sea \cite{RaviRisingSea} 7.3.4.
+
+\section{Exercise 2.5.}
+
+Corollary of previous Exercise 2.4 \Cref{Hart Chap 2 Ex 2.4.}. See Corollary 3.6. Chap 3 of \cite{gortz2020algebraic}.
 
 \section{Exercise 2.7.}
 
@@ -245,23 +249,56 @@ In fact, the notion of $X_f$ generalises this equality $(\operatorname{Spec}B)_g
 \subsection{(b)}
 
 \begin{proof}
-    Given $X$ is quasi-compact, let $U_1,...,U_n$ be affine opens of $X$ where $n$ is some integer. Denote $U=U_1$, we have the following commutative diagram 
 
-    % https://q.uiver.app/#q=WzAsNCxbMSwwLCJhXFxpblxcR2FtbWEoWCxcXG1hdGhjYWwgT19YKT1BIl0sWzAsMSwiXFxHYW1tYShVLFxcbWF0aGNhbCBPX1gpPUJfMSJdLFsyLDEsIlxcR2FtbWEoWF9mLFxcbWF0aGNhbCBPX1gpXFxuaSAwIl0sWzEsMiwiXFxHYW1tYShVXFxjYXAgWF9mLFxcbWF0aGNhbCBPX1gpXFxuaSAwIl0sWzAsMV0sWzAsMl0sWzEsM10sWzIsM11d
+Restriction map gives us the following commutative diagram for each $1\leq i\leq n$.
+
+% https://q.uiver.app/#q=WzAsNCxbMSwwLCJhXFxpblxcR2FtbWEoWCxcXG1hdGhjYWwgT19YKT1BIl0sWzAsMSwiXFxHYW1tYShVX2ksXFxtYXRoY2FsIE9fWCk9Ql9pIl0sWzIsMSwiXFxHYW1tYShYX2YsXFxtYXRoY2FsIE9fWClcXG5pIDAiXSxbMSwyLCJcXEdhbW1hKFVfaVxcY2FwIFhfZixcXG1hdGhjYWwgT19YKVxcbmkgMCJdLFswLDFdLFswLDJdLFsxLDNdLFsyLDNdXQ==
 \[\begin{tikzcd}
-	& {a\in\Gamma(X,\mathcal O_X)=A} \\
-	{\Gamma(U,\mathcal O_X)=B_1} && {\Gamma(X_f,\mathcal O_X)\ni 0} \\
-	& {\Gamma(U\cap X_f,\mathcal O_X)\ni 0}
+	& {f,a\in\Gamma(X,\mathcal O_X)=A} \\
+	{\Gamma(U_i,\mathcal O_X\vert_{U_i})=B_i} && {\Gamma(X_f,\mathcal O_X)\ni 0} \\
+	& {\Gamma(U_i\cap X_f,\mathcal O_X\vert_{U_i})\ni 0}
 	\arrow[from=1-2, to=2-1]
 	\arrow[from=1-2, to=2-3]
 	\arrow[from=2-1, to=3-2]
 	\arrow[from=2-3, to=3-2]
 \end{tikzcd}\]
-    We can compute that 
-    \[\Gamma(U\cap X_f,\mathcal O_X)=\Gamma(D_U(\overline f),\mathcal O_X)=B_f.\]
-    While $a$ will restrict to $0$ in $X_f$, hence it will be mapped to $0\in B_f$.
+    We can compute by part (a) that for $1\leq i\leq n$, 
+    \begin{align*}
+        \Gamma(U_i\cap X_f,\mathcal O_X\vert_{U_i})=&~\Gamma(D_{U_i}(\overline f),\mathcal O_X\vert_{U_i})\\
+        =&~\Gamma(D_{U_i}(\Res_i(f)),\mathcal O_X\vert_{U_i})\\
+        =&~ \{1, \Res_i(f), \Res_i(f)^2,...\}^{-1}B_i.
+    \end{align*}
+    While $a$ will restrict to $0$ in $X_f$, hence it will be mapped to $0\in \{1, \Res_i(f), \Res_i(f)^2,...\}^{-1}B_i$. 
 
-\end{proof}
+    Given $X$ is quasi-compact, let $U_1,...,U_n$ be affine opens of $X$ where $n$ is some integer with global sections $B_1,...,B_n$. We have the following diagram 
+
+    % https://q.uiver.app/#q=WzAsNyxbMSwwLCJmLGFcXGluXFxHYW1tYShYLFxcbWF0aGNhbCBPX1gpPUEiXSxbMCwxLCJcXEdhbW1hKFVfMSxcXG1hdGhjYWwgT19YXFx2ZXJ0X3tVXzF9KT1CXzEiXSxbMCwyLCJCX3sxe1xcb3BlcmF0b3JuYW1le1Jlc31fMShmKX19PVxcezEsXFxvcGVyYXRvcm5hbWV7UmVzfV8xKGYpLFxcb3BlcmF0b3JuYW1le1Jlc31fMShmKV4yLC4uLlxcfV57LTF9Ql8xIl0sWzIsMSwiXFxHYW1tYShVX24sXFxtYXRoY2FsIE9fWFxcdmVydF97VV9ufSk9Ql9uIl0sWzIsMiwiQl97bntcXG9wZXJhdG9ybmFtZXtSZXN9X24oZil9fSJdLFsxLDEsIlxcZG90cyJdLFsxLDIsIlxcZG90cyJdLFswLDEsIlxcb3BlcmF0b3JuYW1le1Jlc31fMSIsMl0sWzEsMl0sWzAsMywiXFxvcGVyYXRvcm5hbWV7UmVzfV9uIl0sWzMsNF0sWzAsNSwiXFxkb3RzIl0sWzUsNl1d
+\[\begin{tikzcd}
+	& {f,a\in\Gamma(X,\mathcal O_X)=A} \\
+	{\Gamma(U_1,\mathcal O_X\vert_{U_1})=B_1} & \dots & {\Gamma(U_n,\mathcal O_X\vert_{U_n})=B_n} \\
+	{B_{1{\operatorname{Res}_1(f)}}=\{1,\operatorname{Res}_1(f),\operatorname{Res}_1(f)^2,...\}^{-1}B_1} & \dots & {B_{n{\operatorname{Res}_n(f)}}}
+	\arrow["{\operatorname{Res}_1}"', from=1-2, to=2-1]
+	\arrow[from=2-1, to=3-1]
+	\arrow["{\operatorname{Res}_n}", from=1-2, to=2-3]
+	\arrow[from=2-3, to=3-3]
+	\arrow["\dots", from=1-2, to=2-2]
+	\arrow[from=2-2, to=3-2]
+\end{tikzcd}\]
+
+    We claim lower map from $B_i\to\{1, \Res_i(f), \Res_i(f)^2,...\}^{-1}B_i$ is localisation. One possible interpretation is to recall construction of spectrum of a ring on Page 70 of \cite{hartshorne2013algebraic}. Another interpretation is that, by (a) and \Cref{Hart Ex 2.1.} we know the open subsets $U_i\cap X_f=D_{U_i}(\overline f)$ is an affine scheme. Then apply Proposition 2.3 Chap 2 of Hartshrone \cite{hartshorne2013algebraic} proves the localisation map is indeed the map between them. 
+
+    Now, we can apply definition of localisation: 
+    \begin{align*}
+        &\Res_i(a)/1=0\in \{1, \Res_i(f), \Res_i(f)^2,...\}^{-1}B_i ~\Leftrightarrow~ \\
+        \exists n_i\in\mathbb Z,~ &\Res_i(f)^n \Res_i(a)=\Res_i(f^na)=0\in B_i.
+    \end{align*}
+    Now we pick the largest index $N=\max{n_i}_{1\leq i\leq n}$. Notice that $f^Na$ will be mapped to $0$ in each $B_i=\Gamma(U_i,\mathcal O_X\vert_{U_i})$, while $\{U_i\}_{1\leq i\leq n}$ is an open covering of the whole space, by sheaf axiom we know $f^Na=0\in \Gamma(X,\mathcal O_X)$.
+
+\end{proof} 
+
+\subsection{(c)}
+
+
 
 \subsection{Hint}
 
