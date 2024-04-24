@@ -22,6 +22,21 @@ By universal property of $X\times_S S''$ we have a unique map $(X\times_S S')\ti
 Recall Example 3.0.1 \Cref{Hart Chap 2 Example 3.0.1.}, we know $\Spec k[x,y,t]/(ty-x^2)$ is an integral scheme given the global section ring is an integral domain.
 For $k[x,y,t]/(ty-x^2)$ is an integral domain, see this \href{https://math.stackexchange.com/questions/3320367/mathbbcx-y-z-xy-z2-is-not-a-field}{POST}. 
 
+\section{Exercise 3.6.}
+
+\begin{proof}
+Given $(X,\mathcal O)$ an integral scheme, then there exists a unique generic point $\xi$ by Exercise 2.9 in \Cref{Hart Chap 2 Ex 2.9.}. Now we compute the local ring at $\xi$. Pick an affine open $\Spec A\subset X$ which contains $\xi$, then we know the closure of $\xi$ in $\Spec A$ must be whole $\Spec A$. While $X$ is integral, section $A$ is an integral domain, hence $\xi$ corresponds to the zero ideal in $A$.
+\begin{align*}
+    \mathcal O_{\xi} =&~ \underset{U \ni \xi,~ U \text{ open in } X}{\Colim} \mathcal O(U)\\
+    =&~ \underset{U \ni \xi,~ U \text{ open in } \Spec A}{\Colim} \mathcal O\vert_{\Spec A}(U)\\ 
+    =&~ A_{0}=\Frac A,
+\end{align*} for which we define as the \textit{function field} $K(X)$.
+
+\end{proof}
+
+\subsection{Hint}
+
+See this \href{https://math.stackexchange.com/questions/218767/relation-of-function-field-of-a-scheme-to-the-local-ring-of-its-prime-divisor}{POST}.
 
 \section{Exercise 3.7.}
 

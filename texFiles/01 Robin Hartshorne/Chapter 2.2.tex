@@ -146,27 +146,45 @@ On reduced presheaf isn't a sheaf \href{https://math.stackexchange.com/questions
 
 \section{Exercise 2.4.}\label{Hart Chap 2 Ex 2.4.}
 
-Isn't this a direct application of Proposition 2.3. \cite{hartshorne2013algebraic}? We'll use Prop 2.3. in the proof.
+\enquote{Morphism into an affine scheme}
+
+Isn't this a direct application of Proposition 2.3. \cite{hartshorne2013algebraic}? We'll use Prop 2.3. in the proof. See \Cref{Hart Chap 2 Ex 2.7.} for morphism from an affine scheme with global section of a field.
 
 \section{references}
 
+See Theorem I-40 on Page 30 of \cite{eisenbud2006geometry}.
 See \cite{gortz2020algebraic} Proposition 3.4. Chap 3 on Page 69. Rising Sea \cite{RaviRisingSea} 7.3.4.
 
 \section{Exercise 2.5.}
 
 Corollary of previous Exercise 2.4 \Cref{Hart Chap 2 Ex 2.4.}. See Corollary 3.6. Chap 3 of \cite{gortz2020algebraic}.
 
-\section{Exercise 2.7.}
+\section{Exercise 2.7.}\label{Hart Chap 2 Ex 2.7.}
+The following proof is based on Lecture 53 of S\'andor's Notes on Algebraic Geometry \cite{SandorNotesAlgebraicGeometry}.
 
-To specify a morphism in locally ringed space, we have to give a continuous map of topological spaces and morhism of sheave of rings. A continuous map is given by choosing a point of $X$ for the spectrum $\operatorname{Spec}K$ is a single point. Here we denote this map as $f:\operatorname{Spec}K\to X$. We wish to prove a morphism on sheaves of rings 
+\begin{proof}
+    To specify a morphism between locally ringed spaces, we have to give a continuous map of topological spaces and morhism of sheave of rings. A continuous map is given by choosing a point $x$ of $X$ for the spectrum $\operatorname{Spec}K$ is a single point. Here we denote this map as $f:\operatorname{Spec}K\to X$. 
+
+    As definition specified, the morphism of sheaves $\mathscr O_{X}\to f_{\ast}\mathscr O_{\Spec K}$ induces a local ring homomorphism on stalks at $x\in X$. Notice that $0\in \Spec K$ is the pre-image of $x$, then 
+    \[\mathscr O_{X,x}\to f_{\ast}\mathscr O_{\Spec K,0}=K\]
+    is a local ring homomorphism. As $K$ is a field, the pre-image of maximal ideal $0$ must be exactly the maximal ideal of $\mathscr O_{X,x}$. This morphism cannot be zero morphism, so it must be surjective. The kernel of this morphism is exactly $\mathcal m_x\triangleleft_{\text{max}}\mathscr O_{X,x}$, which implies the isomorphism of 
+    \[\mathscr O_{X,x}/\mathcal m_x=\kappa (x)\simeq k.\] 
+\end{proof}
+
+\subsection{First Attempt}
+We wish to prove a morphism on sheaves of rings 
 \[f^{\sharp}:\mathscr O_{X}\to f_{\ast}\mathscr O_{\operatorname{Spec}K}\] will corresponds bijectively to an inclusion map $k(x)\to K$.  \todo{Use \href{https://stacks.math.columbia.edu/tag/008K}{Tag 008K} to simplify the construction of the morphism?}
 
 Give an open subset $U\subset X$, we can define $f^{\sharp}(U)$ as 
 \begin{align*}
     \mathscr O_X(U)\to f_{\ast}\mathscr O_{\operatorname{Spec}K} (U)=
-\end{align*}
+\end{align*} 
 
-\section{Exercise 2.9.}
+\subsection{Remarks}
+
+For converse direction, see Proposition 3.8. Chap 3 of \cite{gortz2020algebraic}. Notice that this problem is NOT completely analoguous to \Cref{Hart Chap 2 Ex 2.4.}, because here the global section of the affine scheme is a field. There is a slightly more general statement regarding when global section is a local ring, see comments of Prop 3.8. Chap 3 of \cite{gortz2020algebraic}.
+
+\section{Exercise 2.9.}\label{Hart Chap 2 Ex 2.9.}
 
 \textit{If $X$ is a scheme, show that every (nonempty) irreducible closed subset has a unique generic point.}
 
@@ -298,19 +316,42 @@ Restriction map gives us the following commutative diagram for each $1\leq i\leq
 
 \subsection{(c)}
 
-
-
 \subsection{Hint}
 
 
 See Proposition 3.12. Chap 2 of \cite{qing2006algebraic}. See this \href{https://math.stackexchange.com/questions/2815859/hartshorne-algebraic-geometry-exercise-ii-2-16}{POST}. See this \href{https://math.berkeley.edu/~cjdowd/hartshorne.html}{Webpage} which leads to this \href{https://math.stackexchange.com/questions/57077/on-affine-local-properties}{POST}. See \href{https://math.stackexchange.com/questions/4686052/hartshorne-ex-ii-2-16-part-b}{POST} for Hartshorne ex II 2.16 part b. See \href{https://math.stackexchange.com/questions/2407252/help-doing-an-exercise-on-a-criterion-for-affiness-from-hartshorne}{POST} for details.
 
+
+\section{Exercise 2.18.}
+
+\subsection{(a)}
+
+Notice that $\sqrt{\langle f\rangle}=\sqrt{\langle f^n\rangle}=0\subset \mathfrak p$ for any prime ideal $\mathfrak p\triangleleft A$. For the dirction \enquote{empty $\Rightarrow$ nilpotent}...\todo{need to finish}
+
+\subsection{(b)}
+
+\subsection{Solution}
+
+For example, see \href{https://stacks.math.columbia.edu/tag/00DY}{Tag 00DY}.
+
 \section{Exercise 2.19.}
 
+Firstly prove (ii) $\Leftrightarrow$ (iii), then prove (iii) $\Rightarrow$ (i). 
+
+For (i) $\Rightarrow$ (iii), 
+
+% https://q.uiver.app/#q=WzAsNSxbMCwwLCJBIl0sWzEsMCwiXFxHYW1tYShVLFxcbWF0aGNhbCBPXFx2ZXJ0X3suLi59KSJdLFswLDEsIlxcR2FtbWEoVixcXG1hdGhjYWwgT1xcdmVydF97Li4ufSkiXSxbMSwxLCIxPVxcR2FtbWEoXFxlbXB0eXNldCxcXG1hdGhjYWwgT1xcdmVydHsuLi59KSJdLFsyLDIsIj8iXSxbMCwxXSxbMCwyXSxbMiwzXSxbMSwzXSxbMiw0XV0=
+\[\begin{tikzcd}
+	A & {\Gamma(U,\mathcal O\vert_{...})} \\
+	{\Gamma(V,\mathcal O\vert_{...})} & {1=\Gamma(\emptyset,\mathcal O\vert{...})} \\
+	&& {?}
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow[from=1-2, to=2-2]
+	\arrow[from=2-1, to=2-2]
+	\arrow[from=2-1, to=3-3]
+\end{tikzcd}\] \todo{?}
+
 \subsection{Hint}
-
-
-
-\subsection{}
 
 Because $\operatorname{Spec}$ is a contravariant functor.
