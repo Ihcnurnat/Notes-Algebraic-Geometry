@@ -204,6 +204,8 @@ See this \href{https://math.stackexchange.com/questions/3744236/every-irreducibl
 
 For existence of minimal prime, see \enquote{A Term...} \cite{altman2013term} 3.17 and Exercise 3.16 on Page 21. 
 
+See Proposition 3.23 Chap 3 on Page 78 \cite{gortz2020algebraic}.
+
 \section{Exercise 2.12.}
 
 \subsection{Remarks}
@@ -316,10 +318,42 @@ Restriction map gives us the following commutative diagram for each $1\leq i\leq
 
 \subsection{(c)}
 
+Statement of the prompt is misleading. I combined part (c) and (d).
+
+\begin{proof}
+% https://q.uiver.app/#q=WzAsMyxbMCwwLCJmXFxpbiBBPVxcR2FtbWEgKFgsXFxtYXRoY2FsIE9fWCkiXSxbMiwwLCJcXEdhbW1hKFhfZixcXG1hdGhjYWwgT197WF9mfSkiXSxbMSwxLCJBX2YiXSxbMCwxLCJcXG9wZXJhdG9ybmFtZXtSZXN9Il0sWzAsMl0sWzIsMSwiIiwyLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV1d
+\[\begin{tikzcd}
+	{f\in A=\Gamma (X,\mathcal O_X)} && {\Gamma(X_f,\mathcal O_{X_f})} \\
+	& {A_f}
+	\arrow["{\operatorname{Res}}", from=1-1, to=1-3]
+	\arrow[from=1-1, to=2-2]
+	\arrow[dashed, from=2-2, to=1-3]
+\end{tikzcd}\]
+
+Firstly, we try to construct a map from $A_f$ to $\Gamma(X_f,\mathcal O_{X_f})$ by universal property of localisation. It suffices to check $f$ will be mapped to a unit under restriction map $\Res$.
+
+% https://q.uiver.app/#q=WzAsMyxbMCwwXSxbMSwxLCJmX3hcXGluXFxtYXRoY2FsIE9fe1gseH1cXG5pIDEvZl94Il0sWzEsMCwiZlxcaW5cXG1hdGhjYWwgT19YKFVfeClcXG5pIGciXSxbMiwxLCIiLDAseyJvZmZzZXQiOjF9XSxbMiwxLCIiLDIseyJvZmZzZXQiOi01LCJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJtYXBzIHRvIn19fV1d
+\[\begin{tikzcd}
+	{} & {f\in\mathcal O_X(U_x)\ni g} \\
+	& {f_x\in\mathcal O_{X,x}\ni 1/f_x}
+	\arrow[shift right, from=1-2, to=2-2]
+	\arrow[shift left=5, maps to, from=1-2, to=2-2]
+\end{tikzcd}\]
+
+Now let's consider for $x\in X_f=\{x\in X ~\vert~ f(x)\neq 0\in \kappa (x)\}$. Section $f\in A$ admits a representative in $\mathcal O_{X,x}$, i.e. there exist $U'_x\subset X$ contains $x$ such that $f\in \mathcal O_{X}(U'_x)$. Similarly, for $1/f_x$, it will corresponds a section $g\in \mathcal O_{X}(U''_x)$ on some open neighborhood $U''_x$ of $x$ such that $g_x=1/f_x$ given $f_x$ is a unit in the stalk $\mathcal O_{X,x}$. Denote $U_x=U'_x\cap U''_x$. Locally on $\mathcal O(U_x)$, we have 
+\[f\vert_{U_x}g\vert_{U_x}=1\] because in ring homomorphism $\mathcal O_X(U_x)\to \mathcal O_{X,x}$, the preimage of $1$ must be $1$ and $f_xg_x=1$ by our construction. 
+
+For different $x\in X_f$, we have an open cover $\{U_x\}_{x\in X_f}$. Since $f\in \Gamma (X,\mathcal O_X)$, so it satisfy all sheaf axiom. 
+\[g\vert_{U_x}\vert_{U_x\cap U_y}=(1/f\vert_{U_x})\vert_{U_x\cap U_y}=(1/f\vert_{U_y})\vert_{U_x\cap U_y}=g\vert_{U_y}\vert_{U_x\cap U_y}\] implies there exist $g\in \Gamma (X_f,\mathcal O_{X_f})$ such that $\Res f g=1\in \Gamma(X_f,\mathcal O_{X_f})$ by sheaf axiom(used twice, one for existence of $g$, one for identifying $\Res f g$). Hence we have the map by universal property of localisation. 
+
+It remains to check surjectivity of this map. 
+
+\end{proof}
+
 \subsection{Hint}
 
 
-See Proposition 3.12. Chap 2 of \cite{qing2006algebraic}. See this \href{https://math.stackexchange.com/questions/2815859/hartshorne-algebraic-geometry-exercise-ii-2-16}{POST}. See this \href{https://math.berkeley.edu/~cjdowd/hartshorne.html}{Webpage} which leads to this \href{https://math.stackexchange.com/questions/57077/on-affine-local-properties}{POST}. See \href{https://math.stackexchange.com/questions/4686052/hartshorne-ex-ii-2-16-part-b}{POST} for Hartshorne ex II 2.16 part b. See \href{https://math.stackexchange.com/questions/2407252/help-doing-an-exercise-on-a-criterion-for-affiness-from-hartshorne}{POST} for details.
+Probably the most elegant and official proof is given as Proposition 3.12 in Chap 2 of \cite{qing2006algebraic}. It didn't involve the check according to the hint of part (a) and construct the map in part (c) immediately. See this \href{https://math.stackexchange.com/questions/2815859/hartshorne-algebraic-geometry-exercise-ii-2-16}{POST}. See this \href{https://math.berkeley.edu/~cjdowd/hartshorne.html}{Webpage} which leads to this \href{https://math.stackexchange.com/questions/57077/on-affine-local-properties}{POST}. See \href{https://math.stackexchange.com/questions/4686052/hartshorne-ex-ii-2-16-part-b}{POST} for Hartshorne ex II 2.16 part b. See \href{https://math.stackexchange.com/questions/2407252/help-doing-an-exercise-on-a-criterion-for-affiness-from-hartshorne}{POST} for details.
 
 
 \section{Exercise 2.18.}
@@ -330,9 +364,36 @@ Notice that $\sqrt{\langle f\rangle}=\sqrt{\langle f^n\rangle}=0\subset \mathfra
 
 \subsection{(b)}
 
+Assume $\varphi:A\to B$ is injective. In order to check $f^{\sharp}$ is injective, it suffices to check on $\mathbf D(g)\subset X=\Spec A$, the map $f^{\sharp}(\mathbf D(g)):\mathcal O_X(\mathbf D(g))\to f_{\ast}\mathcal O_Y(\mathbf D(g))$ is injective. 
+\begin{align*}
+    f^{\sharp}(\mathbf D(g))&:\mathcal O_X(\mathbf D(g))\to f_{\ast}\mathcal O_Y(\mathbf D(g))=\mathcal O_Y(f^{-1}(\mathbf D(g)))=\mathcal O_Y(\mathbf D(\varphi(g)))\\
+    \Rightarrow~ f^{\sharp}(\mathbf D(g))&:A_g\to B_{\varphi(g)}
+\end{align*}
+Is this map the localisation induced by $\varphi:A\to B$? If so, then we can conclude injectivity of $f^{\sharp}:\mathcal O_X\to f_{\ast}\mathcal O_Y$.
+
+% https://q.uiver.app/#q=WzAsNCxbMCwwLCJnXFxpbiBBPVxcbWF0aGNhbCBPX1goWCkiXSxbMSwwLCJCPWZfe1xcYXN0fVxcbWF0aGNhbCBPX1koWClcXG5pIFxcdmFycGhpKGcpIl0sWzAsMSwiQV9nIl0sWzEsMSwiQl97XFx2YXJwaGkoZyl9Il0sWzAsMSwiXFx2YXJwaGk9Zl57XFxzaGFycH0oWCkiXSxbMCwyXSxbMSwzXSxbMiwzLCJcXGV4aXN0cyAhIiwyLHsiY3VydmUiOjEsInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFsyLDMsImZee1xcc2hhcnB9KFxcbWF0aGJmIEQoZykpIiwwLHsiY3VydmUiOi0xfV1d
+\[\begin{tikzcd}
+	{g\in A=\mathcal O_X(X)} & {B=f_{\ast}\mathcal O_Y(X)\ni \varphi(g)} \\
+	{A_g} & {B_{\varphi(g)}}
+	\arrow["{\varphi=f^{\sharp}(X)}", from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow[from=1-2, to=2-2]
+	\arrow["{\exists !}"', curve={height=6pt}, dashed, from=2-1, to=2-2]
+	\arrow["{f^{\sharp}(\mathbf D(g))}", curve={height=-6pt}, from=2-1, to=2-2]
+\end{tikzcd}\]
+
+Here we wish to identify $f^{\sharp}$ with the localization. Notice that we can check by universal property of localisation that $g$ will be mapped to a unit in $B_{\varphi(g)}$, therefore there exists a unique map such that the above diagram commutes. While $f^{\sharp}$ being a natural transformation we know $f^{\sharp}(\mathbf D(g))$ will make this diagram commute, then two maps is the same. And we can conclude the injectivity of $f^{\sharp}$. 
+
+What we've done is to check the injectivity of the morphism of sheaves on base, which will induced an injective morphism of sheaf by Exercise 2.7. Chap 2 on Page 40 \cite{qing2006algebraic}.
+
+Conversely, if we assume $f^{\sharp}$ is injective. We can localise at every point of $X$ which give rise to an injective morphism by Prop 3.9. on Page 40 of Atiyah \cite{atiyah1994introduction}. Or we can just take the global section, which recovers to ring map $\varphi:A\to B$ more quickly.
+
+%We wish to compute the induced morphism $f^{\sharp}_x$ where $x\in X=\Spec A$ on stalk is injective: \begin{align*}\mathcal O_X\to f_{\ast}\mathcal O_Y\to f_{\ast}\mathcal O_{Y,x}\\\Rightarrow~ \end{align*}
+
 \subsection{Solution}
 
-For example, see \href{https://stacks.math.columbia.edu/tag/00DY}{Tag 00DY}.
+For example, see \href{https://stacks.math.columbia.edu/tag/00DY}{Tag 00DY}. 
+See a post \href{https://math.stackexchange.com/questions/4686443/injectivity-of-map-on-sheaves-f-sharp-mathcalo-x-to-f-mathcalo-y-h?rq=1}{HERE}, \href{https://math.stackexchange.com/questions/424884/possible-mistake-in-exercise-in-hartshorne-exercise-ii-2-18b?noredirect=1&lq=1}{HERE}, and \href{https://math.stackexchange.com/questions/424884/possible-mistake-in-exercise-in-hartshorne-exercise-ii-2-18b}{HERE}.
 
 \section{Exercise 2.19.}
 

@@ -8,6 +8,54 @@ It's finitely many of Noetherian topological spaces (in the affine case), which 
 
 \section{Proposition 3.2.}
 
+
+
+\section{Theorem 3.3.}
+
+\subsection{Step 3: Glueing Morphisms}
+For a general statement for glueing morphisms between ringed spaces, see Rising Sea 7.2.A. \cite{RaviRisingSea}.
+\begin{proof}
+    To construct $f$, we need to specify the topological map and the corresponding sheaf morphism. 
+    For topological map, it's clearly well-defined and it satisfies our requirements. It remains to:
+    \begin{enumerate}
+        \item construct the morphism $f^{\flat}:\mathcal O_{Y}\to f_{\ast}\mathcal O_X$.
+        \item check morphism $f=(f,f^{\flat})$ is unique.
+        \item check $f\vert_{U_i}=f_i$.
+    \end{enumerate}
+    For each $f_i:U_i\to Y$, we have $f_i^{\flat}:\mathcal O_Y\to f_{i,\ast}\mathcal O_{U_i}$ and $f_i^{\sharp}:f_i^{-1}\mathcal O_Y\to\mathcal O_{U_i}$.
+
+    %And we wish to define $f_{\ast}\mathcal O_X$ on $Y$. 
+    
+    For an open subset $V\subset Y$, we define 
+    \begin{align*}
+        f^{\sharp}(V) ~:~ \mathcal O_Y(V) &\to \mathcal O_X(f^{-1}(V))\\
+                    \varphi &\mapsto s
+    \end{align*}where $s\vert_{U_i\cap f^{-1}(V)}=f_i^{\sharp}(U_i)\varphi$.\todo{finish this...}
+
+
+    Wouldn't it be easier to construct the map $f^{-1}\mathcal O_Y\to \mathcal O_X$?
+    To construct $f^{\flat}$, it's equivalent to construct $f^{\sharp}:f^{-1}\mathcal O_Y\to\mathcal O_X$. In prompty, we're given $f_i:U_i\to Y$ with $f_i^{\sharp}:f_i^{-1}\mathcal O_Y\to \mathcal O_{U_i}$. Hence we can define $f^{\sharp}$ on all open subsets $U\subset X$ as 
+    \begin{align*}
+        f^{\sharp}(U) ~:~ f^{-1}\mathcal O_Y(U) &\to\mathcal O_X (U)\\ 
+                            s &\mapsto S
+    \end{align*}where $S\vert_{U_i}=f_i^{\sharp}(U_i):(\mathcal O_Y(U_i)\to \mathcal O_{U_i}(U_i))(s)$. Recall that we're given $f_i\vert_{U_i\cap U_j}=f_j\vert_{U_i\cap U_j}$, in particularly we know
+    \[f_i^{\sharp}:f_i^{-1}\mathcal O_Y\to \mathcal O_{U_i\cap U_j} ~=~ f_j^{\sharp}:f_j^{-1}\mathcal O_Y\to\mathcal O_{U_i\cap U_j}.\]
+    Therefore compatibility is satisfied:
+    \begin{align*}
+        S\vert_{U_i}\vert_{U_i\cap U_j} =&~ ...\\
+        =&~ ...\\
+        =&~ S\vert_{U_j}\vert_{U_i\cap U_j}
+    \end{align*}
+    And by sheaf axiom of $\mathcal O_X$ there exists a unique $S$ as above. 
+
+    \texttt{check the later two conditions after translating the requirements correctly by adjoint?}\todo{???}
+
+\end{proof} 
+    
+\subsection{Solutions}
+
+See \href{https://math.stackexchange.com/questions/442911/glueing-morphisms-of-sheaves-together-can-i-just-do-this}{POST}, \href{https://math.stackexchange.com/questions/1173973/morphism-of-ringed-spaces-glue}{POST}.
+
 \section{Definition: Base Extension}
 
 \textit{If $S''\to S'\to S$ are two morphisms, then $(X\times_S S')\times _{S'}S''\cong X\times_{S}S''$.}
@@ -21,6 +69,51 @@ By universal property of $X\times_S S''$ we have a unique map $(X\times_S S')\ti
 
 Recall Example 3.0.1 \Cref{Hart Chap 2 Example 3.0.1.}, we know $\Spec k[x,y,t]/(ty-x^2)$ is an integral scheme given the global section ring is an integral domain.
 For $k[x,y,t]/(ty-x^2)$ is an integral domain, see this \href{https://math.stackexchange.com/questions/3320367/mathbbcx-y-z-xy-z2-is-not-a-field}{POST}. 
+
+\section{Exercise 3.1.}
+
+We assume Prop 5.3.1. of Rising Sea \cite{RaviRisingSea}. We know for a specific choice of open affine covers of $Y$, each open affine has $\star$ property. First condition of affine communication lemma enable us to conclude all small distinguished open subsets
+
+\begin{proof}
+    One direction is clear.
+
+    For another direction, assume the morphism $f$ is locally of finite type and we wish to prove that for every open affine $V=\Spec B\subset Y$, preimage $f^{-1}(V)$ can be covered by open affine subsets $U_j=\Spec A_j$ where $A_j$ is f.g. $B$-algebra. 
+
+    
+
+    Given $f$ is locally of finite type. This means that scheme $Y$ admits an open covering of open  affine subsets $\{V_i\}_{i\in I}$(here $I$ is an index set) such that:
+    \begin{itemize}
+        \item for any $i$, preimage 
+        $f^{-1}(V_i)$ can be covered by $\{U_{ij}=\Spec A_{ij}\}_{j\in J_i}$ where $A_{ij}$ is f.g. $B_i$-algebra. 
+    \end{itemize}
+
+    We'll check two conditions for Affine Communication Lemma.
+    Assume $\Spec C\to Y$ admits such property, i.e. the preimage $f^{-1}(\Spec C)$ can be covered by $\{U_j=\Spec D_j\}_{j\in J}$ where $D_j$ is f.g. $C$-algebra. Fix $c\in C$, we have 
+    \begin{align*}
+        f^{-1}(\Spec C_c) =&~ f^{-1}(\Spec C_c\cap \Spec C)\\
+        =&~ \bigcup_{j\in J} \left(f^{-1}(\Spec C_c)\cap U_j\right).
+    \end{align*}Now we further assume $f^{-1}(\Spec C_c)$ could be covered by affine opens $\{V_l=\Spec E_l\}_{l\in L}$. According to 5.3.1. Proposition of Rising Sea \cite{RaviRisingSea}, we can cover each $\Spec E_l\cap \Spec D_j$ by distinguished open subsets on both sides, i.e. 
+    \[\Spec E_l\cap \Spec D_j=\bigcup_{k\in K_{lj}}\Spec \{1,?,?^2...\}^{-1}D_j.\]
+    Therefore we can cover the preimage 
+    \begin{align*}
+        f^{-1}(\Spec C) =&~ \bigcup_{j\in J} \bigcup_{l\in L} \left(f^{-1}(\Spec E_l)\cap U_j\right) \\
+        =&~ \bigcup_{j\in J}\bigcup_{l\in L}\bigcup_{k\in K_{lj}}\Spec \{1,h,h^2...\}^{-1}D_j\\
+    \end{align*}where $f\in D_j$. Recall that $D_j$ is f.g. $C$-algebra
+    
+\end{proof}
+
+\begin{comment}
+    For the first condition. Suppose $V=\Spec B$ has the property. Then we wish to check $\Spec B_g$ has the property for any $g\in B$. We know $f^{-1}(V)$ can be covered by $U_j=\Spec A_j$ where $A_j$ is f.g. $B$-algebra. Therefore 
+    \[f^{-1}(\Spec B_g)=\bigcup U_j\cap f^{-1}(\Spec B_g).\]For each $U_j\cap f^{-1}(\Spec B_g)$, by the virtue of 5.3.1. Proposition of Rising Sea \cite{RaviRisingSea}, it could be covered by distinguished open subsets $D_{U_j}(a_{\bullet})$ for some $a_{\bullet}\in A_j$ (here $f^{-1}(\Spec B_g)$ is open, hence admits a covering by open affine subsets. Pick one of such open affine and intersection with open affine subset $U_j$). And all such distinguished open subsets can indeed cover $f^{-1}(\Spec B_g)$. 
+
+    The global section of any such distinguished open is a localisation of $A_i$ at one element $a_{\bullet}$. While $A_i$ is assumed to be f.g. $B$-algebra, hence we know $\{1,a_{\bullet},...\}^{-1}A_i$ 
+
+    I lost information about g, ???
+\end{comment}
+
+\subsection{Solutions}
+
+See \href{https://stacks.math.columbia.edu/tag/01T0}{Tag 01T0} for a slightly different treatment. Or Proposition and Definition 10.5. \cite{gortz2020algebraic}.
 
 \section{Exercise 3.6.}
 
@@ -40,4 +133,12 @@ See this \href{https://math.stackexchange.com/questions/218767/relation-of-funct
 
 \section{Exercise 3.7.}
 
-\textit{}
+\textit{A morphism $f:X\to Y$, with $Y$ irreducible, is \textbf{generically finite } if $f^{-1}(\eta)$ is a finite set, where $\eta$ is the generic point of $Y$.}
+
+\begin{proof}
+    
+    As a dominant morphism, $f$ will map generic points of $X$ to $Y$. So we'll use $\xi:=f^{-1}(\eta)$ to denote a generic point of $X$. Let $\{V_i=\Spec B_i\subset Y\}_{i\in I}$ be the affine cover of  $Y$ such that $f$ is of finite type. Hence $f^{-1}(V_i)$ could be covered by finitely many $\{U_{ij}=\Spec A_{ij}\}_{j\in J_i}$ such that $A_{ij}$ is f.g. $B_i$-algebra. According to Exercise 3.6. Chap 2 \cite{hartshorne2013algebraic}, we know the function fields are 
+    \[K(X)=\mathcal (O_X\vert_{U_{ij}})_{\xi}=\Frac A_{ij},~ K(Y)=\mathcal (O_Y\vert_{V_i})_{\eta}=\Frac B_i.\]
+    We are given $A_{ij}$ is f.g. $B_i$-algebra. 
+
+\end{proof}
