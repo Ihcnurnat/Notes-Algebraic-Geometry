@@ -239,7 +239,7 @@ For (b), see this \href{https://math.stackexchange.com/questions/4690764/is-this
 See standard counterexample for part (d) \href{https://math.stackexchange.com/questions/1611732/example-of-non-noetherian-ring-whose-spectrum-is-noetherian/1611757#1611757}{HERE}, \href{https://math.stackexchange.com/questions/7392/a-non-noetherian-ring-with-noetherian-spectrum}{HERE}.
 
 
-\section{Exercise 2.16.}
+\section{Exercise 2.16.}\label{Hart Chap 2 Ex 2.16.}
 
 \subsection{(a)}
 \begin{proof}
@@ -355,6 +355,25 @@ It remains to check surjectivity of this map.
 
 Probably the most elegant and official proof is given as Proposition 3.12 in Chap 2 of \cite{qing2006algebraic}. It didn't involve the check according to the hint of part (a) and construct the map in part (c) immediately. See this \href{https://math.stackexchange.com/questions/2815859/hartshorne-algebraic-geometry-exercise-ii-2-16}{POST}. See this \href{https://math.berkeley.edu/~cjdowd/hartshorne.html}{Webpage} which leads to this \href{https://math.stackexchange.com/questions/57077/on-affine-local-properties}{POST}. See \href{https://math.stackexchange.com/questions/4686052/hartshorne-ex-ii-2-16-part-b}{POST} for Hartshorne ex II 2.16 part b. See \href{https://math.stackexchange.com/questions/2407252/help-doing-an-exercise-on-a-criterion-for-affiness-from-hartshorne}{POST} for details.
 
+\section{Exercise 2.17.}
+
+\subsection{(a)}
+
+On Page 73, Definition of ringed space, we have an equivalent definition of a morphism $(f,f^{\sharp})$ being an isomorphism. 
+
+For topological space, the inverse is clear to define. It remains to check 
+\[f^{\sharp}:\mathcal O_Y\to f_{\ast}\mathcal O_X\] is an isomorphism. Given $f^{-1}(U_i)\to U_i$ is an isomorphism, therefore 
+\[\left(\mathcal O_{U_i}\to (f\vert_{f^{-1}(U_i)})_{\ast}\mathcal O_{f^{-1}(U_i)}\right)=f^{\sharp}(U_i).\]
+Hence we know $f^{\sharp}(U)$ for any open subset $U\subset Y$ is an isomorphism, which implies $f^{\sharp}$ is an isomorphism. 
+
+\subsection{(b)}
+
+$\Rightarrow$: When $X$ is affine, we can take finitely many such $f_i$ (which generate the global section $\Gamma (X,\mathcal O_X)$) for affine scheme is quasi-compact. And we know distinguished open is affine.
+
+$\Leftarrow$: Assume that each $X_{f_i}$ is affine. By Chap 2 Ex 2.16. of Hartshorne \cite{hartshorne2013algebraic} \Cref{Hart Chap 2 Ex 2.16.}, $\Gamma(X_{f_i},\mathcal O_{X_{f_i}})=A_{f_i}$ for some ring $A_i$ where $1\leq i\leq r$. 
+
+We need to show that $X\to \Spec A$ is an isomorphism. 
+Given the localisation map $A\to A_{f_i}=\Gamma(X_{f_i},\mathcal O_{X_{f_i}})$, Ex 2.4 induces morphism $h_i:X_{f_i}\to \Spec A$ for each $1\leq i\leq r$. Gluei morphisms $h_i$\todo{??}. Since $\{\mathbf D(f_i)\}_{1\leq i\leq r}$ is an open covering of $\Spec A$ given $f_1,...,f_r$ generate the unit ideal. By part (a), it remains to check...
 
 \section{Exercise 2.18.}
 
