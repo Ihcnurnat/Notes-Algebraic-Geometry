@@ -2,6 +2,155 @@
 
 For the claim $\widetilde{M}\vert_{\Spec A_f}=\widetilde{M_f}$ See Theorem 1.7. Chap 5 on Page 160 \cite{qing2006algebraic}.
 
+The isomorphism of two sheaves of modules 
+\[\widetilde{M_i}\vert_{\mathbf D(f_i)\cap \mathbf D(f_j)}\simeq \widetilde{M_j}\vert_{\mathbf D(f_i)\cap \mathbf D(f_j)}\] yield isomorphisms $\phi_{ij}: (M_i)_{f_j}\simeq (M_j)_{f_i}$ of $A_{f_if_j}$-modules.
+Notice that $M_i$ admits $A_{f_i}$-module structure as assumed. Therefore, 
+\[\widetilde{M_i}\vert_{\mathbf D(f_i)\cap\mathbf D(f_j)\subset \Spec A}=\widetilde{M_i}(\mathbf D_{\Spec A_{f_i}}(\overline{f_j}))=(M_j)_{f_j}\] where $\overline{f_i}$ denotes the image of $f_i$ under restriction from $\Gamma(\Spec A_{f_i},\mathcal O_{...})$ to $\Gamma(\Spec A_{f_i}\vert_{\Spec A_{f_j}, \mathcal O_{...}})$. 
+Here the second equality applied result of Ex 2.16. Chap 2 \cite{hartshorne2013algebraic}.
+
+Todo List \begin{enumerate}
+    \item Define $\beta$
+    \item Check injective, and $\Image \beta=\Ker \gamma_{f_1}$.
+    \item Apply five lemma to conclude the isomorphism between $M_{f_i}\simeq M_1$.
+\end{enumerate}Then the induced map in the category of quasi-coherent sheaves will be an isomorphism as expected. 
+
+To define $\beta$, it suffices to define $M_1\to (M_i)_{f_1}$.
+\begin{align*}
+    \widetilde{M_1}=\mathcal F\vert_{\mathbf D(f_i)}=\mathcal F\vert_{D(f_i)\cap D(f_1)}=...=\widetilde{M_i}\vert_{\Spec A_{f_1}}.
+\end{align*}\todo{???}
+
+\subsection{Remarks}
+
+The part for verifying the first condition of Affine Communication Lemma is clear. We'll focus on checking the second condition. Here we're given information for $\Spec A_{f_i}$ for $1\leq i\leq n$. By definition of \todo{?? but as the statement of affine communication lemma, the information we get is $\Spec A_{f_i}\to X$, but even in that case, we just restrict and regard $\mathscr F$ as a sheaf on $\Spec A$} property $P$, we have $\mathscr F$ is $\mathscr O_{\Spec A}$-module and $\mathscr F\vert_{D_{\Spec A}(f_i)}=\widetilde{M_i}$. We wish to prove $\Spec A$ has the property $P$. 
+
+The text indicated that 
+\[\mathscr F\vert_{\mathbf D(f_i)\cap \mathbf D(f_j)}\simeq \widetilde{M_i}\vert_{\mathbf D(f_i)\cap \mathbf D(f_j)}.\]
+More precisely, this could be written as 
+\begin{align*}
+    \phi_i: \mathscr F\vert_{\mathbf D_{\Spec A}(f_i)} &\simeq \widetilde{M_i}\\
+    \Rightarrow~ \mathscr F\vert_{\mathbf D_{\Spec A}(f_i)\cap \mathbf D_{\Spec A}(f_j)} &\simeq \widetilde{M_i}\vert_{\mathbf D_{\Spec A}(f_i)\cap \mathbf D_{\Spec A}(f_j)}\\
+    \Rightarrow~ \mathscr (F\vert_{\mathbf D_{\Spec A}{f_i}})\vert_{\mathbf D_{\Spec A_{f_i}}(\overline{f_j})} &\simeq \widetilde{M_i}\vert_{\mathbf D_{\Spec A_{f_i}}(\overline{f_j})}.
+\end{align*}Here we denote $\overline{f_j}=(\Res_{..}:\Spec A\to \Spec A_{f_i})(f_j)$, i.e. we denote $\overline{f_j}$ as the image of $f_j$ under restrction to $\Spec A_{f_i}$.
+Notice that $\widetilde{M_i}$ is a sheaf on $\Spec A_{f_i}$, which gives us 
+\[\widetilde{M_i}\vert_{\mathbf D_{\Spec A_{f_i}}(\overline{f_j})}=(M_i)_{\overline{f_j}}.\]
+
+So a more precise\todo{?} way to describe $\phi_{ij}$ is by indicating that the function $f_j$ is the image $\overline{f_j}$, or 
+\[\phi_{ij}:(M_i)_{\overline{f_j}}\to (M_j)_{\overline{f_i}}.\]
+In textbook it was regarded as $A_{f_if_j}$-module. More precisely, it localised twice. 
+
+The assumption of condition 2 give us existence of $\mathscr F$ (on $\Spec A$, if not then restrict), we need to provide the existence of $A$-module $M$ such that $\widetilde M\simeq \mathscr F$. We define it as the kernel of the exact sequence as indicated in the textbook. 
+
+What we need to do is to glue sheaves from each $M_i$ to $M$. In other words, we're trying to check isomorphism of sheaves on distinguished opens.
+\[\forall \Spec A_{f_i}, \widetilde M\vert_{\Spec A_{f_i}}=\mathscr F\vert_{\Spec A_{f_i}}=\widetilde{M_i} ~\Leftrightarrow~ \widetilde M=\mathscr F.\]
+
+
+To define $\beta$, we recall that we've defined $\phi_{ij}$, then we can use them to define 
+\begin{align*}
+    \beta: M_1 &\to (M_1)_{f_1}\times\cdots\times (M_n)_{f_1}\\
+    m &\mapsto ((m/1),\phi_{12}((M_1\to (M_1)_{f_2})),...,\phi_{1n}((M_1\to (M_1)_{f_n}))
+\end{align*}
+% https://q.uiver.app/#q=WzAsMyxbMSwwLCJNXzEiXSxbMCwxLCIoTV8xKV97Zl8yfSJdLFsyLDEsIihNXzIpX3tmXzF9Il0sWzEsMiwiXFxwaGlfezEyfSJdLFswLDFdLFswLDIsIiIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dXQ==
+\[\begin{tikzcd}
+	& {M_1} \\
+	{(M_1)_{f_2}} && {(M_2)_{f_1}}
+	\arrow[from=1-2, to=2-1]
+	\arrow[dashed, from=1-2, to=2-3]
+	\arrow["{\phi_{12}}", from=2-1, to=2-3]
+\end{tikzcd}\]
+
+Clearly this map is injective. Remains to check $\Image \beta=\Ker \gamma_{f_1}$.\todo{How?}
+
+Or another approach is to identify (6.1.2.3) and (6.1.2.4) term by term. The later (6.1.2.4) is exact and $\beta$ will be obvious to define. 
+
+\subsection{References}
+
+See \href{https://www.math.brown.edu/dabramov/MA/s1718/MA205-OModules.pdf}{NOTES}. Or Proposition-Definition 5.1. of \href{https://www.dam.brown.edu/people/mumford/alg_geom/papers/AGII.pdf}{Algebraic Geometry II} on Page 20 \cite{}.
+
+
 \section{6.1.B.}
 
 Here is a \href{https://math.stackexchange.com/questions/467197/examples-of-mathcalo-x-modules-that-are-not-quasi-coherent-sheaves}{POST} discussing a non-example of quasi-coherent sheaf.
+
+\section{6.2.1. Definition: Distinguished Affine Base}
+
+See this \href{https://math.stackexchange.com/questions/4304402/why-is-vakils-definition-of-distinguished-affine-base-of-a-scheme-not-a-base}{POST}.
+
+\section{6.2.D.}
+
+$\Rightarrow$: Suppose $\mathscr O_X$ module $\mathscr F$ is quasi-coherent, then the above diagram gives us $\Gamma(\Spec A,\mathscr F)=M$ for some $A$-module $M$. 
+
+$\Leftarrow$: 
+
+\section{6.2.G.}
+
+\section{6.4.A.}
+
+\subsection{(i)} Localisation (with respect to $f$) is exact. Hence the following is exact
+\[(R^{\oplus n})_f=(R_f)^{\oplus n}\to M_f\to 0.\]
+
+Another way to interpret this is by noticing that the generator $m_1,...m_n\in M$ will be send to generators of $M_f$ as $A_f$-module.
+
+\subsection{(ii)} We can define $\phi: M\to \prod_{1\leq i\leq n}M_{f_i}$ by $m\mapsto (m/1,m/1,...,m/1)$, i.e. use universal property of product with natural map of localisation. 
+
+Now we have $M_{f_i}$ is f.g. as $A_{f_i}$-module hence we can assume there's a surjective for each $i$ 
+\[(A_{f_i})^{\oplus l_i}\to M_{f_i}\to 0\] and we denote $L=\sum_{1\leq i\leq n} l_i$. 
+
+% https://q.uiver.app/#q=WzAsNCxbMSwwLCJNIl0sWzEsMSwiXFxwcm9kX3sxXFxsZXEgaVxcbGVxIG59TV97Zl9pfSJdLFswLDAsIkFee1xcb3BsdXMgTH0iXSxbMCwxLCJcXHByb2RfezFcXGxlcSBpXFxsZXEgbn1BX3tmX2l9XntcXG9wbHVzIGxfaX0iXSxbMCwxLCJcXHBoaSIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoidG9wIn19fV0sWzMsMSwiXFxwcm9kIGZfaSIsMix7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6ImVwaSJ9fX1dLFsyLDMsIlxccHNpIiwyLHsic3R5bGUiOnsidGFpbCI6eyJuYW1lIjoiaG9vayIsInNpZGUiOiJ0b3AifX19XSxbMiwwLCIiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=
+\[\begin{tikzcd}
+	{A^{\oplus L}} & M \\
+	{\prod_{1\leq i\leq n}A_{f_i}^{\oplus l_i}} & {\prod_{1\leq i\leq n}M_{f_i}}
+	\arrow[dashed, from=1-1, to=1-2]
+	\arrow["\psi"', hook, from=1-1, to=2-1]
+	\arrow["\phi", hook, from=1-2, to=2-2]
+	\arrow["{\prod \gamma_i}"', two heads, from=2-1, to=2-2]
+\end{tikzcd}\]
+
+Now we wish to check $\phi$ is injective. It suffices to check $\Ker \phi\subset 0$. For any $m\in M$ such that $\phi(m)=(m/1,...,m/1)=0$, we wish to show $m=0$. Notice that $m/1=0\in M_{f_i}$ implies $f_i^{k_i}m=0\in M$ for some integer $k_i$. Therefore we can pick $K=\sum k_i$ (or other finite integer large enough)
+\begin{align*}
+    m=1m=(a_1f_1+...+a_nf_n)m=(a_1f_1+...+a_nf_n)^{K}m=0.
+\end{align*}
+
+For any $m\in M$, we identify it with \[\phi(m)=(\pi_1\circ \phi(m),...,\pi_n\circ\phi(m))\in\prod_{1\leq i\leq n}M_{f_i}\] where $\pi_i$ be projection to $i$-th component. Then $\pi_i\circ \phi(m)\in M_{f_i}$, and under each surjection $\gamma_i$ it will correspond to finitely many generators $b_{i,j}/f^{\bullet}_{i}\in M_{f_i}$ where $1\leq j\leq l_i$. For each $1\leq i\leq n$, we know 
+\begin{align*}
+	M_{f_i}=&~ A_{f_i} \left\langle b_{i,1}/f^{\bullet}_{i}, b_{i,2}/f^{\bullet}_{i}, ..., b_{i,l_i}/f^{\bullet}_{i}\right\rangle\\
+	=&~ A_{f_i} \left\langle b_{i,1}, b_{i,2}, ..., b_{i,l_i}\right\rangle
+\end{align*}
+Or we can say there's a surjective map from $A^{\oplus l_i}\to M_{f_i}$, and we can inductively build a surjective map from $A^{\oplus L}\to \prod_{1\leq i\leq n}M_{f_i}$. Restrict the codomain of this map will give us a surjection that proves $M$ is finitely generated $A$-module
+\[A^{\oplus L}\to M.\]
+
+
+\subsection{Solutions}
+
+Localisation commute with arbitrary direct sum \href{https://math.stackexchange.com/questions/3386775/localization-commutes-with-arbitrary-direct-sums}{HERE}. 
+
+See \href{https://stacks.math.columbia.edu/tag/01OR}{Tag 01OR}, and Zariski-local properties of modules and algebras \href{https://stacks.math.columbia.edu/tag/00EO}{Tag 00EO}.
+
+For official reference, see \href{https://stacks.math.columbia.edu/tag/00EN}{Tag 00EN}. Here the actual proof relies on Lemma 1 of \href{https://stacks.math.columbia.edu/tag/00EO}{Tag 00EO}.
+
+\textit{If each $M_{f_i}=0$, then $M=0$.}
+\begin{proof}
+	For $\mathfrak p\in \Spec A$, we can cover it by some $\mathbf D(f_i)$. In particular, $f_i\notin \mathfrak p\triangleleft A$.
+
+	A result about further localisation \href{https://stacks.math.columbia.edu/tag/02C6}{Tag 02C6} will help us as
+	\begin{align*}
+		(M_{f_i})_{\mathfrak p} =&~ \overline{\{A-\mathfrak p\}^{-1}}(\{1,f_i,f_i^2,...\}^{-1}M)\\
+		=&~ (\{A-\mathfrak p\}\{1,f_i,f_i^2,...\})^{-1}M\\
+		=&~ (\{A-\mathfrak p\})^{-1}M=M_{\mathfrak p}.
+	\end{align*}
+	Given the assumption that $M_{f_i}=0$, then $M_{\mathfrak p}=0$ for arbitrary $\mathfrak p\in\Spec A$. And now we're ready to apply \enquote{being 0 is a local property} \href{https://stacks.math.columbia.edu/tag/00HN}{Tag 00HN} to finish the proposition. 
+
+\end{proof}
+
+
+
+\section{6.4.6. Lemma:}
+
+See this \href{https://mathoverflow.net/questions/1788/does-finitely-presented-mean-always-finitely-presented-answered-yes}{POST} with an elegant solution. Note $\Tilde f$ is defined by simply restriction. In this post, it's worth mention \href{https://stacks.math.columbia.edu/tag/07JX}{Tag 07JX}.
+
+See Ex. 5.18. \cite{altman2013term}. This approach requires Schanuel’s Lemma 5.17. \cite{altman2013term}.
+
+\section{6.4.B.}\label{6.4.B.}
+
+\section{6.4.C.}
+
+Similary to \Cref{6.4.B.}, for references see \href{https://stacks.math.columbia.edu/tag/00EN}{Tag 00EN}.

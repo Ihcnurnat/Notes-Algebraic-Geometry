@@ -115,6 +115,8 @@ We assume Prop 5.3.1. of Rising Sea \cite{RaviRisingSea}. We know for a specific
 
 See \href{https://stacks.math.columbia.edu/tag/01T0}{Tag 01T0} for a slightly different treatment. Or Proposition and Definition 10.5. \cite{gortz2020algebraic}.
 
+
+
 \section{Exercise 3.6.}
 
 \begin{proof}
@@ -142,3 +144,32 @@ See this \href{https://math.stackexchange.com/questions/218767/relation-of-funct
     We are given $A_{ij}$ is f.g. $B_i$-algebra. 
 
 \end{proof}
+
+\section{Exercise 3.11.}
+
+\subsection{(a)}
+\textit{Closed immersions are stable under base extension:...}
+
+Okay, so if we start by assuming $X,X',Y$ are all affine schemes, how do we glue back? Following the order of construction of fibre product, we first generalise that either $Y$ or $X'$ is a scheme, then assume $X$ is a scheme. 
+
+But in general case, how do we glue back, or even compute the image of the $Y\times_{X}X'$?
+
+\begin{proof}
+    We assume $X,X',Y$ are all affine schemes with $X=\Spec A$, $X'=\Spec B$, and $Y=\Spec C$. Then by construction of Theorem 3.3, we know 
+    \[Y\times_{X}X'=\Spec (B\otimes_A C).\]
+
+    % https://q.uiver.app/#q=WzAsNCxbMCwwLCJZXFx0aW1lc197WH1YJz1cXG9wZXJhdG9ybmFtZXtTcGVjfSBDXFxvdGltZXNfe0F9QiJdLFswLDEsIlk9XFxvcGVyYXRvcm5hbWV7U3BlY30gQyJdLFsxLDEsIlg9XFxvcGVyYXRvcm5hbWV7U3BlY30gQSJdLFsxLDAsIlgnPVxcb3BlcmF0b3JuYW1le1NwZWN9IEIiXSxbMywyLCJnIl0sWzEsMiwiZiIsMl0sWzAsMSwicF8yIiwyXSxbMCwzLCJwXzEiXV0=
+\[\begin{tikzcd}
+	{Y\times_{X}X'=\operatorname{Spec} C\otimes_{A}B} & {X'=\operatorname{Spec} B} \\
+	{Y=\operatorname{Spec} C} & {X=\operatorname{Spec} A}
+	\arrow["{p_1}", from=1-1, to=1-2]
+	\arrow["{p_2}"', from=1-1, to=2-1]
+	\arrow["g", from=1-2, to=2-2]
+	\arrow["f"', from=2-1, to=2-2]
+\end{tikzcd}\]
+
+\end{proof}
+
+\subsection{Remarks}
+
+See this \href{https://math.stackexchange.com/questions/1079356/closed-immersions-are-stable-under-base-change}{POST}.
