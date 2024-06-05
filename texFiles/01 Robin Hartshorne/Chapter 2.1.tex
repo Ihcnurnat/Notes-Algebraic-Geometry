@@ -247,15 +247,129 @@ See Proposition 2.27 Chapter 2 of \cite{gortz2020algebraic}, or see \href{https:
 \textit{\textbf{Extending a Sheaf by Zero.} Let $X$ be a topological space, let $Z$ be a closed subset, let $i:Z\to X$ be the inclusion, let $U=X-Z$ be the complementary open subsets, and let $j:U\to X$ be its inclusion.}
 
 \subsection{(a)}
-\textit{Let $\mathscr F$ be a sheaf on $Z$. Show that the stalk $(i_{\ast}\mathscr F)_P$ of the direct image sheaf on $X$ is $\mathscr F_P$ if $P\in Z$, $0$ if $P\notin Z$. Hence we call $i_{\ast}\mathscr F$ the sheaf obtained by extending $\mathscr F$ be zero outside $Z$. By abuse of notation we will sometimes write $\mathscr F$ instead of $i_{\ast}\mathscr F$, and say "consider $\mathscr F$ as a sheaf on $X$," when we mean "consider $i_{\ast}\mathscr F$."}
+\textit{Let $\mathscr F$ be a sheaf on $Z$. Show that the stalk $(i_{\ast}\mathscr F)_P$ of the direct image sheaf on $X$ is $\mathscr F_P$ if $P\in Z$, $0$ if $P\notin Z$. Hence we call $i_{\ast}\mathscr F$ the sheaf obtained by extending $\mathscr F$ be zero outside $Z$. By abuse of notation we will sometimes write $\mathscr F$ instead of $i_{\ast}\mathscr F$, and say \enquote{consider $\mathscr F$ as a sheaf on $X$,} when we mean \enquote{consider $i_{\ast}\mathscr F$.}}
 \begin{proof}
-    
+    For $P\in Z$, we have 
+    \begin{align*}
+        (i_{\ast}\mathscr F)_P =&~ \underset{P\in W\subset X,~ W ~\text{open}}{\Colim} (i_{\ast}\mathscr F)(W)\\
+        =&~ \underset{P\in W\subset Z\subset X,~ W ~\text{open}}{\Colim} (i_{\ast}\mathscr F)(W)\\
+        =&~ \underset{P\in W\subset Z\subset X,~ W ~\text{open}}{\Colim} \mathscr F(i^{-1}(W))\\
+        =&~ \underset{P\in W\subset Z\subset X,~ W ~\text{open}}{\Colim} \mathscr F(W)\\  
+        =&~ \mathscr F_P
+    \end{align*}
+    For $P\notin Z$, we have 
+    \begin{align*}
+        (i_{\ast}\mathscr F)_P =&~ \underset{P\in W\subset X,~ W ~\text{open}}{\Colim} (i_{\ast}\mathscr F)(W)\\
+        =&~ \underset{P\in W\subset X,~ W ~\text{open},~ W\cap Z=\emptyset }{\Colim} (i_{\ast}\mathscr F)(W)\\
+        =&~ \underset{P\in W\subset X,~ W ~\text{open},~ W\cap Z=\emptyset }{\Colim} \mathscr F(i^{-1}(W))\\ 
+        =&~ \underset{P\in W\subset X,~ W ~\text{open},~ W\cap Z=\emptyset }{\Colim} \mathscr F(\emptyset)\\  
+        =&~ 0.
+    \end{align*}
+    In summary, we know 
+    \begin{align*}
+        (i_{\ast}\mathscr F)_P = \begin{cases}
+            \mathscr F_P &~ \text{ when } P\in Z\\
+            0 &~ \text{ when } P\notin Z
+        \end{cases}.
+    \end{align*}
 \end{proof}
 
 \subsection{(b)}
+\textit{Now let $\mathscr F$ be a sheaf on $U$. Let $j_{!}(\mathscr F)$ be the sheaf on $X$ associate to the pre-sheaf $V\mapsto \mathscr F(V)$ if $V\subset U$, $V\mapsto 0$ otherwise. Show that the stalk $(j_{!}(\mathscr F))_P$ is equal to $\mathscr F_P$ if $P\in U$, $0$ if $P\notin U$, and show that $j_{!}\mathscr F$ is the only sheaf on $X$ which has this property, and whose restriction to $U$ is $\mathscr F$. We call $j_!\mathscr F$ the sheaf obtained by \textbf{extending} $\mathscr F$ \textbf{by zero} outside $U$. }
 
+\begin{proof}
+    According to the definition, the sheaf $j_!\mathscr F$ is the sheafification of presheaf defined on $V\subset X$ by 
+    \begin{align*}
+        (j_!\mathscr F)^0 (V)=\begin{cases}
+            \mathscr F(V) ~\text{ when } V\subset U\\
+            0 ~\text{ otherwise}
+        \end{cases}.
+    \end{align*}
+    Now we compute, for $P\in U$, 
+    \begin{align*}
+        (j_!\mathscr F)_P = (j_!\mathscr F)^0_P =&~ \underset{P\in W\subset X,~ W \text{ open in }X}{\Colim}~ (j_!\mathscr F)^0(W)\\
+        =&~ \underset{P\in W\subset U\subset X,~ W \text{ open in }X}{\Colim}~ (j_!\mathscr F)^0(W)\\
+        =&~ \underset{P\in W\subset U\subset X,~ W \text{ open in }X}{\Colim}~ \mathscr F(W)\\ 
+        =&~ \mathscr F_P.
+    \end{align*}
+    When $P\notin U$, we have 
+    \begin{align*}
+        (j_!\mathscr F)_P = (j_!\mathscr F)^0_P =&~ \underset{P\in W\subset X,~ W \text{ open in }X}{\Colim}~ (j_!\mathscr F)^0(W)\\
+        =&~ \underset{P\in W\subset U\subset X,~ W \text{ open in }X}{\Colim}~ (j_!\mathscr F)^0(W)\\
+        =&~ \underset{P\in W\subset U\subset X,~ W \text{ open in }X, W\not\subset U }{\Colim}~ \mathscr F(W)\\ 
+        =&~ \underset{P\in W\subset U\subset X,~ W \text{ open in }X, W\not\subset U }{\Colim}~ \mathscr 0\\  
+        =&~ 0.
+    \end{align*}
+    In summary, we have 
+    \begin{align*}
+        (j_!(\mathscr F))_P =\begin{cases}
+            \mathscr F_P &~ \text{ when } P\in U\\
+            0 &~ \text{ when }P\notin U
+        \end{cases}.
+    \end{align*}
+    Suppose we have another sheaf $\mathscr G$ on $X$ such that $\mathscr G_P=\mathscr F_P$ if $P\in U$ and $\mathscr G_P=0$ if $P\notin U$, then we necessarily have $j_!\mathscr F=\mathscr G$ by Proposition 1.1. Chap 2 \cite{hartshorne2013algebraic}. 
+    Furthermore, we notice for any $P\in U$,
+    \begin{align*}
+        ((j_!\mathscr F)\vert_U)_P =&~ \mathscr F_P ~\Rightarrow~ (j_!\mathscr F)\vert_U =\mathscr F.
+    \end{align*}
+\end{proof}
 
 \subsection{(c)}
+\textit{Now let $\mathscr F$ be a sheaf on $X$. Show that there is an exact sequence of sheaves on $X$, \[0\to j_!(\mathscr F\vert_U)\to \mathscr F\to i_{\ast}(\mathscr F\vert_Z)\to 0.\]}
+
+\begin{proof}
+We need to define map from $j_!(\mathscr F\vert_U)\to \mathscr F$, it suffices to define morphism of (pre-sheaves) from $\mathscr G:=j_!(\mathscr F\vert_U)^0$ which denote the presheaf defined in part (b). For any $W\subset X$, we define $\psi$
+\begin{align*}
+    \psi(W):\mathscr G(W) &\to \mathscr F(W) = \begin{cases}
+        0 &~ \text{ when } W\not\subset U\\
+        \operatorname{id}_{\mathscr F(W)} &~ \text{ when } W\subset R
+    \end{cases}.
+\end{align*} Restriction map from any $\mathscr G(W)$ where $W\not\subset U$ is $0$ given $\mathscr G(W)=0$. Then we can check for $W_1\subset W_2\subset X$, the following diagram is commutative
+
+% https://q.uiver.app/#q=WzAsNCxbMCwwLCJcXG1hdGhzY3IgRyhXXzIpIl0sWzEsMCwiXFxtYXRoc2NyIEYoV18yKSJdLFswLDEsIlxcbWF0aHNjciBHKFdfMSkiXSxbMSwxLCJcXG1hdGhzY3IgRihXXzEpIl0sWzAsMl0sWzAsMV0sWzEsM10sWzIsM11d
+\[\begin{tikzcd}
+	{\mathscr G(W_2)} & {\mathscr F(W_2)} \\
+	{\mathscr G(W_1)} & {\mathscr F(W_1)}
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow[from=1-2, to=2-2]
+	\arrow[from=2-1, to=2-2]
+\end{tikzcd}\]
+
+in three cases respective: i) when $W_1,W_2\not\subset U$, ii) when $W_2\not\subset U$ and $W_1\subset U$, iii) $W_1,W_2\subset U$.
+
+By universal property of sheafification, given $\mathscr F$ is a sheaf, there exists a morphism of sheaves \[j_!(\mathscr F\vert_U)\to\mathscr F.\]
+
+For any $W\subset X$, we define $\phi$ 
+\begin{align*}
+    \phi(W):\mathscr F(W) &\to i_{\ast}(\mathscr F\vert_Z)(W)=\mathscr F\vert_Z(i^{-1}(W))=\mathscr F(W\cap Z) \\
+    x &\mapsto x\vert_{W\cap Z}
+\end{align*}by restriction. Clearly it's compatible with the restriction maps hence $\phi$ is indeed a morphism of sheaves
+\[\mathscr F\to i_{\ast}(\mathscr F\vert_Z).\] 
+
+With these two morphisms defined, it suffices to check exactness at each term. 
+For $P\in X=U\amalg Z$, we firstly consider $x\in U$ where the following sequence is exact 
+% https://q.uiver.app/#q=WzAsNSxbMCwwLCIwIl0sWzEsMCwiKGpfIShcXG1hdGhzY3IgRlxcdmVydF9VKSlfUD1cXG1hdGhzY3IgRl9QIl0sWzIsMCwiXFxtYXRoc2NyIEZfUCJdLFszLDAsIihpX3tcXGFzdH0oXFxtYXRoc2NyIEZcXHZlcnRfWikpX1A9MCJdLFs0LDAsIjAiXSxbMCwxXSxbMSwyXSxbMiwzXSxbMyw0XV0=
+\[\begin{tikzcd}
+	0 & {(j_!(\mathscr F\vert_U))_P=\mathscr F_P} & {\mathscr F_P} & {(i_{\ast}(\mathscr F\vert_Z))_P=0} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}\]
+
+For $P\in Z$, we have exact sequence again as follows.
+% https://q.uiver.app/#q=WzAsNSxbMCwwLCIwIl0sWzEsMCwiKGpfIShcXG1hdGhzY3IgRlxcdmVydF9VKSlfUD0wIl0sWzIsMCwiXFxtYXRoc2NyIEZfUCJdLFszLDAsIihpX3tcXGFzdH0oXFxtYXRoc2NyIEZcXHZlcnRfWikpX1A9XFxtYXRoc2NyIEZfUCJdLFs0LDAsIjAiXSxbMCwxXSxbMSwyXSxbMiwzXSxbMyw0XV0=
+\[\begin{tikzcd}
+	0 & {(j_!(\mathscr F\vert_U))_P=0} & {\mathscr F_P} & {(i_{\ast}(\mathscr F\vert_Z))_P=\mathscr F_P} & 0
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+\end{tikzcd}\]
+Therefore we know $0\to (j_!(\mathscr F\vert_U))_P\to \mathscr F_P\to (i_{\ast}(\mathscr F\vert_Z))_P\to 0$ for every $P\in X$, which proves 
+\[0\to j_!(\mathscr F\vert_U)\to \mathscr F\to i_{\ast}(\mathscr F\vert_Z)\to 0\] is exact.
+\end{proof}
 
 \subsection{Remarks}
 
@@ -276,6 +390,10 @@ Now we fix an open subset $W\subset X$ with $\{W_i\}_{i\in I}$ being an open cov
     \item Let the open subset $W\subset X$ endowed with an open covering $\{W_1,W_2\}$ such that $W_1\cap W_2\not\subset U$. Then we can pick to different non-zero constant function $C_1
     in\mathscr G(W_1),C_2\in\mathscr G(W_2)$. They agree on the overlap for $C_1\vert_{W_1\cap W_2}=0=C_2\vert_{W_1\cap W_2}$. But there cannot exist a continuous function on... 
 \end{itemize}\todo{I didn't find a counterexample according to the hint on Rising Sea}
+
+\subsection{Comments}
+
+See this \href{https://math.stackexchange.com/questions/1682362/extension-by-zero-not-quasi-coherent}{POST}, and \href{https://stacks.math.columbia.edu/tag/03S2}{Tag 03S2}.
 
 \subsection{A Counterexample}
 
