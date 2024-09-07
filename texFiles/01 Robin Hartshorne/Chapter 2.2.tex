@@ -362,12 +362,64 @@ Probably the most elegant and official proof is given as Proposition 3.12 in Cha
 
 \subsection{(a)}
 
-On Page 73, Definition of ringed space, we have an equivalent definition of a morphism $(f,f^{\sharp})$ being an isomorphism. 
+On Page 73, Definition of ringed space, we have an equivalent definition of a morphism $(f,f^{\sharp})$ being an isomorphism. One proof I didn't write down(I'm afraid it will evolve many glue arguments) was to prove the ring isomorphism $f^{\sharp}(V):\mathcal O_Y(V)\to f_{\ast}\mathcal O_X(V)$. A more convenient approach was to apply Prop 1.1. directly given that we observe the isomorphism on the level of stalks. 
 
+\begin{proof}
 For topological space, the inverse is clear to define. It remains to check 
-\[f^{\sharp}:\mathcal O_Y\to f_{\ast}\mathcal O_X\] is an isomorphism. Given $f^{-1}(U_i)\to U_i$ is an isomorphism, therefore 
-\[\left(\mathcal O_{U_i}\to (f\vert_{f^{-1}(U_i)})_{\ast}\mathcal O_{f^{-1}(U_i)}\right)=f^{\sharp}(U_i).\]
-Hence we know $f^{\sharp}(U)$ for any open subset $U\subset Y$ is an isomorphism, which implies $f^{\sharp}$ is an isomorphism. 
+\[f^{\sharp}:\mathcal O_Y\to f_{\ast}\mathcal O_X\] is an isomorphism. 
+
+% https://q.uiver.app/#q=WzAsNixbMCwwLCJcXG1hdGhjYWwgT19ZKFYpIl0sWzEsMCwiXFxtYXRoY2FsIE9fWChmXnstMX0oVikpPWZfe1xcYXN0fVxcbWF0aGNhbCBPX1giXSxbMCwxLCJcXG1hdGhjYWwgT19ZKFZcXGNhcCBVX2kpIl0sWzEsMSwiXFxtYXRoY2FsIE9fWChmXnstMX0oVlxcY2FwIFVfaSkpIl0sWzAsMiwiKFxcbWF0aGNhbCBPX1kpX1AiXSxbMSwyLCIoZl97XFxhc3R9XFxtYXRoY2FsIE9fWClfe1B9PVxcbWF0aGNhbCBPX3tYLGZeey0xfShQKX0iXSxbMCwyXSxbMSwzXSxbMiwzLCJcXHNpbWVxIiwyXSxbMCwxLCJmXntcXHNoYXJwfShWKSJdLFsyLDRdLFszLDVdLFs0LDUsIlxcc2ltZXEiLDJdXQ==
+\[\begin{tikzcd}
+	{\mathcal O_Y(V)} & {\mathcal O_X(f^{-1}(V))=f_{\ast}\mathcal O_X} \\
+	{\mathcal O_Y(V\cap U_i)} & {\mathcal O_X(f^{-1}(V\cap U_i))} \\
+	{(\mathcal O_Y)_P} & {(f_{\ast}\mathcal O_X)_{P}=\mathcal O_{X,f^{-1}(P)}}
+	\arrow["{f^{\sharp}(V)}", from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow[from=1-2, to=2-2]
+	\arrow["\simeq"', from=2-1, to=2-2]
+	\arrow[from=2-1, to=3-1]
+	\arrow[from=2-2, to=3-2]
+	\arrow["\simeq"', from=3-1, to=3-2]
+\end{tikzcd}\]
+
+Here $V$ denotes an open subset of $Y$.
+We'll apply Proposition 1.1. Chapter 2 \cite{hartshorne2013algebraic}. For an arbitrary $P\in V$, we can find some $U_i\cap V$ contains $P$ for $\{U_i\}$ covers $Y$.
+
+Notice that we have, on one hand $f^{\sharp}:\mathcal O_Y\to f_{\ast}\mathcal O_X$, and on the other hand $\mathcal O_{U_i}\to (f\vert_{f^{-1}(U_i)})_{\ast} \mathcal O_{f^{-1}(U_i)}$. They'll induced the same stalks as we observe that for $P\in U_i$, 
+\begin{align*}
+    (\mathcal O_Y)_P&=(\mathcal O_{U_i})_P,\\ 
+    (f_{\ast}\mathcal O_X)_P&=( (f\vert_{f^{-1}(U_i)})_{\ast} \mathcal O_{f^{-1}(U_i)})_P.
+\end{align*}
+Given $f^{-1}(U_i)\to U_i$ is an isomorphism, therefore 
+\[\mathcal O_{U_i}\to (f\vert_{f^{-1}(U_i)})_{\ast}\mathcal O_{f^{-1}(U_i)}\]is an isomorphism of sheaves. Therefore we have 
+\[(\mathcal O_Y)_P\simeq (f_{\ast}\mathcal O_X)_P\] for $P\in U_i$. While $\{U_i\}$ is an open covering, then the statement could be generalised for any $P\in Y$. This proves 
+\[f^{\sharp}:\mathcal O_Y\to f_{\ast}\mathcal O_X\] is an isomorphism of sheaves by Proposition 1.1. Chap 2 \cite{hartshorne2013algebraic}.
+\end{proof}
+
+\begin{comment}
+For each $i$, we have an isomorphism of sheaves 
+\[f_i^{\sharp}:\mathcal O_{U_i}\to (f\vert_{U_i})_{\ast}\mathcal O_{f^{-1}(U_i)}=f_{\ast}\mathcal O_{f^{-1}(U_i)}.\]
+It remains to define $f^{\sharp}:\mathcal O_Y\to f_{\ast}\mathcal O_X$. 
+For an open subset $V\subset Y$, we have 
+% https://q.uiver.app/#q=WzAsNCxbMCwwLCJcXG1hdGhjYWwgT19ZKFYpIl0sWzEsMCwiXFxtYXRoY2FsIE9fWChmXnstMX0oVikpIl0sWzAsMSwiXFxtYXRoY2FsIE9fWShWXFxjYXAgVV9pKSJdLFsxLDEsIlxcbWF0aGNhbCBPX1goZl57LTF9KFZcXGNhcCBVX2kpKSJdLFswLDJdLFsxLDNdLFsyLDMsIlxcc2ltZXEiLDJdLFswLDEsIiIsMSx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dXQ==
+\[\begin{tikzcd}
+	{\mathcal O_Y(V)} & {\mathcal O_X(f^{-1}(V))} \\
+	{\mathcal O_Y(V\cap U_i)} & {\mathcal O_X(f^{-1}(V\cap U_i))}
+	\arrow[dashed, from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow[from=1-2, to=2-2]
+	\arrow["\simeq"', from=2-1, to=2-2]
+\end{tikzcd}\]
+Hence we can define 
+\begin{align*}
+    f^{\sharp}(V):\mathcal O_Y(V)&\to \mathcal O_X(f^{-1}(V))\\ 
+                    s &\mapsto \begin{cases}
+                        f_i^{\sharp}(U_i)(s) & \text{ given } s\in \mathcal O_Y(V\cap U_i)\\
+                        ... & ...
+                    \end{cases}.
+\end{align*}
+This is well-defined because $\{U_i\}$ covers $Y$ and $f_i^{\sharp}(U_i)(s)=f^{\sharp}(U_i\cap U_j)(s)=f_j^{\sharp}(U_j)(s)$ when $s\in \mathcal O_Y(V\cap U_i),s\in\mathcal O_Y(V\cap U_j)$. And clearly $f^{\sharp}(V)$ is an isomorphism. Therefore $\mathcal O_Y\to f_{\ast}\mathcal O_X$.
+\end{comment}
 
 \subsection{(b)}
 
@@ -380,7 +432,7 @@ Given the localisation map $A\to A_{f_i}=\Gamma(X_{f_i},\mathcal O_{X_{f_i}})$, 
 
 \section{Comments}
 
-See this \href{https://math.stackexchange.com/questions/3116537/criterion-for-affine-scheme-via-glueing}{POST}.
+See this \href{https://math.stackexchange.com/questions/3116537/criterion-for-affine-scheme-via-glueing}{POST}. See this \href{https://math.stackexchange.com/questions/4685088/hartshorne-chapter-2-exercise-2-17}{POST} regarding part (a). In fact, after reading this post I realised the topological part of the proof could take some words.\todo{?}
 
 \section{Exercise 2.18.}
 

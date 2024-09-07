@@ -1,3 +1,45 @@
+\section{7.2.A.}\label{Rising Sea 7.2.A.}
+
+\textit{MORPHISMS OF RINGED SPACES GLUE}.
+\begin{proof}
+    For topological map $f$, the existence is clear (existence and the restriction will behave as desired). It remains to define the morphism of sheaves $$f^{\sharp}:\mathscr O_Y\to \pi_{\ast}\mathscr O_X$$ and check that $(\pi\vert_{U_i})^{\sharp}:\mathscr O_Y\to (\pi\vert_{U_i})_{\ast}\mathscr O_{U_i}=\pi_i^{\sharp}:\mathscr O_Y\to \pi_{i,\ast}\mathscr O_{U_i}$.
+
+    By assumption, we have $\{\pi_i~:~U_i\to Y\}_{i\in \bullet}$ with $\pi_i^{\sharp}:\mathscr O_Y\to \pi_{i,\ast}\mathscr O_{U_i}$ for each $i\in\bullet$. Also recall that 
+    \begin{align*}
+        (\pi_i\vert_{U_i\cap U_j})^{\sharp}:&~\mathscr O_Y\to (\pi_i\vert_{U_i\cap U_j})_{\ast}\mathscr O_{U_i\cap U_j}= \\
+        (\pi_j\vert_{U_i\cap U_j})^{\sharp}:&~\mathscr O_Y\to (\pi_j\vert_{U_i\cap U_j})_{\ast}\mathscr O_{U_i\cap U_j}.
+    \end{align*}Therefore for any open subset $W\subset Y$, we have $(\pi_i\vert_{U_i\cap U_j})^{\sharp}(W)=(\pi_j\vert_{U_i\cap U_j})^{\sharp}(W)$. In particularly, we have 
+    \begin{align*}
+        (\pi_i\vert_{U_i\cap U_j})_{\ast}\mathscr O_{U_i\cap U_j}(W) =&~ \mathscr O_{U_i\cap U_j}((\pi_i\vert_{U_i\cap U_j})^{-1}(W))\\
+        =&~ \mathscr O_{U_i\cap U_j}(\pi_i^{-1}(W)\cap U_i\cap U_j)\\
+        =&~ \mathscr O_{X}(\pi_i^{-1}(W)\cap U_i\cap U_j)\\
+        =&~ \mathscr O_X(\pi_j^{-1}(W)\cap U_i\cap U_j)\\
+        =&~ (\pi_j\vert_{U_i\cap U_j})_{\ast}\mathscr O_{U_i\cap U_j}(W). 
+    \end{align*}
+
+    Now we need to define $\pi^{\sharp}:\mathscr O_Y\to \pi_{\ast}\mathscr O_X$. For every open subset $W\subset Y$, we have to define a map
+    \[\pi^{\sharp}(W):\mathscr O_Y(W)\to \pi_{\ast}\mathscr O_X(W).\]
+    For every $s\in \mathscr O_Y(W)$, we define(at this moment, we've constructed topologically the map $\pi$)
+    \begin{align*}
+        s_i:=\pi_i^{\sharp}(W)(s)=&~(\mathscr O_Y(W)\to \pi_{i,\ast}\mathscr O_{U_i}(W))(s)\\
+        \in&~\mathscr O_X(\pi_i^{-1}(W)\cap U_i)=\mathscr O_X(\pi^{-1}(W)\cap U_i)
+    \end{align*}
+    We can check 
+    \begin{align*}
+        s_i\vert_{\pi^{-1}(W)\cap U_i\cap \pi^{-1}(W)\cap U_j}=&~ (\mathscr O_X(\pi^{-1}(W)\cap U_i)\to\mathscr O_X(\pi^{-1}(W)\cap U_i\cap U_j))(s_i)\\
+        =&~ (\mathscr O_X(\pi_i^{-1}(W)\cap U_i)\to\mathscr O_X(\pi_i^{-1}(W)\cap U_i\cap U_j))(s_i)\\ 
+        =&~ (\mathscr O_Y(W)\to \mathscr O_X(\pi^{-1}(W))\to \mathscr O_X(...))(s)\\
+        =&~ (\mathscr O_X(\pi_j^{-1}(W)\cap U_j)\to\mathscr O_X(\pi_j^{-1}(W)\cap U_i\cap U_j))(s_j)\\  
+        =&~ s_j\vert_{\pi^{-1}(W)\cap U_i\cap \pi^{-1}(W)\cap U_j}
+    \end{align*}
+
+    Notice that we have $\{\pi^{-1}(W)\cap U_i\}_{i\in\bullet}$ covers $\pi^{-1}(W)$ and $\mathscr O_X$ is a sheaf. Therefore there exist $S\in \mathscr O_X(\pi^{-1}(W))=\pi_{\ast}\mathscr O_X(W)$ such that $S\vert_{U_i}=s_i$. Hence for every $W\subset Y$ we've defined the map $\pi^{\sharp}$. And we can check that for all open subsets $W\subset U_i$, \[(\pi\vert_{U_i})^{\sharp}(W)=\pi_i^{\sharp}(W)\Rightarrow(\pi\vert_{U_i})^{\sharp}=\pi_i^{\sharp}.\]
+    \todo{???}
+\end{proof}
+
+\subsection{Comments}
+See Prop 3.5. \cite{gortz2020algebraic} on Page 70. For details, see \href{https://math.stackexchange.com/questions/442911/glueing-morphisms-of-sheaves-together-can-i-just-do-this}{\enquote{Glueing morphisms of sheaves together - can I just do this?}} and \href{https://math.stackexchange.com/questions/1173973/morphism-of-ringed-spaces-glue?noredirect=1&lq=1}{\enquote{morphism of ringed spaces glue}}.
+
 \section{7.2.E.}
 
 See Hartshorne \cite{hartshorne2013algebraic} Page 72 for details.
@@ -9,11 +51,22 @@ For a local homomorphism, we have
 
 \section{7.3.B.}
 
+\section{7.3.D.}
+
+!
+
 \section{7.3.G.}
 
 See \cite{gortz2020algebraic} Proposition 3.4. Chap 3 on Page 69.
 
 See \href{https://stacks.math.columbia.edu/tag/01I1}{Tag 01I1}.
+\section{7.3.6.}
+
+For \enquote{fun question}: is that maximalSpec?
+
+\section{7.3.L.}
+
+Nice hint. See Hartshorne Chap 2 Exercise 2.7. \cite{hartshorne2013algebraic}.
 
 \section{7.4.}
 

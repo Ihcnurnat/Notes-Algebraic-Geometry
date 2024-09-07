@@ -154,3 +154,46 @@ See Ex. 5.18. \cite{altman2013term}. This approach requires Schanuel’s Lemma 5
 \section{6.4.C.}
 
 Similary to \Cref{6.4.B.}, for references see \href{https://stacks.math.columbia.edu/tag/00EN}{Tag 00EN}.
+
+\section{6.6.B.}
+
+For the counterexample, see \href{https://math.stackexchange.com/questions/111214/example-of-a-module-whose-support-is-not-closed}{HERE} and \href{https://math.stackexchange.com/questions/32381/localization-at-a-prime-ideal-in-mathbbz-6-mathbbz}{HERE} for a concrete description of computing localisation of quotient rings in a simple setting. And in general we have this example \href{https://math.stackexchange.com/questions/4852147/what-are-the-localizations-of-mathbbz-n-mathbbz-at-prime-ideals-in-genera}{HERE}.
+
+\textit{Support of a module need not be closed in general.}
+\begin{proof}
+	According to the hint, we take $A=\mathbb Z$ and $$M=\oplus_{p ~\text{prime}}\mathbb Z/p\mathbb Z.$$
+	Notice that in Principal Ideal Domain $\mathbb Z$, we have for two primes $p,q\in\mathbb Z$,
+	\begin{align*}
+		(\mathbb Z/p\mathbb Z)_{(q)}=\begin{cases}
+										1 & \\
+										\mathbb Z/p\mathbb Z & 
+									\end{cases}
+	\end{align*}
+	Because when $p\neq q$, then...
+
+\end{proof}
+
+For a more general treatment, see Example 6.25. of Gathmann's Notes in Commutative Algebra P58. And \href{https://math.stackexchange.com/questions/4852147/what-are-the-localizations-of-mathbbz-n-mathbbz-at-prime-ideals-in-genera/4852148#4852148}{HERE}.
+
+\section{6.6.I.}
+
+\begin{proof}
+Kernel $K$ is a nonzero submodule of $M$ over a Noetherian ring $A$. Therefore it admits an associate prime $\mathfrak p\triangleleft A$ that is the annihilator of some element $m\in K\subset M$. Notice the injection
+\[A/\mathfrak p\to K\to M,\] then $\mathfrak p\in \Ass M$. Then under the natural map, 
+\[m\mapsto m/1 \in M_{\mathfrak p}\] is nonzero.
+\end{proof}
+
+\section{6.6.16.}
+
+As $\mathbb Z$-module $\mathbb Z$ contains $0$ as zero-divisor. Therefore 
+\[\Ass_{\mathbb Z}\mathbb Z=\{0\}.\]
+On the other hand, we have 
+\[\Ass_{\mathbb Z}\mathbb Z\cup \Ass_{\mathbb Z}\mathbb Z/2\mathbb Z\subset \{0,(2)\}.\]
+
+\section{6.6.J.}
+
+See Lemma (17.16). \cite{altman2013term}. Such a cute proof...
+
+\section{6.6.L.}
+
+Recall that the union of all associate primes consisits only zerodivisors. While $A=k[x,y]$ is an integral domain, any filtration must contains some nonzero primes, which cannot be associate prime.

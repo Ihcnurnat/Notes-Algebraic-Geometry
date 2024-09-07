@@ -1,0 +1,56 @@
+\section{8.1.1.}
+
+\subsection{Remarks}
+See a post discussing \enquote{Does "local on the target" mean the same thing as "local on the base"?} \href{https://math.stackexchange.com/questions/2767806/does-local-on-the-target-mean-the-same-thing-as-local-on-the-base}{HERE}.
+
+\section{8.1.A.}
+
+\begin{proof}
+Notice that $X\times_S Y'\simeq X\times_Y Y\times_S Y'$ and $X'\times_{Y'} X\times_S Y'\simeq X'\times_{Y'}Y'\times_S X\simeq X\times_S X'$. Therefore apply (ii) and (i) we can conclude $X\times_S X'\to Y\times_S Y'$ has property $P$.
+\end{proof}
+
+
+\section{8.1.B.}
+
+\begin{proof}
+    Requirement (i) is clear. 
+    
+    For (ii), we have the following diagram % https://q.uiver.app/#q=WzAsNCxbMCwwLCJYXFx0aW1lc19ZIFknIl0sWzAsMSwiWCJdLFsxLDEsIlkiXSxbMSwwLCJZJyJdLFsxLDIsIlxcc2ltZXEiXSxbMywyXSxbMCwxXSxbMCwzXV0=
+\[\begin{tikzcd}
+	{X\times_Y Y'} & {Y'} \\
+	X & Y
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-1, to=2-1]
+	\arrow[from=1-2, to=2-2]
+	\arrow["\simeq", from=2-1, to=2-2]
+\end{tikzcd}\]
+Observe that $X\times_Y Y'\simeq Y\times_Y Y'\simeq Y'$. Hence (ii) is satisfied. 
+
+For (iii), part (a) is clear. It remains to consider part (b). And for this part we refer to \cite{hartshorne2013algebraic} Exercise 2.17. (a) on Page 81 of Chapter 2. 
+\end{proof}
+
+\section{8.3.B.}
+
+\subsection{(a)}
+	See 5.3.4. \cite{RaviRisingSea}.
+\begin{proof}
+	Notice that any morphism of schemes consists of a continuous map such that 
+	\[\pi^{-1}(U)\subset X\]
+	is open. Then we apply Exercise 5.1.C., which shows that $X$ is a Noetherian topological space. Apply Exercise 3.6.U. shows that any open subset, including $\pi^{-1}(U)$ is quasi-compact. And this proves that this morphism $\pi$ is quasi-compact.
+\end{proof}
+
+\subsection{(b)}
+
+\todo{?}
+
+\section{8.3.D.}
+
+Clear. Because affine scheme is both quasi-compact and quasi-separated.
+
+\section{8.3.F.}
+
+For example (3), see Exercise 9.12. by Gathmann notes on Commutative algebra \cite{GathNotes}, Page 83.
+
+\section{8.3.H.}
+
+Apply 8.2.C. and use the definition \enquote{for all}.
