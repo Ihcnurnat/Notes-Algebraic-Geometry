@@ -2,3 +2,8 @@
 quiver.sty
 main.pdf 
 main.bbl
+#main.aux
+#main.idx
+#main.log
+#main.out
+#smain.toc
