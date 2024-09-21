@@ -19,3 +19,4 @@ main.bbl
 *.synctex.gz
 *.fdb_latexmk
 *.fls
+*.synctex(busy)
