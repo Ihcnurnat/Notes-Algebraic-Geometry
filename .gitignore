@@ -7,3 +7,15 @@ main.bbl
 #main.log
 #main.out
 #smain.toc
+
+# LaTeX auxiliary files
+*.aux
+*.log
+*.idx
+*.toc
+*.out
+*.bbl
+*.blg
+*.synctex.gz
+*.fdb_latexmk
+*.fls
