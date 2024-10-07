@@ -20,3 +20,5 @@ main.bbl
 *.fdb_latexmk
 *.fls
 *.synctex(busy)
+*.ilg
+*.ind
