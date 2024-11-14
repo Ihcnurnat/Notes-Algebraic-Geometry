@@ -34,5 +34,8 @@ See 6.1.2. Theorem of Rising Sea.
 
 \section{Example 5.2.4.}
 
-Consider a closed immersion $\iota:\Spec \mathbb F_{p}=Y\to \Spec \mathbb Z=X$. ?
-\[\mathscr O_{X\vert Y}=\iota^{-1}\Spec \mathbb Z=(\Spec \mathbb Z)_{\mathfrak p}\]
+Consider a closed immersion $\iota:\Spec \mathbb F_{p}=Y\to \Spec \mathbb Z=X$. I'm confused by the notation $\mathscr O_{X\vert Y}$. But in fact we have 
+\[\mathscr O_{X\vert Y}=\iota^{-1}(\mathscr O_{\Spec \mathbb Z})=(\mathscr O_{\Spec \mathbb Z})_{\mathfrak p}=\mathbb Z_{(p)}.\]
+Then $\mathscr O_{X\vert Y}(Y)$ is not $\mathscr O_Y$-module. Because $\mathscr O_Y(Y)=\mathbb F_{p}$, while $\mathscr O_{X\vert Y}(Y)=...=\mathbb Z_{(p)}$. 
+However, $\mathbb Z_{(p)}$ doesn't admit $\mathbb F_p$-module structure. Because for any non-zero element $x\in \mathbb Z_{(p)}$, we have 
+$$0= px = x+...+x\in\mathbb Z_{(p)}, $$ which is impossible.
