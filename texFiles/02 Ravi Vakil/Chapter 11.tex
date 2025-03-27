@@ -5,3 +5,16 @@ According to the diagram, notice that
     X\times_Y Y \times_Y Y\times_Z Y &\simeq X\times_Z Y,\\
     X\times_Z Y \times_X Z &\simeq Z\times_Z Y.
 \end{align*}
+
+\section{11.1.E. Exercise}
+
+First of all, structure morphism must automatically lies in $P$ because $P$ contains all isomorphisms, therefore applying $S\to S$ base change gives us $S\times_S A=A\to S$ has property $P$. 
+\[% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAA0QBfU9TXfIRQBGUsKq1GLNgGVuvEBmx4CRAEzkJ9Zq0QgAmgB1DeALbwA+jIAEALW4SYUAObwioAGYAnCKaRkQHAgkUUkdNmMsMGsABRBqBjoAIxgGGP4VIRAvLGcACxx5Tx8-RA1A4MRQ7Wk9SOiY41gGHDoikG9ff2ogpHKa3RBjHDyYLxgPCHHrAD962IcuIA
+\begin{tikzcd}
+X \arrow[rd, "\in P"'] \arrow[rr, "\therefore ~\in P"] &   & Y\times_S Z \arrow[ld, "\in P\delta"] \\
+                                                       & S &                                      
+\end{tikzcd}\] 
+
+\section{11.2.C.}
+
+Use Exercise 1.2.W, we have the diagonal morphism is an isomorphism. Hence closed embedding.

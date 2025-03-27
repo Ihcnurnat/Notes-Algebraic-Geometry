@@ -1,0 +1,24 @@
+\section{Theorem 7.1.}
+
+As we previously noted that $D(f)$ is open, here we have a more general result. 
+\subsection*{Non-vanishing set is open}
+\begin{proposition}
+    Suppose $X$ is a scheme with an invertible $\mathcal O_X$-module $\mathcal L$. Given a global section $s\in\Gamma(X,\mathcal L)$, the following set is open
+    \[X_s:=\{x\in X ~\vert~ s_x \notin \mathcal O_{X,x}\mathcal L_x\}.\]
+\end{proposition}
+\begin{proof}
+    Since $\mathcal L$ is invertible, then there exists $\{U_i\}_{i\in I}$ such that $\mathcal L\vert_{U_i}\simeq \mathcal O_{X}\vert_{U_i}$. To prove $X_s$ is open, it suffices to check $X_s\cap U_i$ is open. Therefore we may assume that $X=U_i$, which means we check 
+    \[X_s=\{x\in X~\vert~ s_x\notin \mathcal O_{X,x}\mathcal O_{X,x}=\mathcal O_{X,x}\}\] is open. 
+    \[% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBoBGAXVJADcBDAGwFcYkQAdDgcXoFs+9ABQBVAPpZSXQTgAWAYyYACAPJiAGkq60YAJxxjg4rAF8AlCBOl0mXPkIoyAJmp0mrdgis3seAkSdSFxoGFjZEEDgxAA9LaxAMX3sAildQjwjpejlFRlVDY1JokwBeLJzlABkYuJ87fxRyVJD3cM4efkEhADUpDhkFZTUjCXNahNs-B2Qm4jTW9hxxxPrpwLmWsPYe0hwLE1cYKABzeCJQADNdCD4kMhAcCCQAFm8QK5uXmkekAGY3j63RBNB5PRCBB70LCMdiCNBwH4A65AgCs3zBADZvlCYRE4QingcTEA
+    \begin{tikzcd}
+                                                     & t \arrow[r, maps to]                   & {(V,t)}                           \\
+    {\Gamma(U_i,\mathcal O_X \vert_{U_i})} \arrow[r] & {\Gamma(V,\mathcal O_{U_i})} \arrow[r] & {\mathcal O_{U_i,x}=\mathcal L_x} \\
+    s \arrow[rr, maps to]                            &                                        & s_x                              
+    \end{tikzcd}\]
+    Since $s_x\notin \mathcal O_{X,x}$, hence there exists $t_x=(V,t)\in \mathcal L_x=\mathcal O_{X,x}$ such that $t_xs_x=1\in\mathcal O_{X,x}$. The diagram above consists of compatible ring maps, then $s\vert_V t \in \Gamma(V,\mathcal O_{U_i})$ will be mapped to $s_xt_x=1$. Hence $s\vert_V t=1\in \Gamma(V,\mathcal O_{U_i})$. 
+    We claim that for any point $y\in V$, we have \begin{align*}
+        \Gamma(V,\mathcal O_{U_i}) &\to L_y=\mathcal O_{U_i,y}=\mathcal O_{X,y}\\
+        s\vert_V t =1 &\mapsto s_yt_y=1.
+    \end{align*}
+    Or equivalently, we have $y\in X_s$. Therefore $X_s$ is an open set. 
+\end{proof}

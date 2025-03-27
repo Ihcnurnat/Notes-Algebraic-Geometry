@@ -1,6 +1,21 @@
 \ProvidesPackage{MyCommands}
 
-% Define your custom commands here
+% Load required package
+\RequirePackage{amsthm}
+
+% Define theorem styles
+\theoremstyle{plain} % Italicized for main results
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition} % Upright for definitions, examples, remarks
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+
+% Define custom commands
 \newcommand{\Spec}{\operatorname{Spec}}
 \newcommand{\Colim}{\operatorname{Colim}}
 %\newcommand{\lim}{\operatorname{Lim}}
@@ -16,5 +31,7 @@
 \newcommand{\Coker}{\operatorname{Coker}}
 \newcommand{\Res}{\operatorname{Res}}
 \newcommand{\Frac}{\operatorname{Frac}}
+\newcommand{\Char}{\operatorname{Char}}
+\newcommand{\Gal}{\operatorname{Gal}}
 
 \endinput
