@@ -170,22 +170,15 @@ The following proof is based on Lecture 53 of S\'andor's Notes on Algebraic Geom
 
     As definition specified, the morphism of sheaves $\mathscr O_{X}\to f_{\ast}\mathscr O_{\Spec K}$ induces a local ring homomorphism on stalks at $x\in X$. Notice that $0\in \Spec K$ is the pre-image of $x$, then 
     \[\mathscr O_{X,x}\to f_{\ast}\mathscr O_{\Spec K,0}=K\]
-    is a local ring homomorphism. As $K$ is a field, the pre-image of maximal ideal $0$ must be exactly the maximal ideal of $\mathscr O_{X,x}$. This morphism cannot be zero morphism, so it must be surjective. The kernel of this morphism is exactly $\mathcal m_x\triangleleft_{\text{max}}\mathscr O_{X,x}$, which implies the isomorphism of 
-    \[\mathscr O_{X,x}/\mathcal m_x=\kappa (x)\simeq k.\] 
+    is a \textbf{local ring homomorphism}. As $K$ is a field, the pre-image of maximal ideal $0$ must be exactly the maximal ideal of $\mathscr O_{X,x}$. The kernel of this morphism is exactly $\mathfrak m_x\triangleleft_{\text{max}}\mathscr O_{X,x}$, which induces a morphism 
+    \[\mathscr O_{X,x}/\mathfrak m_x=\kappa (x)\to K.\] 
 \end{proof}
-
-\subsection{First Attempt}
-We wish to prove a morphism on sheaves of rings 
-\[f^{\sharp}:\mathscr O_{X}\to f_{\ast}\mathscr O_{\operatorname{Spec}K}\] will corresponds bijectively to an inclusion map $k(x)\to K$.  \todo{Use \href{https://stacks.math.columbia.edu/tag/008K}{Tag 008K} to simplify the construction of the morphism?}
-
-Give an open subset $U\subset X$, we can define $f^{\sharp}(U)$ as 
-\begin{align*}
-    \mathscr O_X(U)\to f_{\ast}\mathscr O_{\operatorname{Spec}K} (U)=
-\end{align*} 
 
 \subsection{Remarks}
 
 For converse direction, see Proposition 3.8. Chap 3 of \cite{gortz2020algebraic}. Notice that this problem is NOT completely analoguous to \Cref{Hart Chap 2 Ex 2.4.}, because here the global section of the affine scheme is a field. There is a slightly more general statement regarding when global section is a local ring, see comments of Prop 3.8. Chap 3 of \cite{gortz2020algebraic}.
+
+\todo{Use \href{https://stacks.math.columbia.edu/tag/008K}{Tag 008K} to simplify the construction of the morphism?}
 
 \section{Exercise 2.9.}\label{Hart Chap 2 Ex 2.9.}
 
