@@ -1,0 +1,25 @@
+\section{1.2.W.}
+
+Mono $\Rightarrow$ iso: verify $x$ also enjoys the universal property of $X\times_Y X$. 
+
+Iso $\Rightarrow$ mono: uniqueness is given by the universal property of $X\simeq X\times_Y X$ with the following diagram:
+\[% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZAJgBoBGAXVJADcBDAGwFcYkQANEAX1PU1z5CKchWp0mrdl179seAkVHFxDFm0ScefEBnlCiZFTTVTNATW1zBilAAZSd1ZI0gAWj3EwoAc3hFQADMAJwgAWyRREBwIJDtZEBDwyJoYpGIEpIjEABZU2MQyEAAjGDAoJABaAGZ4nSykPOiChxKyisRazNDsorTO7uTEVv7qweym-qjGLDBXKHo4AAtvEBMXdgBCAB1txhgARwACck9uIA
+\begin{tikzcd}
+Z \arrow[rdd, bend right] \arrow[rrd, bend left] \arrow[rd, "!\leq 1", dashed] &                       &             \\
+                                                                               & X \arrow[r] \arrow[d] & X \arrow[d] \\
+                                                                               & X \arrow[r]           & Y          
+\end{tikzcd}\]
+
+\section{Example 1.3.4.}
+
+\begin{proposition}
+    If $\deg D>2g-2$, then $D$ is nonspecial.
+\end{proposition}
+\begin{proof}
+    Apply Riemann-Roch to both $D$ and $K-D$ where $K$ denotes the canonical divisor as usual. 
+    \begin{align*}
+        l(D)-l(K-D) &=~ 1-g+\deg D\\
+        l(K-D)-l(K-(K-D))=l(K-D)-l(D) &=~ 1-g+\deg(K-D)\\
+        \Rightarrow~ \deg(K-D) = 2g-2-\deg D < 0
+    \end{align*}given $\deg D>2g-2$. Thus, applying Lemma 1.2. Chapter 4 ~\cite{hartshorne2013algebraic} implies $l(K-D)=0$, hence $D$ is nonspecial.
+\end{proof}

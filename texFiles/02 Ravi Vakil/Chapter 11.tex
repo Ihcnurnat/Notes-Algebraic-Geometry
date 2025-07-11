@@ -18,3 +18,16 @@ X \arrow[rd, "\in P"'] \arrow[rr, "\therefore ~\in P"] &   & Y\times_S Z \arrow[
 \section{11.2.C.}
 
 Use Exercise 1.2.W, we have the diagonal morphism is an isomorphism. Hence closed embedding.
+
+\section{11.2.E.}
+
+Assume $X$ is separated over $\Spec A$, $\Spec A\to \Spec \mathbb Z$ is an affine morphism, we can compose two separated morphism to conclude $X$ is separated (over $\Spec \mathbb Z$). 
+
+Conversely, consider the following diagram: 
+\[% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAA0QBfU9TXfIRQAmclVqMWbADrSIaGACc6OCIrB0AtjGABlBQGMuAQW68QGbHgJEAjKVvj6zVohCz5SlWo3a9hrllNFQALACMwgAIALW5xGCgAc3giUAAzRQhNJDIQVSR7CRcZaRwQpRg0tRhIgAUzdMzsxFz8xFEiqTdZLDA6kGoGOjCYBlr+ayEQRSxEkJwGkAysguo2jucu92leutlYBhw6OK4gA
+\begin{tikzcd}
+X \arrow[rr, "\therefore P"] \arrow[rd, "\in P"'] &                              & \operatorname{Spec}A \arrow[ld, "\in P\delta"] \\
+                                                  & \operatorname{Spec}\mathbb Z &                                               
+\end{tikzcd}\]
+
+It suffices to check $\Spec A\to \Spec A\times_{\Spec \mathbb Z} \Spec A$ is separated. But this is already an affine morphism so we're done.
