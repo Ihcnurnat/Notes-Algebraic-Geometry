@@ -182,3 +182,15 @@ But in general case, how do we glue back, or even compute the image of the $Y\ti
 \subsection{Remarks}
 
 See this \href{https://math.stackexchange.com/questions/1079356/closed-immersions-are-stable-under-base-change}{POST}.
+
+\section{Exercise 3.13.}
+
+See Page 93 Chap 3.3. ~\cite{kriz2021introduction}.
+
+For (b), we have a counterexample if we drop the condition of quasi-compact. See Exercise 32. on Page 99 of ~\cite{kriz2021introduction}. 
+
+The point is that closed immersion is always of finite type. So we wish to contradict the quasi-compactness, which inspires us to give the following example. 
+\begin{proof}[Sketch Ex 32.]
+    Let $Z=I(x_1,x_2,...)\subset Y=\Spec k[x_1,x_2,...]$. Then $Y-Z=\Spec k[x_1,...]/I=\Spec k \subset Y$ corresponds to $k\to k[x_1,x_2,...]$, which is not finitely-generated as $k$-algebra. But we're not done yet, because we don't know if $Y-Z$ is affine or not. Then taking pushout of two copies of $Y-Z\hookrightarrow Y$ yields an affine subscheme that is not of finite type. 
+\end{proof} 
+Notice that it's just open immersion, without necessarily the quasi-compactness condition, which gives us a counterexample when relaxing the condition of (b).
