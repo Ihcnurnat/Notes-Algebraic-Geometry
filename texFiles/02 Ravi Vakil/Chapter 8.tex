@@ -55,7 +55,41 @@ Clear. Because affine scheme is both quasi-compact and quasi-separated.
 \section{8.3.F.}
 
 For example (3), see Exercise 9.12. by Gathmann notes on Commutative algebra \cite{GathNotes}, Page 83.
+\section{8.3.G.}
+\begin{proof}
+Since finite morphism is by definition affine, it suffices to show the statement for $X=\Spec A$ an affine scheme. While finite morhism is integral, then we know the inclusion $k\hookrightarrow A$ is finite with $A$ being an integral domain. Apply Exericse 3.2.G, we conclude $A$ is a field. 
 
+\end{proof}
 \section{8.3.H.}
 
 Apply 8.2.C. and use the definition \enquote{for all}.
+
+\section{8.4.A.}
+
+\begin{proof}[failed...]
+	$\Rightarrow$ is immediate. 
+	$\Leftarrow$: in general, we can express constructible subset $A$ as a finite intersection of family members 
+\begin{align*}
+	A = \bigcap_{\leq \infty} A_i
+\end{align*}where each $A_i\in \mathscr A$ is a constructible subset. 
+\end{proof}
+
+\begin{proof}[sketch, Proposition 10.13. ~\cite{gortz2020algebraic}]
+	So the problem here is to prove two equivalent conditions:\begin{enumerate}
+	\item smallest subsets satisfying three conditions;
+	\item finite union of locally closed subsets; 
+	\item finite disjoint union of locally closed subsets.
+	\end{enumerate} We'll use the very fact \enquote{smallest}. Our plan is to check that all subsets of (2) satisfy the three conditions in (1): this is immediately clear for it contains all open subsets and are closed under taking finite unions. It remains to check it's closed under taking complement...
+\end{proof}
+
+\section{8.4.B.}
+
+\begin{remark}
+	My idea was to find a map $X\to \mathbb A^1$ such that $0\subset X$ is clearly not constructible. But I failed. For hint, see \href{https://math.stackexchange.com/questions/4263567/let-k-be-a-field-the-generic-point-of-operatornamespeckx-does-not-form}{HERE}. Be careful for some details. 
+\end{remark}
+
+\begin{proof}
+	Suppose $\{\eta\}$ is constructible, i.e. we have $\eta=\bigcup_{\leq\infty} U_i\cap V_i$ where each $U_i\cap V_i$ are disjoint. 
+	Then we focus on one pair for $\{\eta\}$ is a singleton: let $0=\{\eta\}= U\cap V$ where $U$ is open and $V$ is closed. 
+	While $\eta$ is the generic point, then $\eta\mathbb A^1$. Therefore $\{\eta\}=U$ as a finite subset of $\mathbb A^1$ is open. This contradicts the fact that all closed subset of $\mathbb A^1$ are $\emptyset$, finite subsets, and all of the space $\mathbb A^1$.
+\end{proof}

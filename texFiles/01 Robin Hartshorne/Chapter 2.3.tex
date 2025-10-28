@@ -194,3 +194,15 @@ The point is that closed immersion is always of finite type. So we wish to contr
     Let $Z=I(x_1,x_2,...)\subset Y=\Spec k[x_1,x_2,...]$. Then $Y-Z=\Spec k[x_1,...]/I=\Spec k \subset Y$ corresponds to $k\to k[x_1,x_2,...]$, which is not finitely-generated as $k$-algebra. But we're not done yet, because we don't know if $Y-Z$ is affine or not. Then taking pushout of two copies of $Y-Z\hookrightarrow Y$ yields an affine subscheme that is not of finite type. 
 \end{proof} 
 Notice that it's just open immersion, without necessarily the quasi-compactness condition, which gives us a counterexample when relaxing the condition of (b).
+
+\section{3.16.}
+
+\begin{proof}
+    \begin{itemize}
+        \item Build small blocks: for each point $p_i\in X$, by Noetherian we can find $\emptyset \subset U_{i}$ such that $U_i\ni p_i$ and $U_i$ is the minimal one. According to the assumption, the emptyset $\emptyset$ satisfies property $\mathscr P$; and for closed subset $U_i$, all proper closed subsets of it (in fact, just the emptyset) satisfies $\mathscr P$, so $U_i$ satisfies $\mathscr P$ by assumption. 
+    \end{itemize}
+    We'll show property $\mathscr P$ is closed under taking arbitrary unions.
+    
+\end{proof}
+
+For references, see 10.4~\cite{gortz2020algebraic} and \href{https://math.stackexchange.com/questions/47837/noetherian-induction?utm_source=chatgpt.com}{this post}.
