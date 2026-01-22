@@ -1,37 +1,100 @@
 \ProvidesPackage{MyCommands}
 
-% Load required package
+% --------------------------------------------------------------------
+% Package requirements (Consolidated)
+% --------------------------------------------------------------------
+\RequirePackage{amsmath}
 \RequirePackage{amsthm}
+\RequirePackage{amssymb}
+\RequirePackage{thmtools} % Required for custom exercise styling
 
-% Define theorem styles
-\theoremstyle{plain} % Italicized for main results
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{corollary}[theorem]{Corollary}
+% --------------------------------------------------------------------
+% Redefine 'proof' environment (New line after "Proof.")
+% --------------------------------------------------------------------
+\makeatletter
+\renewenvironment{proof}[1][\proofname]{\par
+  \pushQED{\qed}%
+  \normalfont \topsep6\p@\@plus6\p@\relax
+  \trivlist
+  \item[\hskip\labelsep
+        \itshape
+    #1\@addpunct{.}]\mbox{}\\* % <--- Line break is here
+}{%
+  \popQED\endtrivlist\@endpefalse
+}
+\makeatother
 
-\theoremstyle{definition} % Upright for definitions, examples, remarks
-\newtheorem{definition}[theorem]{Definition}
-\newtheorem{remark}[theorem]{Remark}
-\newtheorem{example}[theorem]{Example}
+% --------------------------------------------------------------------
+% Custom operators (typeset with \mathsf{})
+% --------------------------------------------------------------------
 
-% Define custom commands
-\newcommand{\Spec}{\operatorname{Spec}}
-\newcommand{\Colim}{\operatorname{Colim}}
-%\newcommand{\lim}{\operatorname{Lim}}
-\newcommand{\Supp}{\operatorname{Supp}}
-\newcommand{\Ass}{\operatorname{Ass}}
-\newcommand{\Hom}{\operatorname{Hom}}
-\newcommand{\Ext}{\operatorname{Ext}}
-\newcommand{\Tor}{\operatorname{Tor}}
-\newcommand{\Ann}{\operatorname{Ann}}
-\newcommand{\Image}{\operatorname{Im}}
-\newcommand{\Coim}{\operatorname{Coim}}
-\newcommand{\Ker}{\operatorname{Ker}}
-\newcommand{\Coker}{\operatorname{Coker}}
-\newcommand{\Res}{\operatorname{Res}}
-\newcommand{\Frac}{\operatorname{Frac}}
-\newcommand{\Char}{\operatorname{Char}}
-\newcommand{\Gal}{\operatorname{Gal}}
+% 1. Handle conflicts
+\let\ln\relax 
+
+% 2. Operators with limits underneath (e.g., Colim_{n->inf})
+\DeclareMathOperator*{\Colim}{\mathsf{Colim}}
+
+% 3. Standard Operators
+\DeclareMathOperator{\Spec}{\mathsf{Spec}}
+\DeclareMathOperator{\Supp}{\mathsf{Supp}}
+\DeclareMathOperator{\Ass}{\mathsf{Ass}}
+\DeclareMathOperator{\Hom}{\mathsf{Hom}}
+\DeclareMathOperator{\Ext}{\mathsf{Ext}}
+\DeclareMathOperator{\Tor}{\mathsf{Tor}}
+\DeclareMathOperator{\Ann}{\mathsf{Ann}}
+\DeclareMathOperator{\Image}{\mathsf{Im}}
+\DeclareMathOperator{\Coim}{\mathsf{Coim}}
+\DeclareMathOperator{\Ker}{\mathsf{Ker}}
+\DeclareMathOperator{\Coker}{\mathsf{Coker}}
+\DeclareMathOperator{\Res}{\mathsf{Res}}
+\DeclareMathOperator{\Frac}{\mathsf{Frac}}
+\DeclareMathOperator{\Proj}{\mathsf{Proj}}
+\DeclareMathOperator{\mult}{\mathsf{mult}}
+\DeclareMathOperator{\vol}{\mathsf{vol}}
+\DeclareMathOperator{\id}{\mathsf{id}}
+\DeclareMathOperator{\length}{\mathsf{length}}
+\DeclareMathOperator{\SL}{\mathsf{SL}}
+\DeclareMathOperator{\Prob}{\mathsf{Prob}}
+\DeclareMathOperator{\rank}{\mathsf{rank}}
+\DeclareMathOperator{\Deck}{\mathsf{Deck}}
+\DeclareMathOperator{\Aut}{\mathsf{Aut}}
+\DeclareMathOperator{\Arg}{\mathsf{Arg}}
+\DeclareMathOperator{\ln}{\mathsf{ln}}
+\DeclareMathOperator{\Gal}{\mathsf{Gal}}
+\DeclareMathOperator{\pr}{\mathsf{pr}}
+
+% 4. Custom Vector Notations
+\newcommand{\vecPi}{\overset{\to}{\pi}}
+\newcommand{\vecP}{\overset{\to}{p}}
+\newcommand{\vecQ}{\overset{\to}{q}}
+
+% --------------------------------------------------------------------
+% Decorations and subscripts
+% --------------------------------------------------------------------
+\newcommand{\subEtale}{_{\textsf{\'{E}t}}}
+
+% --------------------------------------------------------------------
+% Theorem-like environments (Using \newtheorem, then \declaretheorem)
+% --------------------------------------------------------------------
+
+% --- 2. Define standard environments using \newtheorem ---
+\theoremstyle{definition}
+\newtheorem{example}{Example}
+\newtheorem{theorem}{Theorem}
+% NOTE: We skip \newtheorem{exercise} here as it's defined next.
+\newtheorem{definition}{Definition}
+
+\theoremstyle{plain}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{remark}{Remark}
+
+% --- 3. Define Exercise using \declaretheorem (to apply custom style) ---
+\declaretheorem[
+    style=exercise_remark_style,
+    name=Exercise,
+    sibling=theorem % Keeps exercise numbering linked to theorems (e.g., Theorem 1.1, Exercise 1.2)
+]{exercise}
 
 \endinput
