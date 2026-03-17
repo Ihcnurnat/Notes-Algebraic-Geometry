@@ -1,9 +1,39 @@
 \section{14.1.C.}
 
 Taking possible intersections of the covers for which both locally free sheaves are free, we may reduce the problem to check 
-\[\mathcal O_{U_i}^{\otimes mn}\cong \mathcal Hom(\mathcal F,\mathcal G)(U_i).\]
+\[(\mathcal O^{\otimes mn})\vert_{U_i}\cong \mathcal Hom(\mathcal F,\mathcal G)\vert_{U_i}.\]
 And this is a direct consequence of the following observation:
 Page 179, equatioin (7.4.11) in ~\cite{gortz2020algebraic}.
+
+\section{14.1.D.}
+
+\begin{proof}
+    In this proof, we'll utilise the following algebraic fact: For any ring \(R\) and any \(R\)-module \(M\), we have an isomorphism
+    \[M\cong M^{\vee\vee}.\]
+    In fact, this solves the problem over affine schemes. Applying this fact repeatedly, we've defined the morphisms over an open cover of our domain. Thus we only need to check if the morphism glues together. Over the intersection, they agree because localisation commutes with dual functor (i.e. the hom functor).
+\end{proof}
+
+\begin{proof}
+    In this attempt, we'll use transition maps to define our $\mathscr E^{\vee}$. 
+    Let $\{U_i\}$ be an open cover of $X$ such that $\psi_i:\mathscr E\vert_{U_i}\cong \mathcal O^{\oplus n}_{U_i}$.
+    Then our transition maps are given by 
+    \begin{align*}
+        T_{ij}:= \psi_i\circ \psi_j^{-1}\in \GL_n(\mathcal O_X(U_i\cap U_j)).
+    \end{align*}
+    Now we need to examine the dual sheaf $\mathscr E^{\vee}$. Over $U_i$, we need a suitable choice for the isomorphism 
+    \begin{align}
+        \varphi_{i}:\mathscr E^{\vee}\vert_{U_i}\to \mathcal O^{\oplus n}_{U_i}\cong (\mathcal O^{\oplus n}_{U_i})^{\vee}.
+    \end{align}And our choise will be $\varphi_{i}:=\psi_{i}^{\vee,-1}$.
+    Therefore our new transition maps for $\mathscr E^{\vee}$ are given
+    \begin{align}
+        S_{ij}=&~\varphi_{i}\circ\varphi_{j}^{-1}\\
+        =&~(\psi_{i}^{\vee,-1})\circ (\psi_{j}^{\vee,-1})^{-1}\\
+        =&~(\psi_{i}^{\vee,-1})\circ \psi_{j}^{\vee}\\
+        =&~(\psi_{j}\circ \psi_{i}^{-1})^{\vee}\\
+        =&~T_{ij}^{-1,\vee}.
+    \end{align}
+    Thus applying twice the dual functor, the transition maps will restore the original $T_{ij}$, and we are done.
+\end{proof}
 
 \section{14.2.A.}
 
