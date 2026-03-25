@@ -40,3 +40,44 @@ Page 179, equatioin (7.4.11) in ~\cite{gortz2020algebraic}.
 My discussion with ChatGPT \href{https://chatgpt.com/share/697237cb-f048-8009-b9e4-74e7c4ff0e4e}{HERE}
 
 See \href{https://math.stackexchange.com/questions/3920320/quasi-coherent-sheaves-supset-locally-free-sheaves}{this POST} for an easier solution.
+
+\section{14.4.D.}
+\begin{exercise}
+    Suppose $\pi:X\to Y$ is a finite morphism of locally Noetherian schemes. If $\mathscr F$ is a coherent sheaf on $X$, show that $\pi_{\ast}\mathscr F$ is a coherent sheaf. Hint: Show first that $\pi_{\ast}\mathscr O_X$ is finite type.
+\end{exercise}
+
+\begin{proof}
+    \begin{enumerate}
+    \item In the following, we'll check $\pi_{\ast}\mathscr O_X$ is finite type.
+    While being finite type satisfies the requirement of Affine Communication Lemma, it suffices to show the existence of a cover of affine opens $\{U_i\}_{i\in I}$ such that 
+    \[\pi_{\ast}\mathscr O_X(U_i)\] is finitely generated. In fact, we may take $\{U_i\}_{i\in I}$ to be a cover of open affines inside $Y$. Recall the morphism $\pi$ is finite: in the textbook, it's automatically affine; hence we may assume $\pi^{-1}(U_i)=V_i$ where $V_i$ is affine. 
+
+    According to the definition of finite morphism, we have the following exact sequence
+    \begin{align}
+        \mathscr O_Y(U_i)^{\oplus n} \to \pi_{\ast}\mathscr O_X(U_i)=\mathscr O_X(\pi^{-1}(U))=\mathscr O_X(V_i)\to 0.
+    \end{align}for some choice of $n\in\mathbb Z$.
+    So we may conclude $\pi_{\ast}\mathscr O_X$ is of finite type. 
+
+    \item Since $\mathscr F$ is a coherent sheaf, under the locally Noetherian assumption, it is of finite type. Thus over $U_i$, the following is exact
+    \begin{align}
+        \mathscr O_X\vert_{U_i}^{\oplus l}\to \mathscr F\vert_{U_i}\to 0.
+    \end{align}
+    In general, the functor $\pi_{\ast}$ is only left-exact.
+    One important fact is that $\pi$ is finite thus an affine morphism, so apply $\pi_{\ast}$ will be right-exact. Therefore we have the following exact.
+    \begin{align}\label{14.4.D.1}
+        \pi_{\ast}(\mathscr O_X\vert_{U_i}^{\oplus l})\to \pi_{\ast}\mathscr F\vert_{U_i}\to 0.
+    \end{align}
+    On the other hand, the last proof gave us 
+    \begin{align}\label{14.4.D.2}
+        \mathscr O_Y\vert_{U_i}^{\oplus m}\to \pi_{\ast}\mathscr O_X\vert_{U_i}\to 0.
+    \end{align}
+    Combining two exact sequences above, we may conclude over $U_i$, 
+    \begin{align}
+        (\mathscr O_Y\vert_{U_i})^{\oplus ml}\to \pi_{\ast}\mathscr F\vert_{U_i}\to 0
+    \end{align} is exact. Therefore $\pi_{\ast}\mathscr F$ is of finite type.
+    \end{enumerate}
+\end{proof}
+
+\begin{remark}
+    In fact, the standard way to solve the problem is to translate everything into commutative algebra. Relevant algebraic fact we'll use is the transitivity of f.g. module. See the \href{https://gemini.google.com/share/9ee529755cd3}{conversation} with Gemini.
+\end{remark}

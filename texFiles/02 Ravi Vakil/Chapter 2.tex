@@ -566,19 +566,20 @@ Conversely, ... a diagram chasing argument.
 For details see Autumn HW2 2023 Problem 3. Or this online \href{https://www.math.utah.edu/~zwick/Classes/Hartshorne/Section2_1.pdf}{solution}.
 
 \section{2.7.A.}
-
-I couldn't give a complete example \dots
-
-\subsection{Solution}
-
-A \href{https://math.stackexchange.com/questions/439769/inverse-image-presheaf}{post} on inverse image presheaf.
-
-\textit{Let $X=\{p,q\}, Y=\{w\}$ with discrete topolgoy. Let $\mathscr G$ be a constant sheaf on $Y$ with value group $A$ which contains at least two elements. Compute inverse image presheaf.}
+\begin{exercise}
+	Let $X=\{p,q\}, Y=\{w\}$ with discrete topolgoy. Let $\mathscr G$ be a constant sheaf on $Y$ with value group $A$ which contains at least two elements. Compute inverse image presheaf.
+\end{exercise}
 \begin{proof}
 	For any $U\subset X$, we have 
 	\[\pi_{\text{pre}}^{-1}\mathscr F(U)=\operatorname{Colim}_{V\supset \pi(U)=\{w\}}\mathscr G(V)=\operatorname{Colim}_{V=\{w\}}\mathscr G(V)=A.\]
 	Hence it's the inverse image pre-sheaf $\pi_{\text{pre}}^{-1}\mathscr F$ is a constant pre-sheaf. It's not a sheaf for exactly the same reason constant pre-sheaf isn't a sheaf for failure of gluability.\todo{?}
 \end{proof}
+
+\begin{remark}
+A \href{https://math.stackexchange.com/questions/439769/inverse-image-presheaf}{post} on inverse image presheaf.
+
+Also see the \href{https://gemini.google.com/share/93948b2a5dd7}{conversation} here with Gemini.
+\end{remark}
 
 \section{2.7.D.}\label{2.7.D.}
 
