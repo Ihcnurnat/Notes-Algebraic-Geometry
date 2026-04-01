@@ -39,6 +39,57 @@
 
 \subsection{Comments}
 See Prop 3.5. \cite{gortz2020algebraic} on Page 70. For details, see \href{https://math.stackexchange.com/questions/442911/glueing-morphisms-of-sheaves-together-can-i-just-do-this}{\enquote{Glueing morphisms of sheaves together - can I just do this?}} and \href{https://math.stackexchange.com/questions/1173973/morphism-of-ringed-spaces-glue?noredirect=1&lq=1}{\enquote{morphism of ringed spaces glue}}.
+\section{7.2.D.}
+
+\begin{exercise}[Pulling Back $\mathscr O$-module]
+    Suppose $\pi:(X,\mathscr O_X)\to (Y,\mathscr O_Y)$ is a morphism of ringed spaces. A slight variation on the inverse image allows us to pull back an $\mathscr O_Y$-moudle $\mathscr G$ to get an $\mathscr O_X$-module $\pi^{\ast}\mathscr G$.
+    
+\end{exercise}
+\subsection{(a)}
+\begin{align}
+    (X,\mathscr O_X)\overset{\pi_1}{\to}(X,\pi^{-1}\mathscr O_Y)\overset{\pi_2}{\to} (Y,\mathscr O_Y)
+\end{align}
+With the notation displayed as above, we need to firstly define $\pi_1,\pi_2$ and then check the commutativity. Both definition and checking commutativity involves both the topological maps as well as pullback of corresponding sheaves.
+
+\begin{enumerate}
+    \item Now we'll define two morphisms 
+    \begin{enumerate}
+        \item For $\pi_1$. We take the identity map $\id_{X}$ over $X$ to be the topological map; it remains to define
+        \[\pi^{-1}\mathscr O_Y\to \pi_{1,\ast}\mathscr O_X\]
+        Fix $U\subset X$, and we let $V_1\supset V_2\supset \pi(U)$ inside $Y$.
+        \[% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12BbOnACzgBjAE4ACAPIB9AJoAKAGqSAjAEoQAX1LpMufIRRLyVWoxZtOPfkLFS5igExrN27HgJEyS4-WatEHbl4BEQlJAA1ZTjQsAD1gAFoldQVlFSctEAxXPSJDL2ofM38LIOtQiKjYhKSUx3SXXXcUe1J8k19zdmjJYENOOjgcdRKrEKkIgFUVAF4R4Jtw2SmNDKzG-WQWygLTPwDouMThwNGFuSnZk4EAM2AAYQgGLC51HvlOOCY0OBgcUUqlip1P8rmVbAonMYYFAAObwIiga7CCBcJBkEA4CBIJIZJEotHUTFIezOEB41GIQwYrGIADMpPJxMJNPpuORFIArMykAAWBnspC07mIPls-GU4Uc9QUdRAA
+        \begin{tikzcd}
+        \mathscr O_Y(V_1) \arrow[r] \arrow[d] & \mathscr O_Y(V_2) \arrow[d] \arrow[r] & \pi^{-1}\mathscr O_Y(U)=\mathsf{Colim}_{V\supset \pi(U)} \mathscr O_Y(V) \arrow[d] \\
+        \mathscr O_X(\pi^{-1}(V_1)) \arrow[r] & \mathscr O_X(\pi^{-1}(V_2)) \arrow[r] & {\pi_{1,\ast}\mathscr O_X(U)=\mathscr O_X(U)}                                   
+        \end{tikzcd}\]
+    \item For $\pi_2$. We take $\pi$ to be the topological map. Hence we would like to unwrap the definition of 
+    \begin{align}
+        \mathscr O_Y\to \pi_{2,\ast}\pi^{-1}\mathscr O_Y.
+    \end{align}
+    For $W\subset Y$, we simply use the canonical map to the colimit (induced by the universal property of colimit) 
+    \begin{align}
+        \mathscr O_Y(W)\to &~\pi_{2,\ast}\pi^{-1}\mathscr O_Y(W)\\ 
+        =&~\pi^{-1}\mathscr O_Y(\pi^{-1}(W))\\
+        =&~\Colim _{V\supset \pi(\pi^{-1}(W))}\mathscr O_Y(V)\\
+        =&~\Colim _{V\supset W}\mathscr O_Y(V).
+    \end{align}
+    \end{enumerate}
+    \item We check the commutativity. For topological space $\pi_1,\pi_2$ together work well. For the sheaf morphism, we intend to check two morphisms are isomorphic:
+    \begin{align}
+    \phi_1:&~\mathscr O_Y\to \pi_{\ast}\mathscr O_X=\\
+    \phi_2:&~\mathscr O_Y\to \pi_{2,\ast}(\pi^{-1}(\mathscr O_Y))\to \pi_{2,\ast}\pi_{1,\ast}\mathscr O_X.
+    \end{align}
+    We could do this by checking for arbitrary $W\subset Y$, 
+    \begin{align}
+        \phi_{1}(W)=&~\mathscr O_Y(W)\to \pi_{\ast}\mathscr O_X(W)\\
+        \phi_{2}(W)=&~\mathscr O_Y(W)\to \ldots \to \pi_{\ast}\mathscr O_X(W).
+    \end{align}
+    Therefore we obtained the commutativity for the sheaves. 
+\end{enumerate}
+
+\begin{remark}
+    For composition of morphism in ringed spaces, see this \href{https://math.stackexchange.com/questions/611497/does-hartshorne-really-not-define-things-like-the-composition-or-restriction-o}{post}.
+\end{remark}
 
 \section{7.2.E.}
 
@@ -54,6 +105,13 @@ For a local homomorphism, we have
 \section{7.3.D.}
 
 !
+\section{7.3.F.}
+
+\begin{itemize}
+    \item See this \href{https://gemini.google.com/share/11c266ac4484}{conversation} with Gemini. 
+    \item See Remark 3.15.~\cite{gortz2020algebraic}
+\end{itemize}
+
 
 \section{7.3.G.}
 
@@ -63,6 +121,8 @@ See \href{https://stacks.math.columbia.edu/tag/01I1}{Tag 01I1}.
 \section{7.3.6.}
 
 For \enquote{fun question}: is that maximalSpec?
+\section{7.3.O.}
+See \href{https://gemini.google.com/share/b1e4a38864db}{conversation} with Gemini.
 
 \section{7.3.L.}
 

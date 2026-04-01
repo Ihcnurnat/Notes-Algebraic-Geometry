@@ -1,6 +1,28 @@
 \section{3.1.A.}
 
-?
+\begin{proof}
+	% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAA0QBfU9TXfIRQBGclVqMWbAJrdeIDNjwEiZYePrNWiBQB1dWMAAIAqvoDGBAOZGA1gD0AtnL5LBRUeuqapO-WiwACjQASn1DIwA1C2s7e0IeVwEVFAAmUi8JLTZbbnEYKCt4IlAAMwAnCGdEMhAcCCRRLN8QfywXEAqqpABmanqkABZvSW1O8LB9RzocAAtzRiMAeQB9aUDIkI6u6vS6hsQ+5rH9WZngNq5tyt3+g9qcOiwGNlmICFzEzpveu8b+p4vHRvD55LhAA
+\[\begin{tikzcd}
+X \arrow[r, "\pi"]                                     & Y                                                                     &   \\
+p\in U\cong k^m \arrow[r, "\hat{\pi}"] \arrow[u, hook] & \pi(p)\in V\cong k^n \arrow[r, "f\in\mathcal O_Y(V)"] \arrow[u, hook] & k
+\end{tikzcd}\]
+Given $\pi$ is smooth $\Rightarrow$ existence of pullback. For arbitrary $V\subset Y$, we simply define 
+\begin{align}
+	\mathcal O_Y(V)\to&~ \pi_{\ast}\mathcal O_X(V)=\mathcal O_X(\pi^{-1}(V))\\
+	f\mapsto&~ f\circ\hat{\pi}
+\end{align}where $\hat{\pi}$ is a local expression with domain contains $\pi^{V}$.
+
+Conversely, we may follow the \href{https://gemini.google.com/share/3997f78bc427}{discussion} with Gemini.
+\end{proof}
+
+\section*{3.1.B.}
+
+Key part is:
+\begin{align}
+	f\circ\pi(p)=f(\pi p)=f(q)=0.
+\end{align}Here $f\in \mathcal O_{Y,q}$.
+
+
 
 \section{3.2.A.}
 
