@@ -355,10 +355,20 @@ And a solution \href{https://math.mit.edu/~mckernan/Teaching/09-10/Autumn/18.725
 Here's another \href{https://www.kth.se/polopoly_fs/1.291614.1550158503!/Menu/general/column-content/attachment/Lecture1AlgGeo.pdf}{example} where image presheaf might not be a sheaf.
 
 
-\section{2.4.A.}
+\section{2.4.A.}\label{2.4.A.}
 
-\subsection{Hint}
+\begin{proof}
+	\begin{align}
+		\mathscr F(U)\to&~ \prod_{p\in U}\mathscr F_p \\
+			g\mapsto&~ (g_p,p\in U)\\
+			h\mapsto&~ (h_p,p\in U)
+	\end{align}
+	Suppose we have $g_p=h_p$ for all points $p\in U$. By definition of germ, for any $p$, there exists open $W_p\subset U$ that contains $p$ such that $g\vert_{W_p}=f\vert_{W_p}$. While $p\in U$ is arbitrary, $\{W_p\}$ forms an open cover for $U$. Since $\mathscr F$ is a separated presheaf, we may conclude $f=g\in\mathscr F(U)$.
+\end{proof}
+
+\begin{remark}
 See G\;ortz's book \cite{gortz2020algebraic}, page 52, Prop 2.23. (1); or Lemma 2.9. on Page 35 of \cite{qing2006algebraic}. 
+\end{remark}
 
 
 \section{2.4.2. Compatible Germs}\label{2.4.2.}
@@ -397,11 +407,18 @@ The following two definitions are equivalent:
 \end{proof}
 
 \section{2.4.B.}\label{2.4.B.}
+	We'll use equivalent definition of compatible germs to verify two sections are the same over intersections, which is done by \Cref{2.4.A.}.
+\begin{proof}
+	Fix $(s_p)_{p\in U}$ to be our choice of compatible germs.
+	For $i=1,2$, we consider the following setup: $p_i\in U_i$ lies inside an open subset $U_i$ where $f_i\in\mathscr F(U_i)$. Here $(f_i\in\mathscr F(U_i),...)$ is the representative for $f_i$. Notice that we have $f_i\vert_p=s_p$: more precisely, over $U_1\cap U_2$, we have $f_1\vert_p=f_2\vert_p$. While according to \Cref{2.4.A.}, the morphism 
+	\[\mathscr F(U_1\cap U_2)\to \prod_{p\in U_1\cap U_2}\mathscr F_p\] is injective. Therefore we must have $f_1\vert_{U_1\cap U_2}=f_2\vert_{U_1\cap U_2}$. While $\mathscr F$ is a sheaf, Gluability Axiom concludes us with the existence of $f\in\mathscr F(U)$ such that $f\vert_{U_i}=f_i$; furthermore, we notice that $(f_p)_{p\in U}=(s_p)_{p\in U}$. 
+\end{proof}
+
 \[\mathscr F(U)\to \prod_{p\in U}~\mathscr F_p\]
 In the last subsection of \Cref{2.4.2.}, we checked that any section will induce something called compatible germs on the left of the above map. Question is that what are the images of the above map? The following lemma will give us complete description of the image of the map above.
-
-\subsection{}
-\textit{Any choice of compatible germs is the image of a section.}
+\begin{proposition}
+	Any choice of compatible germs is the image of a section.
+\end{proposition}
 \begin{proof}
 	I'll take the second definitions of a choice of compatible germs: there is an open cover $\{U_i\}_{i\in I}$ of $U$ where $I$ is understood as an index set, and there are sections $f_i\in\mathscr F(U_i)$ such that $s_p$ is the germ of $f_i$ at any $p\in U_i$.
 
@@ -413,9 +430,9 @@ In the last subsection of \Cref{2.4.2.}, we checked that any section will induce
 
 \end{proof}
 
-\subsection{Hint}
-
-See this \href{https://math.stackexchange.com/questions/3587877/showing-that-compatible-germs-are-the-image-of-a-section}{post}.
+\begin{comment}
+	See this \href{https://math.stackexchange.com/questions/3587877/showing-that-compatible-germs-are-the-image-of-a-section}{post}.
+\end{comment}
 
 \section{2.4.C.}\label{2.4.C.}
 
