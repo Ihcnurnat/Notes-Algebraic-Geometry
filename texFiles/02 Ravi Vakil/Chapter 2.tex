@@ -363,7 +363,7 @@ Here's another \href{https://www.kth.se/polopoly_fs/1.291614.1550158503!/Menu/ge
 			g\mapsto&~ (g_p,p\in U)\\
 			h\mapsto&~ (h_p,p\in U)
 	\end{align}
-	Suppose we have $g_p=h_p$ for all points $p\in U$. By definition of germ, for any $p$, there exists open $W_p\subset U$ that contains $p$ such that $g\vert_{W_p}=f\vert_{W_p}$. While $p\in U$ is arbitrary, $\{W_p\}$ forms an open cover for $U$. Since $\mathscr F$ is a separated presheaf, we may conclude $f=g\in\mathscr F(U)$.
+	Suppose we have $g_p=h_p$ for all points $p\in U$. By definition of germ, for any $p$, there exists open $W_p\subset U$ that contains $p$ such that $g\vert_{W_p}=h\vert_{W_p}$. While $p\in U$ is arbitrary, $\{W_p\}$ forms an open cover for $U$. Since $\mathscr F$ is a separated presheaf, we may conclude $f=g\in\mathscr F(U)$.
 \end{proof}
 
 \begin{remark}
@@ -382,7 +382,7 @@ The following two definitions are equivalent:
 	\item \textit{There is an open covering $\{U_i\}$ of U, \dots}
 \end{itemize}
 \begin{proof}
-	For any $p\in U$, pick some representative of $s_p\in\mathscr F_p$ as follow: \[(U_p,\Tilde{s}_p)\]where open subset $U_p\subset U$ contains $p$ with $\Tilde s_p\in\mathscr F(U_p)$. Then we take \[\{U_p\}_{p\in U}\] as an open covering of $U$ and take corresponding sections $\Tilde s_p\in\mathscr F(U_p)$ for $p\in U$. We can check conditions for the second statement is satisfied: Clearly $p\in U_p$ and $s_p$ is the germ of $\Tilde s_p$ at $p$ for the first condition required this is true for any $q\in U_p$.
+	Fix a point $p\in U$, pick some representative of $s_p\in\mathscr F_p$ as follow: \[(\Tilde{s}_p\in \mathscr F(U_p),\ldots)\]where open subset $U_p\subset U$ contains $p$ with $\Tilde s_p\in\mathscr F(U_p)$. Then we take \[\{U_p\}_{p\in U}\] as an open covering of $U$ and take corresponding sections $\Tilde s_p\in\mathscr F(U_p)$ for $p\in U$. We can check conditions for the second statement is satisfied: Clearly $p\in U_p$ and $s_p$ is the germ of $\Tilde s_p$ at $p$ for the first condition required this is true for any $q\in U_p$.
 
 	Conversely, pick any $p\in U$. We can find some $U_i$ that contains $p$ with a section $f_i\in\mathscr F(U_i)$ such that $s_p$ is the germ of $f_i$ at $p$. So we take 
 	\[(f_i\in\mathscr F(U_i),~U_p)\in\mathscr F_p\] as representative of $f_i$. Notice that germ of $f_i$ at any $q\in U_i$ is $s_q$ as expected. 
@@ -424,7 +424,7 @@ In the last subsection of \Cref{2.4.2.}, we checked that any section will induce
 
 	
 	Let's consider two open subsets $U_i,U_j\subset U$ where $i,j\in I$ with $f_i\in \mathscr F(U_i), f_j\in\mathscr F(U_j)$. Assume $U_i\cap U_j\neq\emptyset$. Then for any $p\in U_i\cap U_j$, $s_p$ is the germ of $f_i$ and $f_j$ at $p$, i.e. 
-	\[[U_i,f_i]=s_p=[U_j,f_j]\in\mathscr F_p.\] Hence there exists open subset $W_{ij,p}\subset U_i\cap U_j$ containing $p$ such that $f_i\vert_{W_{ij,p}}=f_j\vert_{W_{ij}}$. Notice that $p\in U_i\cap U_j$ is arbitrary, therefore for any $p$ there exists some $W_{ij,p}$ (depending on $p$). And all such $\{W_{ij,p}\}_{p\in U_i\cap U_j}$ will be an open covering for $U_i\cap U_j$, by Identity Axiom we know \[f_i\vert_{U_i\cap U_j}=f_j\vert_{U_i\cap U_j}.\]
+	\[[U_i,f_i]=s_p=[U_j,f_j]\in\mathscr F_p.\] Hence there exists open subset $W_{ij,p}\subset U_i\cap U_j$ containing $p$ such that $f_i\vert_{W_{ij,p}}=f_j\vert_{W_{ij,p}}$. Notice that $p\in U_i\cap U_j$ is arbitrary, therefore for any $p$ there exists some $W_{ij,p}$ (depending on $p$). And all such $\{W_{ij,p}\}_{p\in U_i\cap U_j}$ will be an open covering for $U_i\cap U_j$, by Identity Axiom we know \[f_i\vert_{U_i\cap U_j}=f_j\vert_{U_i\cap U_j}.\]
 
 	While $i,j$ were arbitrary, Gluability Axiom implies there exists $f\in\mathscr F(U)$ such that $f\vert_{U_i}=f_i$. And we can check that $f$ is indeed the preimage of the given choice of compatible germs: pick some $U_i$ containing $p$, \[f_p=(\mathscr F(U_i)\to \mathscr F_p)(f\vert_{U_i})\] Hence $f_p$ is the germ of $f_i$ at $p$. 
 
@@ -455,6 +455,9 @@ Hence we have
 	~\Rightarrow~ \phi_1(U)=\phi_2(U)
 \end{align*}for $\iota$ is injective. 
 
+\begin{comment}
+	See this \href{https://math.stackexchange.com/questions/3587877/showing-that-compatible-germs-are-the-image-of-a-section}{POST}.
+\end{comment}
 \section{2.4.D.}
 
 See Hartshorne \cite{hartshorne2013algebraic} Chapter II, Proposition 1.1.
